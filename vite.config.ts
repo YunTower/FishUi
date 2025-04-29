@@ -31,14 +31,14 @@ export default defineConfig({
       output: [
         {
           format: 'es',
-          entryFileNames: 'fish-ui/[name].mjs',
+          entryFileNames: '[name].mjs',
           preserveModules: true,
           exports: 'named',
           dir: 'es',
         },
         {
           format: 'cjs',
-          entryFileNames: 'fish-ui/[name].js',
+          entryFileNames: '[name].js',
           preserveModules: true,
           exports: 'named',
           dir: 'lib',
