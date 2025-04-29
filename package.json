@@ -1,11 +1,19 @@
 {
   "name": "fish-ui",
-  "version": "0.0.0",
-  "private": true,
+  "version": "0.0.1",
+  "private": false,
   "type": "module",
+  "main": "lib/index.js",
+  "module": "es/index.mjs",
+  "types": "es/index.d.ts",
+  "files": [
+    "es",
+    "lib",
+    "README.md"
+  ],
   "scripts": {
     "dev": "vite",
-    "build": "run-p type-check \"build-only {@}\" --",
+    "build": "vite build",
     "preview": "vite preview",
     "build-only": "vite build",
     "type-check": "vue-tsc --build",
@@ -13,11 +21,13 @@
     "format": "prettier --write src/",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
-    "docs:preview": "vitepress preview docs"
+    "docs:preview": "vitepress preview docs",
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {
     "@vueuse/core": "^13.1.0",
     "highlight.js": "^11.11.1",
+    "vite-plugin-dts": "^4.5.3",
     "vue": "^3.5.13"
   },
   "devDependencies": {
@@ -34,9 +44,12 @@
     "npm-run-all2": "^7.0.2",
     "prettier": "3.5.3",
     "typescript": "~5.8.0",
-    "vite": "^6.2.4",
+    "vite": "^6.3.3",
     "vite-plugin-vue-devtools": "^7.7.2",
     "vitepress": "^1.6.3",
     "vue-tsc": "^2.2.8"
+  },
+  "peerDependencies": {
+    "vue": "^3.5.13"
   }
 }

@@ -1,0 +1,33 @@
+# 开发相关
+docs/
+packages/
+scripts/
+.vscode/
+.idea/
+*.log
+*.lock
+
+# 构建相关
+dist/
+es/
+lib/
+types/
+
+# 测试相关
+__tests__/
+coverage/
+*.test.*
+*.spec.*
+
+# 配置文件
+.eslintrc*
+.prettierrc*
+.editorconfig
+.gitignore
+.npmignore
+tsconfig.json
+vite.config.ts
+
+# 其他
+.DS_Store
+node_modules/ 
