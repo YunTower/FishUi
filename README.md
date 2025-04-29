@@ -1,39 +1,15 @@
 # FishUi
 
-This template should help get you started developing with Vue 3 in Vite.
+基于Arco Design设计体系的Vue3组件库
 
-## Recommended IDE Setup
+## 快速开始
+访问 [FishUi Document](https://fishui.yuntower.com)
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## 致谢
+本组件库开发过程中参考了以下优秀的开源项目或文章，在此表示感谢。
+- [Arco Design](https://arco.design)
+- [Tdesign](https://tdesign.tencent.com)
+- [Qii-Ui](https://qiqi29.github.io)
 
-## Type Support for `.vue` Imports in TS
-
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+## 开源协议
+FishUi 遵循 [MIT 协议](https://github.com/YunTower/FishUi/blob/master/LICENSE)。

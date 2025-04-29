@@ -26,6 +26,7 @@ export default defineConfig({
           text: '指南',
           items: [
             { text: '介绍', link: '/guide/' },
+            { text: '致谢', link: '/guide/thanks' },
             { text: '快速开始', link: '/guide/start' },
             { text: '更新日志', link: '/guide/changelog' },
           ],
