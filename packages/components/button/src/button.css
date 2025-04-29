@@ -1,0 +1,342 @@
+.f-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1;
+  height: 32px;
+  white-space: nowrap;
+  cursor: pointer;
+  color: var(--color-text-1);
+  text-align: center;
+  box-sizing: border-box;
+  outline: none;
+  transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  user-select: none;
+  font-weight: 500;
+  padding: 0 16px;
+  font-size: 14px;
+  border-radius: 4px;
+  background-color: var(--color-secondary);
+}
+
+.f-button:hover {
+  background-color: var(--color-secondary-hover);
+}
+
+.f-button:active {
+  background-color: var(--color-secondary-active);
+}
+
+/* Size variants */
+.f-button--small {
+  height: 24px;
+  padding: 0 12px;
+  font-size: 12px;
+}
+
+.f-button--small.f-button--circle {
+  width: 24px;
+}
+
+.f-button--small.f-button--round {
+  border-radius: 12px;
+}
+
+.f-button--medium {
+  height: 32px;
+  padding: 0 16px;
+  font-size: 14px;
+}
+
+.f-button--medium.f-button--circle {
+  width: 32px;
+}
+
+.f-button--medium.f-button--round {
+  border-radius: 16px;
+}
+
+.f-button--large {
+  height: 40px;
+  padding: 0 20px;
+  font-size: 16px;
+}
+
+.f-button--large.f-button--circle {
+  width: 40px;
+}
+
+.f-button--large.f-button--round {
+  border-radius: 20px;
+}
+
+/* Shape variants */
+.f-button--circle {
+  border-radius: 50%;
+  padding: 0;
+  width: 32px;
+}
+
+.f-button--round {
+  border-radius: 16px;
+}
+
+/* Type variants */
+.f-button--primary {
+  color: var(--color-white);
+  border: 1px solid transparent;
+  background-color: rgba(var(--primary-6));
+}
+
+.f-button--primary:hover {
+  background-color: rgba(var(--primary-5));
+}
+
+.f-button--primary:active {
+  background-color: rgba(var(--primary-7));
+}
+
+.f-button--primary:disabled {
+  background-color: var(--color-primary-light-3);
+}
+
+.f-button--success {
+  color: var(--color-white);
+  border: 1px solid transparent;
+  background-color: rgba(var(--success-6));
+}
+
+.f-button--success:hover {
+  background-color: rgba(var(--success-5));
+}
+
+.f-button--success:active {
+  background-color: rgba(var(--success-7));
+}
+
+.f-button--success:disabled {
+  background-color: var(--color-success-light-3);
+}
+
+.f-button--warning {
+  color: var(--color-white);
+  border: 1px solid transparent;
+  background-color: rgba(var(--warning-6));
+}
+
+.f-button--warning:hover {
+  background-color: rgba(var(--warning-5));
+}
+
+.f-button--warning:active {
+  background-color: rgba(var(--warning-7));
+}
+
+.f-button--warning:disabled {
+  background-color: var(--color-warning-light-3);
+}
+
+.f-button--danger {
+  color: var(--color-white);
+  border: 1px solid transparent;
+  background-color: rgba(var(--danger-6));
+}
+
+.f-button--danger:hover {
+  background-color: rgba(var(--danger-5));
+}
+
+.f-button--danger:active {
+  background-color: rgba(var(--danger-7));
+}
+
+.f-button--danger:disabled {
+  background-color: var(--color-danger-light-3);
+}
+
+/* Outline variant */
+.f-button--outline {
+  border: 1px solid var(--color-border-2);
+  background-color: transparent !important;
+}
+
+.f-button--outline:hover {
+  border: 1px solid rgba(var(--primary-6));
+  color: rgba(var(--primary-6));
+}
+
+.f-button--outline:active {
+  border: 1px solid rgba(var(--primary-7));
+  color: rgba(var(--primary-7));
+}
+
+.f-button--outline.f-button--primary {
+  border: 1px solid rgba(var(--primary-6));
+  color: rgba(var(--primary-6));
+}
+
+.f-button--outline.f-button--primary:hover {
+  border: 1px solid rgba(var(--primary-4));
+  color: rgba(var(--primary-4));
+}
+
+.f-button--outline.f-button--primary:active {
+  border: 1px solid rgba(var(--primary-7));
+  color: rgba(var(--primary-7));
+}
+
+.f-button--outline.f-button--success {
+  border: 1px solid rgba(var(--success-6));
+  color: rgba(var(--success-6));
+}
+
+.f-button--outline.f-button--success:hover {
+  border: 1px solid rgba(var(--success-4));
+  color: rgba(var(--success-4));
+}
+
+.f-button--outline.f-button--success:active {
+  border: 1px solid rgba(var(--success-7));
+  color: rgba(var(--success-7));
+}
+
+.f-button--outline.f-button--warning {
+  border: 1px solid rgba(var(--warning-6));
+  color: rgba(var(--warning-6));
+}
+
+.f-button--outline.f-button--warning:hover {
+  border: 1px solid rgba(var(--warning-4));
+  color: rgba(var(--warning-4));
+}
+
+.f-button--outline.f-button--warning:active {
+  border: 1px solid rgba(var(--warning-7));
+  color: rgba(var(--warning-7));
+}
+
+.f-button--outline.f-button--danger {
+  border: 1px solid rgba(var(--danger-6));
+  color: rgba(var(--danger-6));
+}
+
+.f-button--outline.f-button--danger:hover {
+  border: 1px solid rgba(var(--danger-4));
+  color: rgba(var(--danger-4));
+}
+
+.f-button--outline.f-button--danger:active {
+  border: 1px solid rgba(var(--danger-7));
+  color: rgba(var(--danger-7));
+}
+
+/* Text variant */
+.f-button--text {
+  border: none;
+  background-color: transparent;
+}
+
+.f-button-text:hover {
+  background-color: var(--color-secondary) !important;
+}
+
+.f-button--text:active {
+  background-color: var(--color-secondary-active);
+}
+
+.f-button--text.f-button--primary {
+  border: none;
+  background-color: transparent;
+  color: rgba(var(--primary-6));
+}
+
+.f-button--text.f-button--primary:hover {
+  color: rgba(var(--primary-5));
+  background-color: var(--color-secondary);
+}
+
+.f-button--text.f-button--primary:active {
+  color: rgba(var(--primary-7));
+  background-color: var(--color-secondary-active);
+}
+
+.f-button--text.f-button--success {
+  border: none;
+  background-color: transparent;
+  color: rgba(var(--success-6));
+}
+
+.f-button--text.f-button--success:hover {
+  color: rgba(var(--success-5));
+  background-color: var(--color-secondary);
+}
+
+.f-button--text.f-button--success:active {
+  color: rgba(var(--success-7));
+  background-color: var(--color-secondary-active);
+}
+
+.f-button--text.f-button--warning {
+  border: none;
+  background-color: transparent;
+  color: rgba(var(--warning-6));
+}
+
+.f-button--text.f-button--warning:hover {
+  color: rgba(var(--warning-5));
+  background-color: var(--color-secondary);
+}
+
+.f-button--text.f-button--warning:active {
+  color: rgba(var(--warning-7));
+  background-color: var(--color-secondary-active);
+}
+
+.f-button--text.f-button--danger {
+  border: none;
+  background-color: transparent;
+  color: rgba(var(--danger-6));
+}
+
+.f-button--text.f-button--danger:hover {
+  color: rgba(var(--danger-5));
+  background-color: var(--color-secondary);
+}
+
+.f-button--text.f-button--danger:active {
+  color: rgba(var(--danger-7));
+  background-color: var();
+}
+
+/* Loading state */
+.f-button--loading {
+  cursor: default;
+  opacity: 0.7;
+}
+
+/* Long button */
+.f-button--long {
+  width: 100%;
+}
+
+/* Disabled state */
+.f-button:disabled,
+.f-button--disabled {
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
+/* Loading spinner */
+.f-button__loading {
+  margin-right: 8px;
+  animation: f-spin 1s linear infinite;
+}
+
+@keyframes f-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

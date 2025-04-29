@@ -1,0 +1,135 @@
+.f-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  color: rgba(var(--link-6));
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  user-select: none;
+  font-weight: 500;
+  font-size: 14px;
+  position: relative;
+  padding: 6px;
+}
+
+.f-link:hover {
+  background-color: var(--color-fill-2);
+}
+
+.f-link:active {
+  color: rgba(var(--link-6));
+  background-color: var(--color-fill-3);
+  transition: none;
+}
+
+/* Size variants */
+.f-link--small {
+  font-size: 12px;
+}
+
+.f-link--medium {
+  font-size: 14px;
+}
+
+.f-link--large {
+  font-size: 16px;
+}
+
+/* Theme variants */
+.f-link--default {
+  color: var(--color-text-1);
+}
+
+.f-link--default:hover {
+  color: var(--color-text-2);
+}
+
+.f-link--primary {
+  color: rgba(var(--link-6));
+}
+
+.f-link--primary:hover {
+  color: rgba(var(--link-7));
+}
+
+.f-link--danger {
+  color: rgba(var(--danger-6));
+}
+
+.f-link--danger:hover {
+  color: rgba(var(--danger-7));
+}
+
+.f-link--warning {
+  color: rgba(var(--warning-6));
+}
+
+.f-link--warning:hover {
+  color: rgba(var(--warning-7));
+}
+
+.f-link--success {
+  color: rgba(var(--success-6));
+}
+
+.f-link--success:hover {
+  color: rgba(var(--success-7));
+}
+
+/* Underline variants */
+.f-link--underline-none {
+  text-decoration: none;
+}
+
+.f-link--underline-hover {
+  text-decoration: none;
+}
+
+.f-link--underline-hover:hover {
+  text-decoration: underline;
+}
+
+.f-link--underline-always {
+  text-decoration: underline;
+}
+
+/* Disabled */
+.f-link--disabled {
+  cursor: not-allowed;
+}
+
+.f-link--disabled.f-link--default {
+  color: var(--color-text-4);
+}
+
+.f-link--disabled.f-link--primary {
+  color: var(--color-link-light-3);
+}
+
+.f-link--disabled.f-link--danger {
+  color: var(--color-danger-light-3);
+}
+
+.f-link--disabled.f-link--warning {
+  color: var(--color-warning-light-3);
+}
+
+.f-link--disabled.f-link--success {
+  color: var(--color-success-light-3);
+}
+
+/* Icons */
+.f-link__prefix-icon {
+  margin-right: 4px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.f-link__suffix-icon {
+  margin-left: 4px;
+  display: inline-flex;
+  align-items: center;
+}
