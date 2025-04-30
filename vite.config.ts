@@ -1,53 +1,66 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import dts from "vite-plugin-dts"
-import path from "path"
-
+import dts from 'vite-plugin-dts'
+import path from 'path'
 
 export default defineConfig({
   plugins: [
     vue(),
+
     // TS 类型生成插件
     dts({
-      outDir: ['es', "lib"],
-      tsconfigPath: path.resolve(__dirname, "tsconfig.json"),
-    })
+      tsconfigPath: path.resolve(__dirname, 'tsconfig.json'),
+      outDir: ['es', 'lib'],
+      include: ['packages/**/*.ts', 'packages/**/*.tsx', 'packages/**/*.vue'],
+      exclude: ['node_modules', 'dist'],
+      insertTypesEntry: true,
+      copyDtsFiles: true,
+      cleanVueFileName: true,
+      skipDiagnostics: false,
+      logDiagnostics: true,
+      rollupTypes: true,
+      staticImport: true,
+      afterBuild: () => {
+        // 构建后的钩子
+        console.log('Type definitions generated successfully!')
+      },
+    }),
   ],
 
-  // 组件库打包配置
   build: {
     lib: {
-      name: 'fish-ui',                   // 组件库名称
-      entry: "./packages/index.ts",     // 组件库的入口文件
+      name: 'fish-ui',
+      entry: './packages/index.ts',
     },
     rollupOptions: {
-      external: ["vue"],						    // 外部依赖，不会被打包
-      input: './packages/index.ts',			// 组件库的入口文件
+      external: ['vue'],
+      input: './packages/index.ts',
       output: [
         {
-          format: "es",					        // 打包为 ES 格式
-          entryFileNames: "[name].mjs",	// 文件名格式
-          preserveModules: true,			  // 保留原文件结构
-          exports: "named",				      // 使用具名导出
-          dir: "es",						        // 打包后的文件位置
+          format: 'es',
+          entryFileNames: '[name].mjs',
+          preserveModules: true,
+          exports: 'named',
+          dir: 'es',
+          preserveModulesRoot: 'packages',
         },
         {
-          format: "cjs",					      // 打包为 CommonJS 格式
-          entryFileNames: "[name].js",
+          format: 'cjs',
+          entryFileNames: '[name].js',
           preserveModules: true,
-          exports: "named",
-          dir: "lib",
+          exports: 'named',
+          dir: 'lib',
+          preserveModulesRoot: 'packages',
         },
       ],
-    }
+    },
   },
 
-  // CSS 样式配置
   css: {
     preprocessorOptions: {
       scss: {
         api: 'modern-compiler',
-      }
-    }
+      },
+    },
   },
 })
