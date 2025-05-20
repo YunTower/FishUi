@@ -1,6 +1,7 @@
 import { components } from './components'
 import type { App } from 'vue'
 
+// 导入样式文件
 import './styles/index.css'
 import './styles/remixicon.css'
 
