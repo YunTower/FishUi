@@ -68,7 +68,8 @@ export default defineConfig({
     assetsDir: 'style',
     cssCodeSplit: false,
     minify: false,
-    sourcemap: true
+    sourcemap: true,
+    emptyOutDir: true
   },
 
   // CSS 样式配置
@@ -77,6 +78,9 @@ export default defineConfig({
       scss: {
         api: 'modern-compiler',
       }
+    },
+    modules: {
+      localsConvention: 'camelCase'
     }
   },
 })
