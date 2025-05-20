@@ -1,6 +1,6 @@
 {
   "name": "@yuntower/fish-ui",
-  "version": "0.0.17",
+  "version": "0.0.19",
   "description": "A Vue 3 UI Component Library",
   "main": "lib/index.js",
   "module": "es/index.mjs",
@@ -11,17 +11,20 @@
       "import": "./es/index.mjs",
       "require": "./lib/index.js"
     },
-    "./remixicon.css": "./es/fish-ui.css",
-    "./style.css": "./es/fish-ui.css"
+    "./style.css": "./dist/style.css",
+    "./theme.css": "./dist/theme.css",
+    "./remixicon.css": "./dist/remixicon.css"
   },
   "files": [
     "es",
-    "lib"
+    "lib",
+    "dist"
   ],
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc && vite build",
-    "preview": "vite preview"
+    "build": "vite build && gulp",
+    "preview": "vite preview",
+    "type-check": "vue-tsc --noEmit"
   },
   "keywords": [
     "vue",
@@ -37,6 +40,12 @@
   "devDependencies": {
     "@types/node": "^20.11.24",
     "@vitejs/plugin-vue": "^5.0.4",
+    "del": "^7.0.0",
+    "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-if": "^3.0.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^5.1.0",
     "sass": "^1.71.1",
     "typescript": "^5.3.3",
     "vite": "^5.1.4",

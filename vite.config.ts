@@ -69,7 +69,8 @@ export default defineConfig({
     cssCodeSplit: false,
     minify: false,
     sourcemap: true,
-    emptyOutDir: true
+    emptyOutDir: true,
+    outDir: 'dist'
   },
 
   // CSS 样式配置
