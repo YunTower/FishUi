@@ -2,6 +2,7 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import dts from "vite-plugin-dts"
 import path from "path"
+import type { PreRenderedAsset } from 'rollup'
 
 
 export default defineConfig({
@@ -42,6 +43,9 @@ export default defineConfig({
           dir: "es",						        // 打包后的文件位置
           globals: {
             vue: 'Vue'
+          },
+          assetFileNames: (assetInfo: PreRenderedAsset) => {
+            return assetInfo.name === 'style.css' ? 'fish-ui.css' : assetInfo.name || ''
           }
         },
         {
@@ -52,6 +56,9 @@ export default defineConfig({
           dir: "lib",
           globals: {
             vue: 'Vue'
+          },
+          assetFileNames: (assetInfo: PreRenderedAsset) => {
+            return assetInfo.name === 'style.css' ? 'fish-ui.css' : assetInfo.name || ''
           }
         },
       ],

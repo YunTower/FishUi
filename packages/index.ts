@@ -6,6 +6,13 @@ import './styles/index.css'
 import './styles/theme.css'
 import './styles/remixicon.css'
 
+// 导出样式文件路径
+export const stylePath = {
+  index: './styles/index.css',
+  theme: './styles/theme.css',
+  remixicon: './styles/remixicon.css'
+}
+
 export interface FishUIInstance {
   install: (app: App) => void
 }
