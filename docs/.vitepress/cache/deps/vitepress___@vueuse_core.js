@@ -35,7 +35,7 @@ import {
   unref,
   watch,
   watchEffect
-} from "./chunk-LW4I4DCF.js";
+} from "./chunk-TGLERUJR.js";
 import "./chunk-5WRI5ZAA.js";
 
 // node_modules/@vueuse/shared/index.mjs
@@ -1570,7 +1570,7 @@ function whenever(source, cb, options) {
   return stop;
 }
 
-// node_modules/vitepress/node_modules/@vueuse/core/index.mjs
+// node_modules/@vueuse/core/index.mjs
 function computedAsync(evaluationCallback, initialState, optionsOrRef) {
   let options;
   if (isRef(optionsOrRef)) {

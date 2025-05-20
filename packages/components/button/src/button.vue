@@ -32,7 +32,6 @@ const handleClick = (event: MouseEvent) => {
       `f-button--${size}`,
       `f-button--${theme}`,
       `f-button--${shape}`,
-      `f-button--${type}`,
       {
         'f-button--loading': loading,
         'f-button--long': long,

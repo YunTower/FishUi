@@ -43,9 +43,6 @@ export default defineConfig({
           dir: "es",						        // 打包后的文件位置
           globals: {
             vue: 'Vue'
-          },
-          assetFileNames: (assetInfo: PreRenderedAsset) => {
-            return assetInfo.name === 'style.css' ? 'fish-ui.css' : assetInfo.name || ''
           }
         },
         {
@@ -56,16 +53,12 @@ export default defineConfig({
           dir: "lib",
           globals: {
             vue: 'Vue'
-          },
-          assetFileNames: (assetInfo: PreRenderedAsset) => {
-            return assetInfo.name === 'style.css' ? 'fish-ui.css' : assetInfo.name || ''
           }
         },
       ],
     },
     // 确保样式文件被复制到输出目录
-    copyPublicDir: true,
-    assetsDir: 'style',
+    copyPublicDir: false,
     cssCodeSplit: false,
     minify: false,
     sourcemap: true,

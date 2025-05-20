@@ -82,6 +82,10 @@
 }
 
 /* Type variants */
+.f-button--default {
+  border: unset;
+}
+
 .f-button--primary {
   color: var(--color-white);
   border: 1px solid transparent;

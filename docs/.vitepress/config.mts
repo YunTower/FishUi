@@ -1,5 +1,5 @@
 import { defineConfig } from 'vitepress'
-import { demoPlugin } from './plugins/demo'
+import { demoPlugin } from './plugins/demo.js'
 import { fileURLToPath, URL } from 'node:url'
 
 // https://vitepress.dev/reference/site-config

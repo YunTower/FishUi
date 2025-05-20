@@ -15,20 +15,8 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "declaration": true,
-    "declarationDir": "es",
-    "emitDeclarationOnly": true,
-    "composite": true
+    "types": ["node"]
   },
-  "include": [
-    "packages/**/*.ts",
-    "packages/**/*.d.ts",
-    "packages/**/*.tsx",
-    "packages/**/*.vue"
-  ],
-  "references": [
-    {
-      "path": "./tsconfig.node.json"
-    }
-  ]
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "docs/.vitepress/**/*.ts", "docs/.vitepress/**/*.mts"],
+  "references": [{ "path": "./tsconfig.node.json" }]
 }
