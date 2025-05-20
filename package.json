@@ -1,6 +1,6 @@
 {
   "name": "@yuntower/fish-ui",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "A Vue 3 UI Component Library",
   "main": "lib/index.js",
   "module": "es/index.mjs",
@@ -11,9 +11,9 @@
       "import": "./es/index.mjs",
       "require": "./lib/index.js"
     },
-    "./style.css": "./es/fish-ui.css",
+    "./remixicon.css": "./es/fish-ui.css",
     "./theme.css": "./es/fish-ui.css",
-    "./remixicon.css": "./es/fish-ui.css"
+    "./style.css": "./es/fish-ui.css"
   },
   "files": [
     "es",

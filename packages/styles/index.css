@@ -1,6 +1,9 @@
 @import "theme.css";
-@import "../components/button/src/button.css";
 @import "remixicon.css";
+@import "../components/button/src/button.css";
+@import "../components/button/src/button-group.css";
+@import "../components/icon/src/icon.css";
+@import "../components/link/src/link.css";
 
 /* Border Radius */
 :root {
