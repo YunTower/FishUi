@@ -1,6 +1,6 @@
 {
   "name": "@yuntower/fish-ui",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "private": false,
   "type": "module",
   "main": "./lib/index.js",
@@ -12,7 +12,9 @@
       "import": "./es/index.mjs",
       "require": "./lib/index.js"
     },
-    "./style.css": "./es/fish-ui.css"
+    "./style.css": "./es/style/index.css",
+    "./theme.css": "./es/style/theme.css",
+    "./remixicon.css": "./es/style/remixicon.css"
   },
   "author": "yuntower",
   "license": "MIT",

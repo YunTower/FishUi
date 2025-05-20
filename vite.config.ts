@@ -55,7 +55,10 @@ export default defineConfig({
           }
         },
       ],
-    }
+    },
+    // 确保样式文件被复制到输出目录
+    copyPublicDir: true,
+    assetsDir: 'style',
   },
 
   // CSS 样式配置

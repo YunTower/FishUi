@@ -1,6 +1,11 @@
 import { components } from './components'
 import type { App } from 'vue'
 
+// 导入样式文件
+import './styles/index.css'
+import './styles/theme.css'
+import './styles/remixicon.css'
+
 export interface FishUIInstance {
   install: (app: App) => void
 }
