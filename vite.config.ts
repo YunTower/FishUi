@@ -11,6 +11,7 @@ export default defineConfig({
     dts({
       outDir: ['es', "lib"],
       tsconfigPath: path.resolve(__dirname, "tsconfig.json"),
+      include: ['packages/**/*.ts', 'packages/**/*.vue'],
     })
   ],
 
@@ -27,16 +28,22 @@ export default defineConfig({
         {
           format: "es",					        // 打包为 ES 格式
           entryFileNames: "[name].mjs",	// 文件名格式
-          preserveModules: true,			  // 保留原文件结构
+          preserveModules: false,			  // 保留原文件结构
           exports: "named",				      // 使用具名导出
           dir: "es",						        // 打包后的文件位置
+          globals: {
+            vue: 'Vue'
+          }
         },
         {
           format: "cjs",					      // 打包为 CommonJS 格式
           entryFileNames: "[name].js",
-          preserveModules: true,
+          preserveModules: false,
           exports: "named",
           dir: "lib",
+          globals: {
+            vue: 'Vue'
+          }
         },
       ],
     }

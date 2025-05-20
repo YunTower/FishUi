@@ -15,6 +15,7 @@ coverage
 *.local
 lib
 es
+.cursor
 
 /cypress/videos/
 /cypress/screenshots/

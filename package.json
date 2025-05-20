@@ -3,13 +3,23 @@
   "version": "0.0.5",
   "private": false,
   "type": "module",
-  "main": "lib/index.js",
-  "module": "es/index.mjs",
+  "main": "./lib/index.js",
+  "module": "./es/index.mjs",
+  "types": "./es/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./es/index.d.ts",
+      "import": "./es/index.mjs",
+      "require": "./lib/index.js"
+    },
+    "./style.css": "./es/fish-ui.css"
+  },
   "author": "yuntower",
   "license": "MIT",
   "files": [
     "es",
     "lib",
+    "dist",
     "README.md",
     "package.json",
     "LICENSE"
