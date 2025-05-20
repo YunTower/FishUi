@@ -1,5 +1,5 @@
 import type { App, Component } from 'vue'
-import type { SFCWithInstall } from '@/types'
+import type { SFCWithInstall } from '../types'
 
 /**
  * 把组件注册到 Vue 实例中

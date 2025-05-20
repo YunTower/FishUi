@@ -1,18 +1,9 @@
 <script setup lang="ts">
+import type { LinkProps } from './link.ts'
+
 defineOptions({
   name: 'FLink',
 })
-
-interface LinkProps {
-  content?: string
-  disabled?: boolean
-  download?: string | boolean
-  href?: string
-  size?: 'small' | 'medium' | 'large'
-  theme?: 'default' | 'primary' | 'danger' | 'warning' | 'success'
-  target?: string
-  underline?: 'always' | 'hover' | 'none'
-}
 
 const props = withDefaults(defineProps<LinkProps>(), {
   content: '',

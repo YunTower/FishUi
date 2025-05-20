@@ -9,11 +9,20 @@ export default defineConfig({
     vue(),
     // TS 类型生成插件
     dts({
-      outDir: ['es', "lib"],
-      tsconfigPath: path.resolve(__dirname, "tsconfig.json"),
+      outDir: ['es'],
       include: ['packages/**/*.ts', 'packages/**/*.vue'],
+      beforeWriteFile: (filePath, content) => ({
+        filePath: filePath.replace(/\.d\.ts$/, '.d.ts'),
+        content
+      })
     })
   ],
+
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'packages')
+    }
+  },
 
   // 组件库打包配置
   build: {

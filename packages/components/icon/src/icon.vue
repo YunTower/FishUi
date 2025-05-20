@@ -1,15 +1,10 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+import type { IconProps } from './icon'
 
 defineOptions({
   name: 'FIcon',
 })
-
-interface IconProps {
-  name: string
-  size?: string | number
-  color?: string
-}
 
 const props = withDefaults(defineProps<IconProps>(), {
   name: '',

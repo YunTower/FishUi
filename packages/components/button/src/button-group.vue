@@ -1,66 +1,32 @@
 <script setup lang="ts">
+import type { ButtonGroupProps } from './button-group'
+
 defineOptions({
   name: 'FButtonGroup',
 })
 
-interface ButtonGroupProps {
-  size?: 'small' | 'medium' | 'large'
-}
-
 withDefaults(defineProps<ButtonGroupProps>(), {
   size: 'medium',
+  theme: 'default',
+  shape: 'default',
+  type: 'default',
 })
 </script>
 
 <template>
-  <div class="f-button-group" :class="[`f-button-group--${size}`]">
+  <div
+    class="f-button-group"
+    :class="[
+      `f-button-group--${size}`,
+      `f-button-group--${theme}`,
+      `f-button-group--${shape}`,
+      `f-button-group--${type}`,
+    ]"
+  >
     <slot />
   </div>
 </template>
 
 <style scoped>
-.f-button-group {
-  display: inline-flex;
-  border-radius: 4px;
-  overflow: hidden;
-}
-
-.f-button-group :deep(.f-button) {
-  margin: 0;
-  border-radius: 0;
-  position: relative;
-}
-
-.f-button-group :deep(.f-button:not(:first-child)) {
-  margin-left: -1px;
-}
-
-.f-button-group :deep(.f-button:first-child) {
-  border-top-left-radius: 4px;
-  border-bottom-left-radius: 4px;
-}
-
-.f-button-group :deep(.f-button:last-child) {
-  border-top-right-radius: 4px;
-  border-bottom-right-radius: 4px;
-}
-
-/* Size variants */
-.f-button-group--small :deep(.f-button) {
-  height: 24px;
-  padding: 0 12px;
-  font-size: 12px;
-}
-
-.f-button-group--medium :deep(.f-button) {
-  height: 32px;
-  padding: 0 16px;
-  font-size: 14px;
-}
-
-.f-button-group--large :deep(.f-button) {
-  height: 40px;
-  padding: 0 20px;
-  font-size: 16px;
-}
+@import './button-group.css';
 </style>

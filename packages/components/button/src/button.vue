@@ -1,17 +1,9 @@
 <script setup lang="ts">
+import type { ButtonProps } from './button.ts'
+
 defineOptions({
   name: 'FButton',
 })
-
-interface ButtonProps {
-  size?: 'small' | 'medium' | 'large'
-  theme?: 'default' | 'primary' | 'success' | 'warning' | 'danger'
-  shape?: 'default' | 'circle' | 'round'
-  type?: 'default' | 'outline' | 'dashed' | 'text'
-  loading?: boolean
-  long?: boolean
-  disabled?: boolean
-}
 
 const props = withDefaults(defineProps<ButtonProps>(), {
   size: 'medium',
