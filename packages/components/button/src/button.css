@@ -83,7 +83,7 @@
 
 /* Type variants */
 .f-button-theme--default {
-  border: unset;
+  border: 1px solid transparent;
 }
 
 .f-button-theme--primary {
@@ -236,8 +236,8 @@
 
 /* Text variant */
 .f-button-type--text {
-  border: none;
-  background-color: transparent;
+  border: 1px solid transparent;
+  background-color: transparent;;
 }
 
 .f-button-type--text:hover {
@@ -249,7 +249,6 @@
 }
 
 .f-button-type--text.f-button-theme--primary {
-  border: none;
   background-color: transparent;
   color: rgba(var(--primary-6));
 }
@@ -265,7 +264,6 @@
 }
 
 .f-button-type--text.f-button-theme--success {
-  border: none;
   background-color: transparent;
   color: rgba(var(--success-6));
 }
@@ -281,7 +279,6 @@
 }
 
 .f-button-type--text.f-button-theme--warning {
-  border: none;
   background-color: transparent;
   color: rgba(var(--warning-6));
 }
@@ -297,7 +294,6 @@
 }
 
 .f-button-type--text.f-button-theme--danger {
-  border: none;
   background-color: transparent;
   color: rgba(var(--danger-6));
 }
