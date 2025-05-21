@@ -532,3 +532,28 @@ body {
   --vp-button-brand-active-border: rgb(var(--fishblue-7));
   --vp-button-brand-active-bg: rgb(var(--fishblue-7));
 }
+
+.VPSidebarItem.level-0.is-active > .item .link > .text,
+.VPSidebarItem.level-1.is-active > .item .link > .text,
+.VPSidebarItem.level-2.is-active > .item .link > .text,
+.VPSidebarItem.level-3.is-active > .item .link > .text,
+.VPSidebarItem.level-4.is-active > .item .link > .text,
+.VPSidebarItem.level-5.is-active > .item .link > .text {
+  color: rgb(var(--primary-6)) !important;
+}
+
+.VPSidebarItem.level-1 .text:hover,
+.VPSidebarItem.level-2 .text:hover,
+.VPSidebarItem.level-3 .text:hover,
+.VPSidebarItem.level-4 .text:hover,
+.VPSidebarItem.level-5 .text:hover {
+  color: rgb(var(--primary-5)) !important;
+}
+
+.VPNavBarMenuLink.active, .link.active {
+  color: rgb(var(--primary-6)) !important;
+}
+
+.VPNavBarMenuLink:hover, .link.active:hover {
+  color: rgb(var(--primary-5)) !important;
+}
