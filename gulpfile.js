@@ -1,22 +1,16 @@
-const gulp = require('gulp');
-const cleanCSS = require('gulp-clean-css');
-const rename = require('gulp-rename');
-const del = require('del').deleteAsync;
-const concat = require('gulp-concat');
+import gulp from 'gulp';
+import cleanCSS from 'gulp-clean-css';
+import { deleteAsync } from 'del';
+import concat from 'gulp-concat';
 
-// 清理上次打包的文件
 gulp.task('clean', function () {
-  return del(['dist']);
+  return deleteAsync(['dist']);
 });
 
-// 处理 CSS 文件
 gulp.task('css', function () {
-  // 先处理主题文件
   gulp.src('./packages/styles/theme.css')
     .pipe(cleanCSS())
     .pipe(gulp.dest('dist'));
-
-  // 处理其他样式文件
   return gulp.src([
     './packages/styles/index.css',
     './packages/styles/remixicon.css',
@@ -27,5 +21,8 @@ gulp.task('css', function () {
     .pipe(gulp.dest('dist'));
 });
 
-// 默认任务
-gulp.task('default', gulp.series('clean', 'css'));
+gulp.task('remove-css', function () {
+  return deleteAsync(['es/style.css', 'lib/style.css']);
+});
+
+gulp.task('default', gulp.series('clean', 'css', 'remove-css'));

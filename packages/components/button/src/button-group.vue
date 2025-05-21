@@ -17,10 +17,10 @@ withDefaults(defineProps<ButtonGroupProps>(), {
   <div
     class="f-button-group"
     :class="[
-      `f-button-group--${size}`,
-      `f-button-group--${theme}`,
-      `f-button-group--${shape}`,
-      `f-button-group--${type}`,
+      `f-button-group-size--${size}`,
+      `f-button-group-theme--${theme}`,
+      `f-button-group-shape--${shape}`,
+      `f-button-group-type--${type}`,
     ]"
   >
     <slot />

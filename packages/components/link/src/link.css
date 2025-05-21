@@ -26,56 +26,56 @@
 }
 
 /* Size variants */
-.f-link--small {
+.f-link-size--small {
   font-size: 12px;
 }
 
-.f-link--medium {
+.f-link-size--medium {
   font-size: 14px;
 }
 
-.f-link--large {
+.f-link-size--large {
   font-size: 16px;
 }
 
 /* Theme variants */
-.f-link--default {
+.f-link-theme--default {
   color: var(--color-text-1);
 }
 
-.f-link--default:hover {
+.f-link-theme--default:hover {
   color: var(--color-text-2);
 }
 
-.f-link--primary {
+.f-link-theme--primary {
   color: rgba(var(--link-6));
 }
 
-.f-link--primary:hover {
+.f-link-theme--primary:hover {
   color: rgba(var(--link-7));
 }
 
-.f-link--danger {
+.f-link-theme--danger {
   color: rgba(var(--danger-6));
 }
 
-.f-link--danger:hover {
+.f-link-theme--danger:hover {
   color: rgba(var(--danger-7));
 }
 
-.f-link--warning {
+.f-link-theme--warning {
   color: rgba(var(--warning-6));
 }
 
-.f-link--warning:hover {
+.f-link-theme--warning:hover {
   color: rgba(var(--warning-7));
 }
 
-.f-link--success {
+.f-link-theme--success {
   color: rgba(var(--success-6));
 }
 
-.f-link--success:hover {
+.f-link-theme--success:hover {
   color: rgba(var(--success-7));
 }
 

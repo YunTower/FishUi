@@ -1,10 +1,11 @@
 import Theme from 'vitepress/theme'
+import type { App } from 'vue'
 import Demo from '../components/Demo.vue'
-import '@fish-ui/styles/index.css'
+import './custom.css'
 
 export default {
   ...Theme,
-  enhanceApp({ app }) {
+  enhanceApp({ app }: { app: App }) {
     // eslint-disable-next-line vue/multi-word-component-names
     app.component('Demo', Demo)
   },

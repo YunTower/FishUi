@@ -2,7 +2,7 @@
 import type { ButtonProps } from './button.ts'
 
 defineOptions({
-  name: 'FButton',
+  name: 'FButton'
 })
 
 const props = withDefaults(defineProps<ButtonProps>(), {
@@ -12,7 +12,7 @@ const props = withDefaults(defineProps<ButtonProps>(), {
   type: 'default',
   loading: false,
   long: false,
-  disabled: false,
+  disabled: false
 })
 
 const emit = defineEmits<{
@@ -29,9 +29,10 @@ const handleClick = (event: MouseEvent) => {
   <button
     class="f-button"
     :class="[
-      `f-button--${size}`,
-      `f-button--${theme}`,
-      `f-button--${shape}`,
+      `f-button-size--${size}`,
+      `f-button-theme--${theme}`,
+      `f-button-shape--${shape}`,
+      `f-button-type--${type}`,
       {
         'f-button--loading': loading,
         'f-button--long': long,

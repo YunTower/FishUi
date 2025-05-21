@@ -1,10 +1,15 @@
 {
   "name": "@yuntower/fish-ui",
-  "version": "0.0.23",
+  "version": "0.0.24",
   "description": "A Vue 3 UI Component Library",
+  "type": "module",
   "main": "lib/index.js",
   "module": "es/index.mjs",
   "types": "es/index.d.ts",
+  "workspaces": [
+    "packages/*",
+    "docs"
+  ],
   "exports": {
     ".": {
       "types": "./es/index.d.ts",
@@ -13,10 +18,7 @@
     },
     "./style.css": "./dist/index.css",
     "./theme.css": "./dist/theme.css",
-    "./remixicon.css": "./dist/remixicon.css",
-    "./dist/index.css": "./dist/index.css",
-    "./dist/theme.css": "./dist/theme.css",
-    "./dist/remixicon.css": "./dist/remixicon.css"
+    "./remixicon.css": "./dist/remixicon.css"
   },
   "files": [
     "es",

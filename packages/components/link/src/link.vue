@@ -30,8 +30,8 @@ const handleClick = (event: MouseEvent) => {
   <a
     class="f-link"
     :class="[
-      `f-link--${size}`,
-      `f-link--${theme}`,
+      `f-link-size--${size}`,
+      `f-link-theme--${theme}`,
       {
         'f-link--disabled': disabled,
         [`f-link--underline-${underline}`]: underline,

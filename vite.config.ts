@@ -54,8 +54,8 @@ export default defineConfig({
           globals: {
             vue: 'Vue'
           }
-        },
-      ],
+        }
+      ]
     },
     // 确保样式文件被复制到输出目录
     copyPublicDir: false,
