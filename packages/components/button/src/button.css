@@ -83,7 +83,7 @@
 
 /* Type variants */
 .f-button-theme--default {
-  border: unset !important;
+  border: unset;
 }
 
 .f-button-theme--primary {
