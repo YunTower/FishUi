@@ -39,7 +39,7 @@
 | 属性名       | 说明                    | 类型                                                           | 默认值       |
 |-----------|-----------------------|--------------------------------------------------------------|-----------|
 | content   | 链接内容                  | `string` \| `Slot` \| `Function`                             | -         |
-| disabled  | 禁用链接                  | boolean                                                      | `false`   |
+| disabled  | 禁用链接                  | `boolean`                                                    | `false`   |
 | download  | 使得浏览器将链接的 URL 视为可下载资源 | `string` \| `boolean`                                        | -         |
 | href      | 跳转链接                  | `string`                                                     | -         |
 | size      | 尺寸                    | `small` \| `medium` \| `large`                               | `medium`  |

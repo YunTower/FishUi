@@ -1,36 +1,31 @@
-<script setup lang="ts">
-import FButton from '../../../../packages/components/button/src/button.vue'
-import FButtonGroup from '../../../../packages/components/button/src/button-group.vue'
-</script>
-
 <template>
   <div class="demo-content">
     <div class="demo-content-row">
-      <FButtonGroup size="small">
-        <FButton size="small">上一页</FButton>
-        <FButton size="small">1</FButton>
-        <FButton size="small">2</FButton>
-        <FButton size="small">3</FButton>
-        <FButton size="small">下一页</FButton>
-      </FButtonGroup>
+      <f-buttonGroup size="small">
+        <f-button size="small">上一页</f-button>
+        <f-button size="small">1</f-button>
+        <f-button size="small">2</f-button>
+        <f-button size="small">3</f-button>
+        <f-button size="small">下一页</f-button>
+      </f-buttonGroup>
     </div>
     <div class="demo-content-row">
-      <FButtonGroup size="medium">
-        <FButton>上一页</FButton>
-        <FButton>1</FButton>
-        <FButton>2</FButton>
-        <FButton>3</FButton>
-        <FButton>下一页</FButton>
-      </FButtonGroup>
+      <f-buttonGroup size="medium">
+        <f-button>上一页</f-button>
+        <f-button>1</f-button>
+        <f-button>2</f-button>
+        <f-button>3</f-button>
+        <f-button>下一页</f-button>
+      </f-buttonGroup>
     </div>
     <div class="demo-content-row">
-      <FButtonGroup size="large">
-        <FButton>上一页</FButton>
-        <FButton>1</FButton>
-        <FButton>2</FButton>
-        <FButton>3</FButton>
-        <FButton>下一页</FButton>
-      </FButtonGroup>
+      <f-buttonGroup size="large">
+        <f-button>上一页</f-button>
+        <f-button>1</f-button>
+        <f-button>2</f-button>
+        <f-button>3</f-button>
+        <f-button>下一页</f-button>
+      </f-buttonGroup>
     </div>
   </div>
 </template>
