@@ -5,6 +5,10 @@
 @import "../components/icon/src/icon.css";
 @import "../components/link/src/link.css";
 
+* {
+  box-sizing: border-box;
+}
+
 /* Border Radius */
 :root {
   --border-radius-none: 0;
