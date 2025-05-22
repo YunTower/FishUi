@@ -1,11 +1,7 @@
-<script setup lang="ts">
-import FLink from '../../../../packages/components/link/src/link.vue'
-</script>
-
 <template>
   <div class="demo-content">
     <div class="demo-content-row">
-      <FLink href="https://github.com/YunTower/FishUi" target="_blank">
+      <f-link href="https://github.com/YunTower/FishUi" target="_blank">
         <template #prefixIcon>
           <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em">
             <path
@@ -19,8 +15,8 @@ import FLink from '../../../../packages/components/link/src/link.vue'
           </svg>
         </template>
         前置图标链接
-      </FLink>
-      <FLink href="https://github.com/YunTower/FishUi" target="_blank">
+      </f-link>
+      <f-link href="https://github.com/YunTower/FishUi" target="_blank">
         后置图标链接
         <template #suffixIcon>
           <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em">
@@ -34,8 +30,8 @@ import FLink from '../../../../packages/components/link/src/link.vue'
             />
           </svg>
         </template>
-      </FLink>
-      <FLink href="https://github.com/YunTower/FishUi" target="_blank">
+      </f-link>
+      <f-link href="https://github.com/YunTower/FishUi" target="_blank">
         <template #prefixIcon>
           <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em">
             <path
@@ -61,7 +57,7 @@ import FLink from '../../../../packages/components/link/src/link.vue'
             />
           </svg>
         </template>
-      </FLink>
+      </f-link>
     </div>
   </div>
 </template>
