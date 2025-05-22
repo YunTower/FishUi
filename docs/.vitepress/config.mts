@@ -52,6 +52,12 @@ export default defineConfig({
           items: [
             { text: '头像 Avatar', link: '/components/avatar' }
           ]
+        },
+        {
+          text: '其他',
+          items: [
+            { text: '触发器 Trigger', link: '/components/trigger' }
+          ]
         }
       ]
     },

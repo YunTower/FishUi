@@ -1,0 +1,54 @@
+.f-trigger {
+  position: relative;
+  display: inline-flex;
+}
+
+.f-trigger__content {
+  position: relative;
+  z-index: 1;
+}
+
+.f-trigger__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--f-trigger-color, #fff);
+  background: var(--f-trigger-bg, rgba(0, 0, 0, 0.5));
+  opacity: 0;
+  transition: opacity var(--f-trigger-transition-duration, 0.2s);
+  z-index: 2;
+}
+
+.f-trigger:hover .f-trigger__overlay--hover,
+.f-trigger:focus .f-trigger__overlay--focus,
+.f-trigger--active .f-trigger__overlay--click {
+  opacity: 1;
+}
+
+.f-trigger__overlay--button {
+  background: none;
+  opacity: 1;
+  width: auto;
+  height: auto;
+  right: 0;
+  bottom: 0;
+  left: auto;
+  top: auto;
+  transform: translate(50%, 50%);
+  cursor: pointer;
+  z-index: 3;
+}
+
+.f-trigger--disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.f-trigger--disabled .f-trigger__overlay {
+  pointer-events: none;
+}

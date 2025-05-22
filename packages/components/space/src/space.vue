@@ -20,6 +20,16 @@ const props = withDefaults(defineProps<SpaceProps>(), {
 })
 
 const slots = useSlots()
+const children = computed(() => {
+  const defaultSlot = slots.default?.()
+  if (!defaultSlot) return []
+  return defaultSlot.flatMap(child => {
+    if (child.type === Symbol.for('v-fgt')) {
+      return child.children || []
+    }
+    return [child]
+  })
+})
 
 function getSize(val: SpaceSize | undefined): string {
   if (typeof val === 'number') return `${val}px`
@@ -65,11 +75,11 @@ const flexAlign = computed(() => {
     ]"
     :style="{ ...cssVars, alignItems: flexAlign }"
   >
-    <template v-for="(child, idx) in slots.default?.() || []" :key="idx">
+    <template v-for="(child, idx) in children" :key="idx">
       <div class="f-space__item" :style="props.fill ? { flex: 1 } : undefined">
         <component :is="child" />
       </div>
-      <template v-if="slots.split && idx < (slots.default?.().length || 0) - 1">
+      <template v-if="slots.split && idx < children.length - 1">
         <span class="f-space__split">
           <slot name="split" />
         </span>

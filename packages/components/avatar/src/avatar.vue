@@ -15,7 +15,9 @@ const props = withDefaults(defineProps<AvatarProps>(), {
   triggerType: undefined,
   triggerIconStyle: () => ({}),
   objectFit: 'cover',
+  backgroundColor: undefined
 })
+console.log(props)
 
 const emit = defineEmits<{
   (e: 'click', ev: MouseEvent): void
@@ -25,10 +27,31 @@ const emit = defineEmits<{
 
 const imageError = ref(false)
 
-const cssVars = computed(() => ({
-  '--f-avatar-size': `${props.size}px`,
-  '--f-avatar-object-fit': props.objectFit,
-  '--f-avatar-font-size': getFontSize(slotText.value),
+const cssVars = computed(() => {
+  const vars: Record<string, string> = {
+    '--f-avatar-size': `${props.size}px`,
+    '--f-avatar-object-fit': props.objectFit,
+    '--f-avatar-font-size': getFontSize(slotText.value),
+  }
+
+  return vars
+})
+
+const avatarStyle = computed(() => {
+  const style = { ...cssVars.value }
+  if (props.backgroundColor) {
+    style.background = props.backgroundColor
+  }
+  return style
+})
+
+const imageStyle = computed(() => ({
+  objectFit: props.objectFit
+}))
+
+const triggerIconStyle = computed(() => ({
+  ...props.triggerIconStyle,
+  transition: 'var(--f-avatar-trigger-transition-duration)'
 }))
 
 const MAX_TEXT_LENGTH = 6
@@ -80,14 +103,15 @@ const handleLoad = () => {
     class="f-avatar"
     :class="[
       `f-avatar--${props.shape}`,
-      { 'f-avatar--clickable': props.triggerType }
+      { 'f-avatar--clickable': true }
     ]"
-    :style="cssVars"
+    :style="avatarStyle"
     @click="handleClick"
   >
     <img
       v-if="props.imageUrl"
       :src="props.imageUrl"
+      :style="imageStyle"
       @error="handleError"
       @load="handleLoad"
     />
@@ -99,6 +123,8 @@ const handleLoad = () => {
       v-if="props.triggerType"
       class="f-avatar__trigger"
       :class="`f-avatar__trigger--${props.triggerType}`"
+      :style="triggerIconStyle"
+      @click.stop="handleClick"
     >
       <slot name="trigger-icon">
         <i class="ri-camera-line"></i>
@@ -106,3 +132,7 @@ const handleLoad = () => {
     </div>
   </div>
 </template>
+
+<style scoped>
+@import './avatar.css';
+</style>
