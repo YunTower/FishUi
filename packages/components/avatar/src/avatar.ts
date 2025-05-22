@@ -13,7 +13,6 @@ export interface AvatarProps {
   triggerType?: AvatarTriggerType
   triggerIconStyle?: Record<string, any>
   objectFit?: AvatarObjectFit
-  backgroundColor?: string
 }
 
 export const avatarProps = {
@@ -41,6 +40,5 @@ export const avatarProps = {
   objectFit: {
     type: String as PropType<AvatarObjectFit>,
     default: 'cover'
-  },
-  backgroundColor: String
+  }
 } as const

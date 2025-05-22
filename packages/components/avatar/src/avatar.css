@@ -65,3 +65,10 @@
   top: auto;
   transform: translate(50%, 50%);
 }
+
+.f-avatar__text-inner {
+  display: inline-block;
+  line-height: 1;
+  transform-origin: center center;
+  white-space: nowrap;
+}

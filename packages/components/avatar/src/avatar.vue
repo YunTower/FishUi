@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import type { AvatarProps } from './avatar'
-import { withDefaults, defineProps, defineEmits, computed, ref, onMounted, watch, nextTick } from 'vue'
+import { withDefaults, defineProps, defineEmits, computed, ref, onMounted, watch, nextTick, inject, onUpdated } from 'vue'
 
-// 组件名
 defineOptions({
   name: 'FAvatar'
 })
@@ -14,10 +13,8 @@ const props = withDefaults(defineProps<AvatarProps>(), {
   autoFixFontSize: true,
   triggerType: undefined,
   triggerIconStyle: () => ({}),
-  objectFit: 'cover',
-  backgroundColor: undefined
+  objectFit: 'cover'
 })
-console.log(props)
 
 const emit = defineEmits<{
   (e: 'click', ev: MouseEvent): void
@@ -25,24 +22,41 @@ const emit = defineEmits<{
   (e: 'load'): void
 }>()
 
+// 接收父组件传值，优先使用头像组的参数
+const avatarGroup: any = inject('avatar-group', null)
+const avatarSize = computed(() => {
+  if (avatarGroup?.size?.value !== undefined) {
+    return avatarGroup.size.value
+  }
+  return props.size
+})
+
+const avatarShape = computed(() => {
+  if (avatarGroup?.shape?.value !== undefined) {
+    return avatarGroup.shape.value
+  }
+  return props.shape
+})
+
+const autoFixFontSize = computed(() => {
+  if (avatarGroup?.autoFixFontSize?.value !== undefined) {
+    return avatarGroup.autoFixFontSize.value
+  }
+  return props.autoFixFontSize
+})
+
 const imageError = ref(false)
 
 const cssVars = computed(() => {
   const vars: Record<string, string> = {
-    '--f-avatar-size': `${props.size}px`,
+    '--f-avatar-size': `${avatarSize.value}px`,
     '--f-avatar-object-fit': props.objectFit,
-    '--f-avatar-font-size': getFontSize(slotText.value),
   }
-
   return vars
 })
 
 const avatarStyle = computed(() => {
-  const style = { ...cssVars.value }
-  if (props.backgroundColor) {
-    style.background = props.backgroundColor
-  }
-  return style
+  return cssVars.value
 })
 
 const imageStyle = computed(() => ({
@@ -61,28 +75,44 @@ const getDisplayText = (text: string) => {
   return text.length > MAX_TEXT_LENGTH ? text.slice(0, MAX_TEXT_LENGTH) : text
 }
 
-const getFontSize = (text: string) => {
-  // 基于字符数动态调整字体，字符越多字体越小
-  const base = props.size * 0.5
-  const len = Math.max(1, Math.min(MAX_TEXT_LENGTH, text.length))
-  // 1字符最大，6字符最小
-  return `${base / (0.6 + 0.15 * (len - 1))}px`
-}
-
 const slotText = ref('')
-
+const avatarRef = ref<HTMLElement | null>(null)
 const textDiv = ref<HTMLElement | null>(null)
+
+// 文字内容自适应
+const autoSize = () => {
+  if (!autoFixFontSize.value || !avatarRef.value || !textDiv.value) return
+
+  const avatarWidth = avatarRef.value.clientWidth
+  const textWidth = textDiv.value.clientWidth
+
+  // 添加一些内边距，防止文字太靠近边缘
+  const padding = 8
+  const scale = (avatarWidth - padding) / (textWidth || 1)
+
+  // 限制缩放范围，避免文字过大或过小
+  const finalScale = Math.min(Math.max(0.5, scale), 1.2)
+
+  textDiv.value.style.transform = `scale(${finalScale})`
+  textDiv.value.style.display = 'inline-block'
+}
 
 const updateSlotText = () => {
   if (textDiv.value) {
     slotText.value = textDiv.value.innerText.trim()
+    nextTick(autoSize)
   }
 }
 
 onMounted(() => {
   nextTick(updateSlotText)
 })
-watch(() => props.size, updateSlotText)
+
+onUpdated(() => {
+  nextTick(autoSize)
+})
+
+watch(() => avatarSize.value, updateSlotText)
 
 const handleClick = (ev: MouseEvent) => {
   emit('click', ev)
@@ -100,9 +130,10 @@ const handleLoad = () => {
 
 <template>
   <div
+    ref="avatarRef"
     class="f-avatar"
     :class="[
-      `f-avatar--${props.shape}`,
+      `f-avatar--${avatarShape}`,
       { 'f-avatar--clickable': true }
     ]"
     :style="avatarStyle"
@@ -116,8 +147,9 @@ const handleLoad = () => {
       @load="handleLoad"
     />
     <div v-else class="f-avatar__text">
-      <span ref="textDiv">{{ getDisplayText(slotText) }}</span>
-      <slot />
+      <span ref="textDiv" class="f-avatar__text-inner">
+        <slot></slot>
+      </span>
     </div>
     <div
       v-if="props.triggerType"
@@ -125,6 +157,7 @@ const handleLoad = () => {
       :class="`f-avatar__trigger--${props.triggerType}`"
       :style="triggerIconStyle"
       @click.stop="handleClick"
+      @contextmenu.stop="handleClick"
     >
       <slot name="trigger-icon">
         <i class="ri-camera-line"></i>
@@ -132,7 +165,3 @@ const handleLoad = () => {
     </div>
   </div>
 </template>
-
-<style scoped>
-@import './avatar.css';
-</style>

@@ -25,7 +25,7 @@
 
 <script lang="ts" setup>
 const handleClick = () => {
-  console.log('avatar clicked')
+  alert('avatar clicked')
 }
 </script>
 
