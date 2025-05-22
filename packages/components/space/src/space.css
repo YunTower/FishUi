@@ -1,0 +1,32 @@
+.f-space {
+  display: flex;
+  column-gap: var(--f-space-col-gap, 8px);
+  row-gap: var(--f-space-row-gap, 8px);
+}
+
+.f-space--vertical {
+  flex-direction: column;
+}
+
+.f-space--horizontal {
+  flex-direction: row;
+}
+
+.f-space--wrap {
+  flex-wrap: wrap;
+}
+
+.f-space--fill .f-space__item {
+  flex: 1 1 0%;
+}
+
+.f-space__item {
+  /* display: flex; */
+  align-items: inherit;
+}
+
+.f-space__split {
+  display: flex;
+  align-items: center;
+  margin: 0 4px;
+}

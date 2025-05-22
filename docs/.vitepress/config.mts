@@ -42,6 +42,12 @@ export default defineConfig({
           ]
         },
         {
+          text: '布局',
+          items: [
+            { text: '间距 Space', link: '/components/space' }
+          ]
+        },
+        {
           text: '数据展示',
           items: [
             { text: '头像 Avatar', link: '/components/avatar' }

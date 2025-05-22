@@ -1,15 +1,4 @@
-import { App } from 'vue'
-import Avatar from './avatar.vue'
-import './avatar.css'
 import type { PropType, CSSProperties } from 'vue'
-
-export { Avatar }
-
-export default {
-  install(app: App) {
-    app.component('FAvatar', Avatar)
-  }
-}
 
 export type AvatarShape = 'circle' | 'square'
 export type AvatarTriggerType = 'mask' | 'button'

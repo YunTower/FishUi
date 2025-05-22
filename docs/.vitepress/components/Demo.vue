@@ -8,7 +8,7 @@ import 'highlight.js/styles/atom-one-light.css'
 import 'highlight.js/styles/atom-one-dark.css'
 
 defineOptions({
-  name: 'VpDemo',
+  name: 'VpDemo'
 })
 
 const props = defineProps<{
@@ -23,7 +23,7 @@ const demoCode = ref('')
 const demoComponent = shallowRef()
 const modules = import.meta.glob('../../components/demo/**/*.vue', {
   eager: true,
-  as: 'raw',
+  as: 'raw'
 })
 
 // 监听主题变化
@@ -45,7 +45,7 @@ onMounted(() => {
   })
   observer.observe(document.documentElement, {
     attributes: true,
-    attributeFilter: ['class'],
+    attributeFilter: ['class']
   })
 })
 
@@ -58,7 +58,7 @@ onMounted(async () => {
 
     // Find the matching module
     const modulePath = Object.keys(modules).find(
-      (path) => path.endsWith(cleanSrc) || path.endsWith(`/${cleanSrc}`),
+      (path) => path.endsWith(cleanSrc) || path.endsWith(`/${cleanSrc}`)
     )
 
     if (modulePath && modules[modulePath]) {
@@ -143,6 +143,7 @@ const handleToggleCode = () => {
   gap: 16px;
   margin-bottom: 20px;
   flex-wrap: wrap;
+  width: 100%;
 }
 
 .demo-actions {

@@ -1,41 +1,21 @@
-<template>
-  <div
-    class="fish-avatar"
-    :class="[
-      `fish-avatar--${shape}`,
-      `fish-avatar--${size}px`,
-      { 'fish-avatar--clickable': triggerType }
-    ]"
-    :style="avatarStyle"
-    @click="handleClick"
-  >
-    <img
-      v-if="imageUrl"
-      :src="imageUrl"
-      :style="imageStyle"
-      @error="handleError"
-      @load="handleLoad"
-    />
-    <div v-else class="fish-avatar__text" :style="textStyle">
-      <slot>{{ text }}</slot>
-    </div>
-    <div
-      v-if="triggerType"
-      class="fish-avatar__trigger"
-      :class="`fish-avatar__trigger--${triggerType}`"
-    >
-      <slot name="trigger-icon">
-        <i class="ri-camera-line"></i>
-      </slot>
-    </div>
-  </div>
-</template>
+<script setup lang="ts">
+import type { AvatarProps } from './avatar'
+import { withDefaults, defineProps, defineEmits, computed, ref, onMounted, watch, nextTick } from 'vue'
 
-<script lang="ts" setup>
-import { computed, ref } from 'vue'
-import { avatarProps } from './avatar'
+// 组件名
+defineOptions({
+  name: 'FAvatar'
+})
 
-defineProps(avatarProps)
+const props = withDefaults(defineProps<AvatarProps>(), {
+  shape: 'circle',
+  imageUrl: '',
+  size: 40,
+  autoFixFontSize: true,
+  triggerType: undefined,
+  triggerIconStyle: () => ({}),
+  objectFit: 'cover',
+})
 
 const emit = defineEmits<{
   (e: 'click', ev: MouseEvent): void
@@ -43,30 +23,43 @@ const emit = defineEmits<{
   (e: 'load'): void
 }>()
 
-const text = ref('')
 const imageError = ref(false)
 
-const avatarStyle = computed(() => {
-  return {
-    width: `${props.size}px`,
-    height: `${props.size}px`
-  }
-})
+const cssVars = computed(() => ({
+  '--f-avatar-size': `${props.size}px`,
+  '--f-avatar-object-fit': props.objectFit,
+  '--f-avatar-font-size': getFontSize(slotText.value),
+}))
 
-const imageStyle = computed(() => {
-  return {
-    objectFit: props.objectFit
-  }
-})
+const MAX_TEXT_LENGTH = 6
 
-const textStyle = computed(() => {
-  if (!props.autoFixFontSize) return {}
+const getDisplayText = (text: string) => {
+  if (!text) return ''
+  return text.length > MAX_TEXT_LENGTH ? text.slice(0, MAX_TEXT_LENGTH) : text
+}
 
-  const fontSize = Math.floor(props.size * 0.4)
-  return {
-    fontSize: `${fontSize}px`
+const getFontSize = (text: string) => {
+  // 基于字符数动态调整字体，字符越多字体越小
+  const base = props.size * 0.5
+  const len = Math.max(1, Math.min(MAX_TEXT_LENGTH, text.length))
+  // 1字符最大，6字符最小
+  return `${base / (0.6 + 0.15 * (len - 1))}px`
+}
+
+const slotText = ref('')
+
+const textDiv = ref<HTMLElement | null>(null)
+
+const updateSlotText = () => {
+  if (textDiv.value) {
+    slotText.value = textDiv.value.innerText.trim()
   }
+}
+
+onMounted(() => {
+  nextTick(updateSlotText)
 })
+watch(() => props.size, updateSlotText)
 
 const handleClick = (ev: MouseEvent) => {
   emit('click', ev)
@@ -82,6 +75,34 @@ const handleLoad = () => {
 }
 </script>
 
-<style scoped>
-
-</style>
+<template>
+  <div
+    class="f-avatar"
+    :class="[
+      `f-avatar--${props.shape}`,
+      { 'f-avatar--clickable': props.triggerType }
+    ]"
+    :style="cssVars"
+    @click="handleClick"
+  >
+    <img
+      v-if="props.imageUrl"
+      :src="props.imageUrl"
+      @error="handleError"
+      @load="handleLoad"
+    />
+    <div v-else class="f-avatar__text">
+      <span ref="textDiv">{{ getDisplayText(slotText) }}</span>
+      <slot />
+    </div>
+    <div
+      v-if="props.triggerType"
+      class="f-avatar__trigger"
+      :class="`f-avatar__trigger--${props.triggerType}`"
+    >
+      <slot name="trigger-icon">
+        <i class="ri-camera-line"></i>
+      </slot>
+    </div>
+  </div>
+</template>
