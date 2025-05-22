@@ -53,7 +53,3 @@ const handleClick = (event: MouseEvent) => {
     <slot />
   </button>
 </template>
-
-<style scoped>
-@import './button.css';
-</style>

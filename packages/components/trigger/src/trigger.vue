@@ -101,7 +101,3 @@ const handleFocus = (ev: FocusEvent) => {
     </div>
   </div>
 </template>
-
-<style scoped>
-@import './trigger.css';
-</style>

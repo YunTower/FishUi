@@ -87,7 +87,3 @@ const flexAlign = computed(() => {
     </template>
   </div>
 </template>
-
-<style scoped>
-@import './space.css';
-</style>

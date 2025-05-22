@@ -26,7 +26,3 @@ withDefaults(defineProps<ButtonGroupProps>(), {
     <slot />
   </div>
 </template>
-
-<style scoped>
-@import './button-group.css';
-</style>

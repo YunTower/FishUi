@@ -52,7 +52,3 @@ const handleClick = (event: MouseEvent) => {
     </span>
   </a>
 </template>
-
-<style scoped>
-@import './link.css';
-</style>

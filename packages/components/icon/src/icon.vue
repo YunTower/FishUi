@@ -42,7 +42,3 @@ const handleClick = (event: MouseEvent) => {
 <template>
   <i class="f-icon" :class="iconClass" :style="iconStyle" @click="handleClick"></i>
 </template>
-
-<style scoped>
-@import './icon.css';
-</style>
