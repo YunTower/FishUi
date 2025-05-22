@@ -40,43 +40,43 @@
 
 /* Theme variants */
 .f-link-theme--default {
-  color: var(--color-text-1);
+  color: var(--color-text-1) !important;
 }
 
 .f-link-theme--default:hover {
-  color: var(--color-text-2);
+  color: var(--color-text-2) !important;
 }
 
 .f-link-theme--primary {
-  color: rgba(var(--link-6));
+  color: rgba(var(--link-6)) !important;
 }
 
 .f-link-theme--primary:hover {
-  color: rgba(var(--link-7));
+  color: rgba(var(--link-7)) !important;
 }
 
 .f-link-theme--danger {
-  color: rgba(var(--danger-6));
+  color: rgba(var(--danger-6)) !important;
 }
 
 .f-link-theme--danger:hover {
-  color: rgba(var(--danger-7));
+  color: rgba(var(--danger-7)) !important;
 }
 
 .f-link-theme--warning {
-  color: rgba(var(--warning-6));
+  color: rgba(var(--warning-6)) !important;
 }
 
 .f-link-theme--warning:hover {
-  color: rgba(var(--warning-7));
+  color: rgba(var(--warning-7)) !important;
 }
 
 .f-link-theme--success {
-  color: rgba(var(--success-6));
+  color: rgba(var(--success-6)) !important;
 }
 
 .f-link-theme--success:hover {
-  color: rgba(var(--success-7));
+  color: rgba(var(--success-7)) !important;
 }
 
 /* Underline variants */
