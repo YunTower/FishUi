@@ -38,13 +38,13 @@
 
 | 属性名       | 说明                    | 类型                                                           | 默认值       |
 |-----------|-----------------------|--------------------------------------------------------------|-----------|
-| content   | 链接内容                  | `string` \| `Slot` \| `Function`                             | -         |
-| disabled  | 禁用链接                  | `boolean`                                                    | `false`   |
-| download  | 使得浏览器将链接的 URL 视为可下载资源 | `string` \| `boolean`                                        | -         |
-| href      | 跳转链接                  | `string`                                                     | -         |
+| content   | 链接内容                  | string \| Slot \| Function                                   | -         |
+| disabled  | 禁用链接                  | boolean                                                      | `false`   |
+| download  | 使得浏览器将链接的 URL 视为可下载资源 | string \| boolean                                            | -         |
+| href      | 跳转链接                  | string                                                       | -         |
 | size      | 尺寸                    | `small` \| `medium` \| `large`                               | `medium`  |
 | theme     | 组件风格                  | `default` \| `primary` \| `danger` \| `warning` \| `success` | `default` |
-| target    | 跳转方式                  | `string`                                                     | -         |
+| target    | 跳转方式                  | string                                                       | -         |
 | underline | 下划线模式                 | `always` \| `hover` \| `none`                                | `hover`   |
 
 ### Link Events
