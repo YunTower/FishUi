@@ -1,0 +1,40 @@
+.fish-avatar-group {
+  display: inline-flex;
+  align-items: center;
+}
+
+.fish-avatar-group .fish-avatar {
+  border: var(--f-avatar-group-border-width) solid var(--f-avatar-group-border-color);
+  margin-left: var(--f-avatar-group-margin-left);
+}
+
+.fish-avatar-group .fish-avatar:first-child {
+  margin-left: 0;
+}
+
+.fish-avatar-group__max {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--f-avatar-group-max-bg);
+  color: var(--f-avatar-group-max-color);
+  font-size: var(--f-avatar-group-max-font-size);
+  border: var(--f-avatar-group-border-width) solid var(--f-avatar-group-border-color);
+  margin-left: var(--f-avatar-group-margin-left);
+}
+
+.fish-avatar-group__max-count {
+  padding: var(--f-avatar-group-max-padding);
+}
+
+.fish-avatar-group__popover {
+  padding: var(--f-avatar-group-popover-padding);
+}
+
+.fish-avatar-group__popover-item {
+  margin-bottom: var(--f-avatar-group-popover-item-margin);
+}
+
+.fish-avatar-group__popover-item:last-child {
+  margin-bottom: 0;
+}

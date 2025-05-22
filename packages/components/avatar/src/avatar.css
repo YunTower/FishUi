@@ -1,0 +1,62 @@
+.fish-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  text-align: center;
+  overflow: hidden;
+  color: var(--f-avatar-color-text);
+  background: var(--f-avatar-color-bg);
+  position: relative;
+}
+
+.fish-avatar--circle {
+  border-radius: var(--f-avatar-border-radius-circle);
+}
+
+.fish-avatar--square {
+  border-radius: var(--f-avatar-border-radius-square);
+}
+
+.fish-avatar img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.fish-avatar__text {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: var(--f-avatar-font-weight);
+}
+
+.fish-avatar--clickable {
+  cursor: pointer;
+}
+
+.fish-avatar__trigger {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--f-avatar-trigger-color);
+  background: var(--f-avatar-trigger-bg);
+  opacity: 0;
+  transition: opacity var(--f-avatar-trigger-transition-duration);
+}
+
+.fish-avatar__trigger--button {
+  opacity: 1;
+  background: transparent;
+}
+
+.fish-avatar:hover .fish-avatar__trigger--mask {
+  opacity: 1;
+}

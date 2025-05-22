@@ -15,9 +15,9 @@ export default defineConfig({
         text: '0.0.25',
         items: [
           { text: '更新日志', link: '/guide/changelog' },
-          { text: '参与贡献', link: 'https://github.com/YunTower/FishUi' },
-        ],
-      },
+          { text: '参与贡献', link: 'https://github.com/YunTower/FishUi' }
+        ]
+      }
     ],
 
     sidebar: {
@@ -28,9 +28,9 @@ export default defineConfig({
             { text: '介绍', link: '/guide/' },
             { text: '致谢', link: '/guide/thanks' },
             { text: '快速开始', link: '/guide/start' },
-            { text: '更新日志', link: '/guide/changelog' },
-          ],
-        },
+            { text: '更新日志', link: '/guide/changelog' }
+          ]
+        }
       ],
       '/components/': [
         {
@@ -38,33 +38,39 @@ export default defineConfig({
           items: [
             { text: '按钮 Button', link: '/components/button' },
             { text: '链接 Link', link: '/components/link' },
-            { text: '图标 Icon', link: '/components/icon' },
-          ],
+            { text: '图标 Icon', link: '/components/icon' }
+          ]
         },
-      ],
+        {
+          text: '数据展示',
+          items: [
+            { text: '头像 Avatar', link: '/components/avatar' }
+          ]
+        }
+      ]
     },
 
-    socialLinks: [{ icon: 'github', link: 'https://github.com/YunTower/FishUi' }],
+    socialLinks: [{ icon: 'github', link: 'https://github.com/YunTower/FishUi' }]
   },
   vue: {
     template: {
       compilerOptions: {
-        isCustomElement: (tag) => tag.startsWith('demo-'),
-      },
-    },
+        isCustomElement: (tag) => tag.startsWith('demo-')
+      }
+    }
   },
   markdown: {
     config: (md) => {
       md.use(demoPlugin, {
-        componentsDir: fileURLToPath(new URL('../components/demo', import.meta.url)),
+        componentsDir: fileURLToPath(new URL('../components/demo', import.meta.url))
       })
-    },
+    }
   },
   vite: {
     resolve: {
       alias: {
-        '@fish-ui': fileURLToPath(new URL('../../packages', import.meta.url)),
-      },
-    },
-  },
+        '@fish-ui': fileURLToPath(new URL('../../packages', import.meta.url))
+      }
+    }
+  }
 })

@@ -515,3 +515,26 @@ body[fish-theme='dark'] {
   --warning-10: var(--orange-10);
 }
 
+:root {
+  /* Avatar */
+  --f-avatar-color-text: #fff;
+  --f-avatar-color-bg: #c0c4cc;
+  --f-avatar-border-radius-circle: 50%;
+  --f-avatar-border-radius-square: 4px;
+  --f-avatar-font-weight: 500;
+  --f-avatar-trigger-color: #fff;
+  --f-avatar-trigger-bg: rgba(0, 0, 0, 0.5);
+  --f-avatar-trigger-transition-duration: 0.3s;
+
+  /* Avatar Group */
+  --f-avatar-group-border-width: 2px;
+  --f-avatar-group-border-color: #fff;
+  --f-avatar-group-margin-left: -8px;
+  --f-avatar-group-max-bg: #c0c4cc;
+  --f-avatar-group-max-color: #fff;
+  --f-avatar-group-max-font-size: 14px;
+  --f-avatar-group-max-padding: 0 4px;
+  --f-avatar-group-popover-padding: 8px;
+  --f-avatar-group-popover-item-margin: 8px;
+}
+

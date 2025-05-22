@@ -4,6 +4,8 @@
 @import "../components/button/src/button-group.css";
 @import "../components/icon/src/icon.css";
 @import "../components/link/src/link.css";
+@import "../components/avatar/src/avatar.css";
+@import "../components/avatar/src/avatar-group.css";
 
 * {
   box-sizing: border-box;
