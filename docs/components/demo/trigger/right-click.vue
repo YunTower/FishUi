@@ -1,16 +1,12 @@
 <template>
-  <div class="demo-content">
-    <div class="demo-content-row">
-      <f-space>
-        <f-trigger type="button" @trigger="handleTrigger">
-          <div class="demo-box">左键或右键点击</div>
-          <template #icon>
-            <i class="ri-more-line"></i>
-          </template>
-        </f-trigger>
-      </f-space>
-    </div>
-  </div>
+  <f-space>
+    <f-trigger type="button" @trigger="handleTrigger">
+      <div class="demo-box">左键或右键点击</div>
+      <template #icon>
+        <i class="ri-more-line"></i>
+      </template>
+    </f-trigger>
+  </f-space>
 </template>
 
 <script lang="ts" setup>

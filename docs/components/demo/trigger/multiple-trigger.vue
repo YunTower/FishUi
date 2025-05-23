@@ -1,30 +1,26 @@
 <template>
-  <div class="demo-content">
-    <div class="demo-content-row">
-      <f-space>
-        <f-trigger :trigger="['click', 'hover']" @trigger="handleTrigger">
-          <div class="demo-box">点击或悬浮触发</div>
-          <template #icon>
-            <i class="ri-edit-line"></i>
-          </template>
-        </f-trigger>
+  <f-space>
+    <f-trigger :trigger="['click', 'hover']" @trigger="handleTrigger">
+      <div class="demo-box">点击或悬浮触发</div>
+      <template #icon>
+        <i class="ri-edit-line"></i>
+      </template>
+    </f-trigger>
 
-        <f-trigger :trigger="['hover', 'focus']" @trigger="handleTrigger">
-          <div class="demo-box">悬浮或聚焦触发</div>
-          <template #icon>
-            <i class="ri-edit-line"></i>
-          </template>
-        </f-trigger>
+    <f-trigger :trigger="['hover', 'focus']" @trigger="handleTrigger">
+      <div class="demo-box">悬浮或聚焦触发</div>
+      <template #icon>
+        <i class="ri-edit-line"></i>
+      </template>
+    </f-trigger>
 
-        <f-trigger :trigger="['click', 'hover', 'focus']" @trigger="handleTrigger">
-          <div class="demo-box">所有方式触发</div>
-          <template #icon>
-            <i class="ri-edit-line"></i>
-          </template>
-        </f-trigger>
-      </f-space>
-    </div>
-  </div>
+    <f-trigger :trigger="['click', 'hover', 'focus']" @trigger="handleTrigger">
+      <div class="demo-box">所有方式触发</div>
+      <template #icon>
+        <i class="ri-edit-line"></i>
+      </template>
+    </f-trigger>
+  </f-space>
 </template>
 
 <script lang="ts" setup>

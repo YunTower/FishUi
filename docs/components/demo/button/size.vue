@@ -1,5 +1,5 @@
 <template>
-  <div class="demo-content">
+  <div>
     <div class="demo-content-row">
       <f-button size="small">小按钮</f-button>
       <f-button>默认按钮</f-button>

@@ -1,5 +1,5 @@
 <template>
-  <div class="demo-content">
+  <div>
     <div class="demo-content-row">
       <f-space>
         <f-avatar style="background-color: #f56a00">U</f-avatar>

@@ -5,10 +5,6 @@
     <f-avatar :size="64">U</f-avatar>
   </div>
 </template>
-
-<script lang="ts" setup>
-</script>
-
 <style scoped>
 .demo-avatar {
   display: flex;

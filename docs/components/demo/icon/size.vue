@@ -1,5 +1,5 @@
 <template>
-  <div class="demo-content">
+  <div>
     <div class="demo-content-row">
       <f-icon name="home-line" :size="16" />
       <f-icon name="home-line" :size="24" />

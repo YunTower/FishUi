@@ -1,5 +1,5 @@
 <template>
-  <div class="demo-content">
+  <div>
     <div class="demo-content-row">
       <f-space>
         <template #split>
@@ -22,10 +22,6 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-</script>
-
 <style scoped>
 .split-divider {
   color: var(--vp-c-text-3);

@@ -1,5 +1,5 @@
 <template>
-  <div class="demo-content">
+  <div>
     <f-divider type="solid">solid</f-divider>
     <f-divider type="dashed">dashed</f-divider>
     <f-divider type="dotted">dotted</f-divider>

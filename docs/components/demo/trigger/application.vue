@@ -1,42 +1,38 @@
 <template>
-  <div class="demo-content">
-    <div class="demo-content-row">
-      <f-space>
-        <!-- 头像上传示例 -->
-        <f-trigger @trigger="handleUpload">
-          <f-avatar :size="80">
-            <template #default>
-              用户
-            </template>
-          </f-avatar>
-          <template #icon>
-            <i class="ri-camera-line"></i>
-          </template>
-        </f-trigger>
+  <f-space>
+    <!-- 头像上传示例 -->
+    <f-trigger @trigger="handleUpload">
+      <f-avatar :size="80">
+        <template #default>
+          用户
+        </template>
+      </f-avatar>
+      <template #icon>
+        <i class="ri-camera-line"></i>
+      </template>
+    </f-trigger>
 
-        <!-- 卡片编辑示例 -->
-        <f-trigger type="button" @trigger="handleEdit">
-          <div class="demo-card">
-            <h3>卡片标题</h3>
-            <p>这是一段卡片内容，点击右下角按钮可以编辑（支持右键点击）</p>
-          </div>
-          <template #icon>
-            <i class="ri-edit-line"></i>
-          </template>
-        </f-trigger>
+    <!-- 卡片编辑示例 -->
+    <f-trigger type="button" @trigger="handleEdit">
+      <div class="demo-card">
+        <h3>卡片标题</h3>
+        <p>这是一段卡片内容，点击右下角按钮可以编辑（支持右键点击）</p>
+      </div>
+      <template #icon>
+        <i class="ri-edit-line"></i>
+      </template>
+    </f-trigger>
 
-        <!-- 图片预览示例 -->
-        <f-trigger trigger="hover" @trigger="handlePreview">
-          <div class="demo-image">
-            <img src="/pic.jpg" alt="示例图片" />
-          </div>
-          <template #icon>
-            <i class="ri-eye-line"></i>
-          </template>
-        </f-trigger>
-      </f-space>
-    </div>
-  </div>
+    <!-- 图片预览示例 -->
+    <f-trigger trigger="hover" @trigger="handlePreview">
+      <div class="demo-image">
+        <img src="/pic.jpg" alt="示例图片" />
+      </div>
+      <template #icon>
+        <i class="ri-eye-line"></i>
+      </template>
+    </f-trigger>
+  </f-space>
 </template>
 
 <script lang="ts" setup>

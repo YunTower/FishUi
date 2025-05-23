@@ -1,5 +1,5 @@
 <template>
-  <div class="demo-content">
+  <div>
     <div class="demo-content-row">
       <f-link href="https://github.com/YunTower/FishUi" theme="default" target="_blank"
               size="small">

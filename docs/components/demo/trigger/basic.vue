@@ -1,23 +1,19 @@
 <template>
-  <div class="demo-content">
-    <div class="demo-content-row">
-      <f-space>
-        <f-trigger type="mask" @trigger="handleTrigger">
-          <div class="demo-box">遮罩触发器</div>
-          <template #icon>
-            <i class="ri-edit-line"></i>
-          </template>
-        </f-trigger>
+  <f-space>
+    <f-trigger type="mask" @trigger="handleTrigger">
+      <div class="demo-box">遮罩触发器</div>
+      <template #icon>
+        <i class="ri-edit-line"></i>
+      </template>
+    </f-trigger>
 
-        <f-trigger type="button" @trigger="handleTrigger">
-          <div class="demo-box">按钮触发器</div>
-          <template #icon>
-            <i class="ri-add-line"></i>
-          </template>
-        </f-trigger>
-      </f-space>
-    </div>
-  </div>
+    <f-trigger type="button" @trigger="handleTrigger">
+      <div class="demo-box">按钮触发器</div>
+      <template #icon>
+        <i class="ri-add-line"></i>
+      </template>
+    </f-trigger>
+  </f-space>
 </template>
 
 <script lang="ts" setup>

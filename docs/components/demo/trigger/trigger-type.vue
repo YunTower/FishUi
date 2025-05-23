@@ -1,30 +1,26 @@
 <template>
-  <div class="demo-content">
-    <div class="demo-content-row">
-      <f-space>
-        <f-trigger trigger="click" @trigger="handleTrigger('click')">
-          <div class="demo-box">点击触发</div>
-          <template #icon>
-            <i class="ri-mouse-line"></i>
-          </template>
-        </f-trigger>
+  <f-space>
+    <f-trigger trigger="click" @trigger="handleTrigger('click')">
+      <div class="demo-box">点击触发</div>
+      <template #icon>
+        <i class="ri-mouse-line"></i>
+      </template>
+    </f-trigger>
 
-        <f-trigger trigger="hover" @trigger="handleTrigger('hover')">
-          <div class="demo-box">悬浮触发</div>
-          <template #icon>
-            <i class="ri-cursor-line"></i>
-          </template>
-        </f-trigger>
+    <f-trigger trigger="hover" @trigger="handleTrigger('hover')">
+      <div class="demo-box">悬浮触发</div>
+      <template #icon>
+        <i class="ri-cursor-line"></i>
+      </template>
+    </f-trigger>
 
-        <f-trigger trigger="focus" @trigger="handleTrigger('focus')">
-          <div class="demo-box">聚焦触发</div>
-          <template #icon>
-            <i class="ri-focus-3-line"></i>
-          </template>
-        </f-trigger>
-      </f-space>
-    </div>
-  </div>
+    <f-trigger trigger="focus" @trigger="handleTrigger('focus')">
+      <div class="demo-box">聚焦触发</div>
+      <template #icon>
+        <i class="ri-focus-3-line"></i>
+      </template>
+    </f-trigger>
+  </f-space>
 </template>
 
 <script lang="ts" setup>
