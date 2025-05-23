@@ -5,8 +5,23 @@ import { FAvatar, FAvatarGroup } from './avatar'
 import { FSpace } from './space'
 import { FTrigger } from './trigger'
 import { FDivider } from './divider'
+import { FLayout, FLayoutHeader, FLayoutContent, FLayoutFooter, FLayoutSider } from './layout'
 
-export const components = [FButton, FLink, FIcon, FAvatar, FAvatarGroup, FSpace, FTrigger, FDivider]
+export const components = [
+  FButton,
+  FLink,
+  FIcon,
+  FAvatar,
+  FAvatarGroup,
+  FSpace,
+  FTrigger,
+  FDivider,
+  FLayout,
+  FLayoutHeader,
+  FLayoutContent,
+  FLayoutFooter,
+  FLayoutSider
+]
 
 export * from './button'
 export * from './link'
