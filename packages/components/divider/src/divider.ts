@@ -26,5 +26,8 @@ export const dividerProps = {
     default: 'solid',
   },
   size: Number,
-  margin: [Number, String],
+  margin: {
+    type: [Number, String] as PropType<number | string>,
+    default: undefined
+  }
 } as const

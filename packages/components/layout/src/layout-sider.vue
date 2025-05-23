@@ -1,12 +1,11 @@
 <script setup lang="ts">
-import { ref, watch, computed, defineEmits, useSlots } from 'vue'
+import { ref, watch, computed, defineEmits } from 'vue'
 import { layoutSiderProps } from './layout-sider'
 
 defineOptions({ name: 'FLayoutSider' })
 
 const props = defineProps(layoutSiderProps)
 const emit = defineEmits(['collapse', 'breakpoint'])
-const slots = useSlots()
 
 const collapsed = ref(props.defaultCollapsed)
 
