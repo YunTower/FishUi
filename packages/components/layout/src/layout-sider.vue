@@ -37,8 +37,8 @@ function toggleCollapse(type = 'clickTrigger') {
     </div>
     <template v-if="props.collapsible && !props.hideTrigger">
       <div class="f-layout-sider-trigger" @click="toggleCollapse('clickTrigger')">
-        <slot name="trigger" :collapsed="collapsed.value">
-          <span>{{ collapsed.value ? '展开' : '收起' }}</span>
+        <slot name="trigger" :collapsed="collapsed">
+          <span>{{ collapsed ? '展开' : '收起' }}</span>
         </slot>
       </div>
     </template>
