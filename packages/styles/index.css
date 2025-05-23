@@ -7,6 +7,7 @@
 @import "../components/avatar/src/avatar.css";
 @import "../components/avatar/src/avatar-group.css";
 @import "../components/space/src/space.css";
+@import "../components/divider/src/divider.css";
 
 
 * {
