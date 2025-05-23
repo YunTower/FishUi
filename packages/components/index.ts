@@ -6,6 +6,7 @@ import { FSpace } from './space'
 import { FTrigger } from './trigger'
 import { FDivider } from './divider'
 import { FLayout, FLayoutHeader, FLayoutContent, FLayoutFooter, FLayoutSider } from './layout'
+import { FCard, FCardMeta } from './card'
 
 export const components = [
   FButton,
@@ -20,7 +21,9 @@ export const components = [
   FLayoutHeader,
   FLayoutContent,
   FLayoutFooter,
-  FLayoutSider
+  FLayoutSider,
+  FCard,
+  FCardMeta
 ]
 
 export * from './button'
@@ -31,3 +34,4 @@ export * from './space'
 export * from './trigger'
 export * from './divider'
 export * from './layout'
+export * from './card'

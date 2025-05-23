@@ -68,13 +68,6 @@ const triggerIconStyle = computed(() => ({
   transition: 'var(--f-avatar-trigger-transition-duration)'
 }))
 
-const MAX_TEXT_LENGTH = 6
-
-const getDisplayText = (text: string) => {
-  if (!text) return ''
-  return text.length > MAX_TEXT_LENGTH ? text.slice(0, MAX_TEXT_LENGTH) : text
-}
-
 const slotText = ref('')
 const avatarRef = ref<HTMLElement | null>(null)
 const textDiv = ref<HTMLElement | null>(null)
