@@ -85,7 +85,7 @@
 
 .f-divider__text {
   display: inline-block;
-  padding: 0 0.5em;
+  padding: 5px 0.8em;
   background: var(--color-bg-1);
   position: relative;
   z-index: 1;
