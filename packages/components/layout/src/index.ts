@@ -1,0 +1,5 @@
+export { default as Layout } from './layout.vue'
+export { default as LayoutHeader } from './layout-header.vue'
+export { default as LayoutContent } from './layout-content.vue'
+export { default as LayoutFooter } from './layout-footer.vue'
+export { default as LayoutSider } from './layout-sider.vue'

@@ -1,0 +1,85 @@
+/* Layout Container */
+.f-layout {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 0;
+  background: var(--color-bg-1);
+}
+.f-layout-has-sider {
+  flex-direction: row;
+}
+
+/* Header */
+.f-layout-header {
+  height: 64px;
+  background: var(--color-primary-light-4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-white);
+  font-size: 16px;
+  text-align: center;
+}
+
+/* Footer */
+.f-layout-footer {
+  height: 64px;
+  background: var(--color-primary-light-4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-white);
+  font-size: 16px;
+  text-align: center;
+}
+
+/* Content */
+.f-layout-content {
+  flex: 1 1 0%;
+  background: var(--color-bg-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-1);
+  font-size: 16px;
+  text-align: center;
+}
+
+/* Sider */
+.f-layout-sider {
+  background: var(--color-primary-light-3);
+  color: var(--color-white);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: width 0.2s;
+  overflow: hidden;
+  min-width: 0;
+  box-sizing: border-box;
+}
+.f-layout-sider-theme-dark {
+  background: var(--color-primary-light-1);
+  color: var(--color-white);
+}
+.f-layout-sider-collapsed {
+  /* 可根据需要添加收起时的样式 */
+}
+.f-layout-sider-children {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.f-layout-sider-trigger {
+  height: 32px;
+  line-height: 32px;
+  text-align: center;
+  cursor: pointer;
+  background: var(--color-primary-light-4);
+  color: var(--color-white);
+  user-select: none;
+  width: 100%;
+}
