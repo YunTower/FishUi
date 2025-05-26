@@ -1,0 +1,139 @@
+.f-card {
+  position: relative;
+  background: var(--color-bg-2);
+  border-radius: var(--border-radius-none);
+  transition: box-shadow .2s cubic-bezier(0,0,1,1);
+}
+
+.f-card-bordered {
+  border: 1px solid var(--color-neutral-3);
+  border-radius: var(--border-radius-small);
+}
+
+.f-card-hoverable:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.f-card-size-medium {
+  font-size: 14px;
+}
+
+.f-card-size-small {
+  font-size: 12px;
+}
+
+.f-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  border-bottom: 1px solid var(--color-neutral-3);
+}
+
+.f-card-size-small .f-card-header {
+  padding: 12px;
+}
+
+.f-card-header-title {
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--color-text-1);
+}
+
+.f-card-size-small .f-card-header-title {
+  font-size: 14px;
+}
+
+.f-card-header-extra {
+  color: var(--color-text-3);
+}
+
+.f-card-body {
+  padding: 16px;
+  color: var(--color-text-2);
+}
+
+.f-card-size-small .f-card-body {
+  padding: 12px;
+}
+
+.f-card-actions {
+  padding: 8px 16px;
+  border-top: 1px solid var(--color-neutral-3);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.f-card-size-small .f-card-actions {
+  padding: 6px 12px;
+}
+
+.f-card-cover {
+  overflow: hidden;
+}
+
+.f-card-cover img {
+  width: 100%;
+  display: block;
+}
+
+.f-card-loading-content {
+  overflow: hidden;
+}
+
+.f-card-loading-block {
+  height: 14px;
+  margin: 6px 0;
+  background: linear-gradient(90deg, rgba(207, 216, 220, 0.2), rgba(207, 216, 220, 0.4), rgba(207, 216, 220, 0.2));
+  animation: f-card-loading 1.4s ease infinite;
+  background-size: 600% 600%;
+}
+
+.f-card-loading-block:first-child {
+  width: 94%;
+}
+
+.f-card-loading-block:nth-child(2) {
+  width: 72%;
+}
+
+.f-card-loading-block:last-child {
+  width: 82%;
+}
+
+@keyframes f-card-loading {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.f-card-meta {
+  display: flex;
+}
+
+.f-card-meta-avatar {
+  margin-right: 12px;
+}
+
+.f-card-meta-detail {
+  overflow: hidden;
+}
+
+.f-card-meta-title {
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--color-text-1);
+  margin-bottom: 4px;
+}
+
+.f-card-meta-description {
+  color: var(--color-text-3);
+  font-size: 12px;
+}

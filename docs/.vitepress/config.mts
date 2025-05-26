@@ -52,7 +52,8 @@ export default defineConfig({
         {
           text: '数据展示',
           items: [
-            { text: '头像 Avatar', link: '/components/avatar' }
+            { text: '头像 Avatar', link: '/components/avatar' },
+            { text: '卡片 Card', link: '/components/card' }
           ]
         },
         {
