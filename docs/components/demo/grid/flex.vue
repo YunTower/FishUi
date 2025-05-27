@@ -1,74 +1,51 @@
 <template>
   <div class="demo-content">
-    <p>Flex 数值</p>
-    <f-row>
-      <f-col :flex="2">
-        <div class="grid-content bg-primary">flex: 2</div>
-      </f-col>
-      <f-col :flex="3">
-        <div class="grid-content bg-primary-light">flex: 3</div>
-      </f-col>
-      <f-col :flex="1">
-        <div class="grid-content bg-primary">flex: 1</div>
-      </f-col>
-    </f-row>
+    <div class="demo-content-row">
+      <p>基础 Flex 布局：</p>
+      <f-row>
+        <f-col :flex="2">
+          <div class="demo-grid-item">2 / 5</div>
+        </f-col>
+        <f-col :flex="3">
+          <div class="demo-grid-item">3 / 5</div>
+        </f-col>
+      </f-row>
 
-    <p>Flex 固定宽度与自动填充</p>
-    <f-row>
-      <f-col flex="100px">
-        <div class="grid-content bg-primary">100px</div>
-      </f-col>
-      <f-col flex="auto">
-        <div class="grid-content bg-primary-light">auto</div>
-      </f-col>
-    </f-row>
+      <p>Flex 布局：</p>
+      <f-row>
+        <f-col flex="100px">
+          <div class="demo-grid-item">100px</div>
+        </f-col>
+        <f-col flex="auto">
+          <div class="demo-grid-item">auto</div>
+        </f-col>
+      </f-row>
 
-    <p>Flex 自定义比例</p>
-    <f-row>
-      <f-col flex="1 1 200px">
-        <div class="grid-content bg-primary">1 1 200px</div>
-      </f-col>
-      <f-col flex="0 1 300px">
-        <div class="grid-content bg-primary-light">0 1 300px</div>
-      </f-col>
-    </f-row>
-
-    <p>Flex 结合排序</p>
-    <f-row>
-      <f-col :flex="2" :order="3">
-        <div class="grid-content bg-primary">flex: 2, order: 3</div>
-      </f-col>
-      <f-col :flex="1" :order="2">
-        <div class="grid-content bg-primary-light">flex: 1, order: 2</div>
-      </f-col>
-      <f-col :flex="1" :order="1">
-        <div class="grid-content bg-primary">flex: 1, order: 1</div>
-      </f-col>
-    </f-row>
+      <p>Flex 布局：</p>
+      <f-row>
+        <f-col flex="1 1 200px">
+          <div class="demo-grid-item">1 1 200px</div>
+        </f-col>
+        <f-col flex="0 1 300px">
+          <div class="demo-grid-item">0 1 300px</div>
+        </f-col>
+      </f-row>
+    </div>
   </div>
 </template>
-
 <style scoped>
-.grid-content {
-  border-radius: var(--border-radius-medium);
-  min-height: 36px;
-  margin: 4px 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-}
-
-.bg-primary {
-  background-color: rgb(var(--fishblue-6));
-}
-
-.bg-primary-light {
-  background-color: rgb(var(--fishblue-4));
+.demo-grid-item {
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  color: #fff;
+  background-color: var(--color-primary-light-4);
+  border-radius: 4px;
+  margin-bottom: 16px;
 }
 
 p {
   margin: 16px 0 8px;
-  color: var(--color-text-2);
+  color: var(--f-text-color-secondary);
 }
 </style>

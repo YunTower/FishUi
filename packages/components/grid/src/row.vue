@@ -3,6 +3,7 @@ import { ref, computed, provide, watchEffect, onMounted, onUnmounted } from 'vue
 import type { CSSProperties } from 'vue'
 import type { RowProps } from './row'
 import type { ResponsiveValue } from './types'
+import './style.css'
 
 defineOptions({
   name: 'FRow'
@@ -79,11 +80,22 @@ const rowClass = computed(() => {
   }
 })
 
+// 使用防抖处理resize事件
+const debounce = (fn: Function, delay: number) => {
+  let timer: number | null = null
+  return function (...args: any[]) {
+    if (timer) clearTimeout(timer)
+    timer = window.setTimeout(() => {
+      fn.apply(this, args)
+    }, delay)
+  }
+}
+
 // 监听窗口大小变化，重新计算样式
-const resizeHandler = () => {
+const resizeHandler = debounce(() => {
   // 强制重新计算gutterStyle
   gutterStyle.value
-}
+}, 100)
 
 // 组件挂载时添加resize监听器
 onMounted(() => {

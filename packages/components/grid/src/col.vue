@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { computed, inject } from 'vue'
+import { computed, inject, onMounted } from 'vue'
 import type { CSSProperties } from 'vue'
 import type { ColProps } from './col'
 import type { GutterType } from './types'
+import './style.css'
 
 defineOptions({
   name: 'FCol'
@@ -118,6 +119,24 @@ const colStyle = computed(() => {
     ...gutterStyle.value,
     ...flexStyle.value
   }
+})
+
+// 添加错误处理
+const validateProps = () => {
+  if (props.span < 0 || props.span > 24) {
+    console.warn('[FCol] span must be between 0 and 24')
+  }
+  if (props.offset && (props.offset < 0 || props.offset > 24)) {
+    console.warn('[FCol] offset must be between 0 and 24')
+  }
+  if (props.order && (props.order < 0 || props.order > 24)) {
+    console.warn('[FCol] order must be between 0 and 24')
+  }
+}
+
+// 在组件挂载时验证props
+onMounted(() => {
+  validateProps()
 })
 </script>
 
