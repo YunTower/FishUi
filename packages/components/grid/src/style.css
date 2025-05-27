@@ -1,0 +1,214 @@
+/* Row & Col 样式 */
+.f-row {
+  display: flex;
+  flex-flow: row wrap;
+  box-sizing: border-box;
+}
+
+.f-row-justify--start {
+  justify-content: flex-start;
+}
+
+.f-row-justify--center {
+  justify-content: center;
+}
+
+.f-row-justify--end {
+  justify-content: flex-end;
+}
+
+.f-row-justify--space-around {
+  justify-content: space-around;
+}
+
+.f-row-justify--space-between {
+  justify-content: space-between;
+}
+
+.f-row-align--start {
+  align-items: flex-start;
+}
+
+.f-row-align--center {
+  align-items: center;
+}
+
+.f-row-align--end {
+  align-items: flex-end;
+}
+
+.f-row-align--stretch {
+  align-items: stretch;
+}
+
+.f-row--nowrap {
+  flex-wrap: nowrap;
+}
+
+.f-col {
+  position: relative;
+  max-width: 100%;
+  min-height: 1px;
+  box-sizing: border-box;
+}
+
+/* 生成栅格占比样式 */
+@for $i from 1 to 24 {
+  .f-col-$i {
+    flex: 0 0 percentage(calc($i / 24));
+    max-width: percentage(calc($i / 24));
+  }
+}
+
+/* 生成栅格偏移样式 */
+@for $i from 1 to 24 {
+  .f-col-offset-$i {
+    margin-left: percentage(calc($i / 24));
+  }
+}
+
+/* 生成栅格排序样式 */
+@for $i from 1 to 24 {
+  .f-col-order-$i {
+    order: $i;
+  }
+}
+
+/* 响应式样式 */
+/* xs: <576px */
+@media (max-width: 575px) {
+  @for $i from 1 to 24 {
+    .f-col-xs-$i {
+      flex: 0 0 percentage(calc($i / 24));
+      max-width: percentage(calc($i / 24));
+    }
+  }
+  @for $i from 1 to 24 {
+    .f-col-xs-offset-$i {
+      margin-left: percentage(calc($i / 24));
+    }
+  }
+  @for $i from 1 to 24 {
+    .f-col-xs-order-$i {
+      order: $i;
+    }
+  }
+}
+
+/* sm: ≥576px */
+@media (min-width: 576px) {
+  @for $i from 1 to 24 {
+    .f-col-sm-$i {
+      flex: 0 0 percentage(calc($i / 24));
+      max-width: percentage(calc($i / 24));
+    }
+  }
+  @for $i from 1 to 24 {
+    .f-col-sm-offset-$i {
+      margin-left: percentage(calc($i / 24));
+    }
+  }
+  @for $i from 1 to 24 {
+    .f-col-sm-order-$i {
+      order: $i;
+    }
+  }
+}
+
+/* md: ≥768px */
+@media (min-width: 768px) {
+  @for $i from 1 to 24 {
+    .f-col-md-$i {
+      flex: 0 0 percentage(calc($i / 24));
+      max-width: percentage(calc($i / 24));
+    }
+  }
+  @for $i from 1 to 24 {
+    .f-col-md-offset-$i {
+      margin-left: percentage(calc($i / 24));
+    }
+  }
+  @for $i from 1 to 24 {
+    .f-col-md-order-$i {
+      order: $i;
+    }
+  }
+}
+
+/* lg: ≥992px */
+@media (min-width: 992px) {
+  @for $i from 1 to 24 {
+    .f-col-lg-$i {
+      flex: 0 0 percentage(calc($i / 24));
+      max-width: percentage(calc($i / 24));
+    }
+  }
+  @for $i from 1 to 24 {
+    .f-col-lg-offset-$i {
+      margin-left: percentage(calc($i / 24));
+    }
+  }
+  @for $i from 1 to 24 {
+    .f-col-lg-order-$i {
+      order: $i;
+    }
+  }
+}
+
+/* xl: ≥1200px */
+@media (min-width: 1200px) {
+  @for $i from 1 to 24 {
+    .f-col-xl-$i {
+      flex: 0 0 percentage(calc($i / 24));
+      max-width: percentage(calc($i / 24));
+    }
+  }
+  @for $i from 1 to 24 {
+    .f-col-xl-offset-$i {
+      margin-left: percentage(calc($i / 24));
+    }
+  }
+  @for $i from 1 to 24 {
+    .f-col-xl-order-$i {
+      order: $i;
+    }
+  }
+}
+
+/* xxl: ≥1600px */
+@media (min-width: 1600px) {
+  @for $i from 1 to 24 {
+    .f-col-xxl-$i {
+      flex: 0 0 percentage(calc($i / 24));
+      max-width: percentage(calc($i / 24));
+    }
+  }
+  @for $i from 1 to 24 {
+    .f-col-xxl-offset-$i {
+      margin-left: percentage(calc($i / 24));
+    }
+  }
+  @for $i from 1 to 24 {
+    .f-col-xxl-order-$i {
+      order: $i;
+    }
+  }
+}
+
+/* Grid & GridItem 样式 */
+.f-grid {
+  display: grid;
+  width: 100%;
+}
+
+.f-grid--collapsed {
+  overflow: hidden;
+}
+
+.f-grid-item {
+  box-sizing: border-box;
+}
+
+.f-grid-item--suffix {
+  margin-left: auto;
+}
