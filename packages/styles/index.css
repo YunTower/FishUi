@@ -9,6 +9,7 @@
 @import "../components/space/src/space.css";
 @import "../components/divider/src/divider.css";
 @import "../components/layout/src/layout.css";
+@import "../components/grid/src/style.css";
 
 
 * {

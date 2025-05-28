@@ -11,7 +11,7 @@
           <div class="demo-grid-item">12</div>
         </f-col>
         <f-col :span="12">
-          <div class="demo-grid-item">12</div>
+          <div class="demo-grid-item bg-fishblue">12</div>
         </f-col>
       </f-row>
       <f-row>
@@ -19,7 +19,7 @@
           <div class="demo-grid-item">8</div>
         </f-col>
         <f-col :span="8">
-          <div class="demo-grid-item">8</div>
+          <div class="demo-grid-item bg-fishblue">8</div>
         </f-col>
         <f-col :span="8">
           <div class="demo-grid-item">8</div>
@@ -30,13 +30,13 @@
           <div class="demo-grid-item">6</div>
         </f-col>
         <f-col :span="6">
-          <div class="demo-grid-item">6</div>
+          <div class="demo-grid-item bg-fishblue">6</div>
         </f-col>
         <f-col :span="6">
           <div class="demo-grid-item">6</div>
         </f-col>
         <f-col :span="6">
-          <div class="demo-grid-item">6</div>
+          <div class="demo-grid-item bg-fishblue">6</div>
         </f-col>
       </f-row>
     </div>
@@ -49,7 +49,10 @@
   text-align: center;
   color: #fff;
   background-color: var(--color-primary-light-4);
-  border-radius: 4px;
   margin-bottom: 16px;
+}
+
+.bg-fishblue {
+  background: rgb(var(--fishblue-6));
 }
 </style>
