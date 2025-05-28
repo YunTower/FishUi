@@ -10,6 +10,7 @@
 @import "../components/divider/src/divider.css";
 @import "../components/layout/src/layout.css";
 @import "../components/grid/src/style.css";
+@import "../components/tabs/src/tabs.css";
 
 
 * {

@@ -8,6 +8,7 @@ import { FDivider } from './divider'
 import { FLayout, FLayoutHeader, FLayoutContent, FLayoutFooter, FLayoutSider } from './layout'
 import { FCard, FCardMeta } from './card'
 import { FRow, FCol, FGrid, FGridItem } from './grid'
+import { FTabs, FTabPane } from './tabs'
 
 export const components = [
   FButton,
@@ -28,7 +29,9 @@ export const components = [
   FRow,
   FCol,
   FGrid,
-  FGridItem
+  FGridItem,
+  FTabs,
+  FTabPane
 ]
 
 export * from './button'
@@ -41,3 +44,4 @@ export * from './divider'
 export * from './layout'
 export * from './card'
 export * from './grid'
+export * from './tabs'

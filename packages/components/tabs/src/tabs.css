@@ -1,0 +1,512 @@
+.f-tabs {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* 标签头部样式 */
+.f-tabs__header {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--color-border-2);
+  position: relative;
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+
+.f-tabs__nav-container {
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 0;
+  padding: 0;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.f-tabs__nav {
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  position: relative;
+  white-space: nowrap;
+  transition: transform 0.3s ease;
+  will-change: transform;
+  -webkit-overflow-scrolling: touch; /* 增强iOS的滚动体验 */
+  flex: 1;
+  scroll-behavior: smooth;
+}
+
+.f-tabs__nav::-webkit-scrollbar {
+  display: none;
+}
+
+/* 标签项样式 */
+.f-tabs__tab {
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  height: 40px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  font-size: 14px;
+  color: var(--color-text-2);
+  user-select: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.f-tabs__tab:hover {
+  color: rgba(var(--primary-6));
+}
+
+.f-tabs__tab--active {
+  color: rgba(var(--primary-6));
+}
+
+.f-tabs__tab--disabled {
+  cursor: not-allowed;
+  color: var(--color-text-4);
+}
+
+.f-tabs__tab--disabled:hover {
+  color: var(--color-text-4);
+}
+
+.f-tabs__tab-title {
+  line-height: 1;
+  font-weight: 500;
+}
+
+.f-tabs__tab-close {
+  margin-left: 8px;
+  font-size: 16px;
+  height: 16px;
+  width: 16px;
+  line-height: 16px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.f-tabs__tab-close:hover {
+  background-color: var(--color-fill-2);
+}
+
+.f-tabs__add {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 8px;
+  height: 24px;
+  width: 24px;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.f-tabs__add:hover {
+  background-color: var(--color-fill-2);
+}
+
+/* 滚动按钮 */
+.f-tabs__nav-prev,
+.f-tabs__nav-next {
+  position: absolute;
+  z-index: 10;
+  width: 28px;
+  height: 28px;
+  line-height: 28px;
+  text-align: center;
+  background-color: var(--color-bg-2);
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-2);
+  font-size: 16px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  opacity: 0;
+  transition: opacity 0.2s, color 0.2s;
+  flex-shrink: 0;
+}
+
+.f-tabs__nav-prev:hover,
+.f-tabs__nav-next:hover {
+  color: rgba(var(--primary-6));
+}
+
+.f-tabs__nav-prev {
+  left: 0;
+}
+
+.f-tabs__nav-next {
+  right: 0;
+}
+
+.f-tabs--nav-scrollable .f-tabs__nav-prev,
+.f-tabs--nav-scrollable .f-tabs__nav-next {
+  opacity: 1;
+}
+
+/* 滚动容器样式调整 */
+.f-tabs--nav-scrollable .f-tabs__nav-container {
+  padding: 0 28px;
+}
+
+.f-tabs--vertical.f-tabs--nav-scrollable .f-tabs__nav-container {
+  padding: 28px 0;
+}
+
+.f-tabs--vertical .f-tabs__nav-prev,
+.f-tabs--vertical .f-tabs__nav-next {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.f-tabs--vertical .f-tabs__nav-prev {
+  top: 0;
+  transform: translateX(-50%) rotate(90deg);
+}
+
+.f-tabs--vertical .f-tabs__nav-next {
+  bottom: 0;
+  top: auto;
+  transform: translateX(-50%) rotate(90deg);
+}
+
+/* 标签内容样式 */
+.f-tabs__content {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+.f-tabs__content--hidden {
+  display: none;
+}
+
+.f-tab-pane {
+  width: 100%;
+  height: 100%;
+}
+
+/* 位置变体 */
+.f-tabs--top {
+  flex-direction: column;
+}
+
+.f-tabs--top .f-tabs__header {
+  border-bottom: 1px solid var(--color-border-2);
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+
+.f-tabs--bottom {
+  flex-direction: column-reverse;
+}
+
+.f-tabs--bottom .f-tabs__header {
+  border-top: 1px solid var(--color-border-2);
+  border-bottom: none;
+  border-left: none;
+  border-right: none;
+  margin-top: 16px;
+  margin-bottom: 0;
+}
+
+.f-tabs--left {
+  flex-direction: row;
+  min-height: 200px;
+}
+
+.f-tabs--left .f-tabs__header {
+  flex-direction: column;
+  border-right: 1px solid var(--color-border-2);
+  border-bottom: none;
+  border-top: none;
+  border-left: none;
+  margin-right: 16px;
+  margin-bottom: 0;
+  height: 100%;
+  overflow: visible;
+  min-width: 120px;
+}
+
+.f-tabs--left .f-tabs__nav-container,
+.f-tabs--right .f-tabs__nav-container {
+  padding: 0;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+.f-tabs--left .f-tabs__nav,
+.f-tabs--right .f-tabs__nav {
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 100%;
+  width: 100%;
+}
+
+.f-tabs--left .f-tabs__tab,
+.f-tabs--right .f-tabs__tab {
+  width: 100%;
+  justify-content: flex-start;
+  flex-shrink: 0;
+}
+
+.f-tabs--right {
+  flex-direction: row-reverse;
+  min-height: 200px;
+}
+
+.f-tabs--right .f-tabs__header {
+  flex-direction: column;
+  border-left: 1px solid var(--color-border-2);
+  border-bottom: none;
+  border-top: none;
+  border-right: none;
+  margin-left: 16px;
+  margin-bottom: 0;
+  height: 100%;
+  overflow: visible;
+  min-width: 120px;
+}
+
+/* 标签类型变体 */
+.f-tabs--line .f-tabs__tab--active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: rgba(var(--primary-6));
+}
+
+.f-tabs--left.f-tabs--line .f-tabs__tab--active::after {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: auto;
+  width: 2px;
+  height: auto;
+}
+
+.f-tabs--right.f-tabs--line .f-tabs__tab--active::after {
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: auto;
+  width: 2px;
+  height: auto;
+}
+
+.f-tabs--card .f-tabs__tab {
+  border: 1px solid var(--color-border-2);
+  border-bottom: none;
+  margin-right: 4px;
+  border-radius: 4px 4px 0 0;
+  background-color: var(--color-fill-1);
+}
+
+.f-tabs--card .f-tabs__tab--active {
+  background-color: var(--color-bg-1);
+  border-color: var(--color-border-2);
+}
+
+.f-tabs--card-gutter .f-tabs__tab {
+  border: 1px solid var(--color-border-2);
+  margin-right: 4px;
+  border-radius: 4px;
+  background-color: var(--color-fill-1);
+}
+
+.f-tabs--card-gutter .f-tabs__tab--active {
+  background-color: rgba(var(--primary-6));
+  border-color: rgba(var(--primary-6));
+  color: var(--color-white);
+}
+
+.f-tabs--text .f-tabs__header {
+  border: none;
+}
+
+.f-tabs--text .f-tabs__tab {
+  padding: 0 8px;
+}
+
+.f-tabs--text .f-tabs__tab--active {
+  font-weight: 600;
+}
+
+.f-tabs--rounded .f-tabs__tab {
+  border-radius: 20px;
+  margin-right: 8px;
+}
+
+.f-tabs--rounded .f-tabs__tab--active {
+  background-color: var(--color-fill-2);
+}
+
+.f-tabs--capsule .f-tabs__nav {
+  background-color: var(--color-fill-2);
+  border-radius: 20px;
+  padding: 2px;
+}
+
+.f-tabs--capsule .f-tabs__tab {
+  border-radius: 18px;
+  margin: 0 2px;
+}
+
+.f-tabs--capsule .f-tabs__tab--active {
+  background-color: var(--color-bg-1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* 尺寸变体 */
+.f-tabs--mini .f-tabs__tab {
+  height: 24px;
+  padding: 0 8px;
+  font-size: 12px;
+}
+
+.f-tabs--small .f-tabs__tab {
+  height: 32px;
+  padding: 0 12px;
+  font-size: 13px;
+}
+
+.f-tabs--medium .f-tabs__tab {
+  height: 40px;
+  padding: 0 16px;
+  font-size: 14px;
+}
+
+.f-tabs--large .f-tabs__tab {
+  height: 48px;
+  padding: 0 20px;
+  font-size: 16px;
+}
+
+/* 方向变体 */
+.f-tabs--horizontal .f-tabs__nav {
+  flex-direction: row;
+}
+
+.f-tabs--vertical {
+  min-height: 200px;
+}
+
+.f-tabs--vertical .f-tabs__nav {
+  flex-direction: column;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+.f-tabs--vertical .f-tabs__tab {
+  width: 100%;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  height: 40px;
+}
+
+/* 其他功能样式 */
+.f-tabs--justify .f-tabs__nav {
+  width: 100%;
+}
+
+.f-tabs--justify .f-tabs__tab {
+  flex: 1;
+  text-align: center;
+  justify-content: center;
+}
+
+.f-tabs--no-padding .f-tabs__header {
+  padding: 0;
+}
+
+/* 动画效果 */
+.f-tabs[animation] .f-tabs__content {
+  transition: all 0.3s;
+}
+
+/* 垂直方向下的滚动指示器位置 */
+.f-tabs--left.f-tabs--line .f-tabs__tab--active::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: auto;
+  right: 0;
+  width: 2px;
+  height: auto;
+  background-color: rgba(var(--primary-6));
+}
+
+.f-tabs--right.f-tabs--line .f-tabs__tab--active::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: auto;
+  left: 0;
+  width: 2px;
+  height: auto;
+  background-color: rgba(var(--primary-6));
+}
+
+/* 处理垂直滚动模式下的卡片样式 */
+.f-tabs--left.f-tabs--card .f-tabs__tab,
+.f-tabs--right.f-tabs--card .f-tabs__tab {
+  border: 1px solid var(--color-border-2);
+  border-right: none;
+  margin-bottom: 4px;
+  margin-right: 0;
+  border-radius: 4px 0 0 4px;
+}
+
+.f-tabs--right.f-tabs--card .f-tabs__tab {
+  border-right: 1px solid var(--color-border-2);
+  border-left: none;
+  border-radius: 0 4px 4px 0;
+}
+
+.f-tabs--left.f-tabs--card-gutter .f-tabs__tab,
+.f-tabs--right.f-tabs--card-gutter .f-tabs__tab {
+  margin-bottom: 4px;
+  margin-right: 0;
+  border-radius: 4px;
+}
+
+/* 修复垂直选项卡的内容容器样式 */
+.f-tabs--vertical .f-tabs__content {
+  flex: 1;
+  height: 100%;
+  overflow: auto;
+}
+
+/* 针对触摸设备的优化 */
+@media (pointer: fine) {
+  .f-tabs__nav {
+    scrollbar-width: none;
+  }
+
+  .f-tabs__nav::-webkit-scrollbar {
+    display: none;
+  }
+}
+
