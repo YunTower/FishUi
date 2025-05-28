@@ -7,13 +7,13 @@
           <div class="demo-grid-item">6</div>
         </f-col>
         <f-col :span="6">
-          <div class="demo-grid-item">6</div>
+          <div class="demo-grid-item bg-fishblue">6</div>
         </f-col>
         <f-col :span="6">
           <div class="demo-grid-item">6</div>
         </f-col>
         <f-col :span="6">
-          <div class="demo-grid-item">6</div>
+          <div class="demo-grid-item bg-fishblue">6</div>
         </f-col>
       </f-row>
 
@@ -23,13 +23,13 @@
           <div class="demo-grid-item">6</div>
         </f-col>
         <f-col :span="6">
-          <div class="demo-grid-item">6</div>
+          <div class="demo-grid-item bg-fishblue">6</div>
         </f-col>
         <f-col :span="6">
           <div class="demo-grid-item">6</div>
         </f-col>
         <f-col :span="6">
-          <div class="demo-grid-item">6</div>
+          <div class="demo-grid-item bg-fishblue">6</div>
         </f-col>
       </f-row>
 
@@ -39,13 +39,13 @@
           <div class="demo-grid-item">6</div>
         </f-col>
         <f-col :span="6">
-          <div class="demo-grid-item">6</div>
+          <div class="demo-grid-item bg-fishblue">6</div>
         </f-col>
         <f-col :span="6">
           <div class="demo-grid-item">6</div>
         </f-col>
         <f-col :span="6">
-          <div class="demo-grid-item">6</div>
+          <div class="demo-grid-item bg-fishblue">6</div>
         </f-col>
       </f-row>
     </div>
@@ -58,7 +58,6 @@
   text-align: center;
   color: #fff;
   background-color: var(--color-primary-light-4);
-  border-radius: 4px;
 }
 
 p {

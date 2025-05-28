@@ -6,7 +6,7 @@
         <div class="grid-content bg-primary"></div>
       </f-col>
       <f-col :span="4">
-        <div class="grid-content bg-primary-light"></div>
+        <div class="grid-content bg-fishblue"></div>
       </f-col>
       <f-col :span="4">
         <div class="grid-content bg-primary"></div>
@@ -19,7 +19,7 @@
         <div class="grid-content bg-primary"></div>
       </f-col>
       <f-col :span="4">
-        <div class="grid-content bg-primary-light"></div>
+        <div class="grid-content bg-fishblue"></div>
       </f-col>
       <f-col :span="4">
         <div class="grid-content bg-primary"></div>
@@ -32,7 +32,7 @@
         <div class="grid-content bg-primary"></div>
       </f-col>
       <f-col :span="4">
-        <div class="grid-content bg-primary-light"></div>
+        <div class="grid-content bg-fishblue"></div>
       </f-col>
       <f-col :span="4">
         <div class="grid-content bg-primary"></div>
@@ -45,7 +45,7 @@
         <div class="grid-content bg-primary"></div>
       </f-col>
       <f-col :span="4">
-        <div class="grid-content bg-primary-light"></div>
+        <div class="grid-content bg-fishblue"></div>
       </f-col>
       <f-col :span="4">
         <div class="grid-content bg-primary"></div>
@@ -58,7 +58,7 @@
         <div class="grid-content bg-primary"></div>
       </f-col>
       <f-col :span="4">
-        <div class="grid-content bg-primary-light"></div>
+        <div class="grid-content bg-fishblue"></div>
       </f-col>
       <f-col :span="4">
         <div class="grid-content bg-primary"></div>
@@ -69,20 +69,11 @@
 
 <style scoped>
 .grid-content {
-  border-radius: var(--border-radius-medium);
   min-height: 36px;
   display: flex;
   justify-content: center;
   align-items: center;
   color: white;
-}
-
-.bg-primary {
-  background-color: rgb(var(--fishblue-6));
-}
-
-.bg-primary-light {
-  background-color: rgb(var(--fishblue-4));
 }
 
 p {

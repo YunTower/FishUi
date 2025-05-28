@@ -7,19 +7,19 @@
           <div class="demo-grid-item">1</div>
         </f-grid-item>
         <f-grid-item>
-          <div class="demo-grid-item">2</div>
+          <div class="demo-grid-item bg-fishblue">2</div>
         </f-grid-item>
         <f-grid-item>
           <div class="demo-grid-item">3</div>
         </f-grid-item>
         <f-grid-item>
-          <div class="demo-grid-item">4</div>
+          <div class="demo-grid-item bg-fishblue">4</div>
         </f-grid-item>
         <f-grid-item>
           <div class="demo-grid-item">5</div>
         </f-grid-item>
         <f-grid-item>
-          <div class="demo-grid-item">6</div>
+          <div class="demo-grid-item bg-fishblue">6</div>
         </f-grid-item>
       </f-grid>
 
@@ -29,22 +29,22 @@
           <div class="demo-grid-item">1</div>
         </f-grid-item>
         <f-grid-item>
-          <div class="demo-grid-item">2</div>
+          <div class="demo-grid-item bg-fishblue">2</div>
         </f-grid-item>
         <f-grid-item>
           <div class="demo-grid-item">3</div>
         </f-grid-item>
         <f-grid-item>
-          <div class="demo-grid-item">4</div>
+          <div class="demo-grid-item bg-fishblue">4</div>
         </f-grid-item>
         <f-grid-item>
-          <div class="demo-grid-item">5</div>
+          <div class="demo-grid-item bg-fishblue">5</div>
         </f-grid-item>
         <f-grid-item>
           <div class="demo-grid-item">6</div>
         </f-grid-item>
         <f-grid-item>
-          <div class="demo-grid-item">7</div>
+          <div class="demo-grid-item bg-fishblue">7</div>
         </f-grid-item>
         <f-grid-item>
           <div class="demo-grid-item">8</div>
@@ -57,7 +57,7 @@
           <div class="demo-grid-item">1</div>
         </f-grid-item>
         <f-grid-item>
-          <div class="demo-grid-item">2</div>
+          <div class="demo-grid-item bg-fishblue">2</div>
         </f-grid-item>
         <f-grid-item suffix>
           <div class="demo-grid-item">3 (suffix)</div>
@@ -73,11 +73,5 @@
   text-align: center;
   color: #fff;
   background-color: var(--color-primary-light-4);
-  border-radius: 4px;
-}
-
-p {
-  margin: 16px 0 8px;
-  color: var(--f-text-color-secondary);
 }
 </style>

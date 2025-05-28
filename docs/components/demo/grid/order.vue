@@ -25,7 +25,6 @@
   text-align: center;
   color: #fff;
   background-color: var(--color-primary-light-4);
-  border-radius: 4px;
   margin-bottom: 16px;
 }
 </style>

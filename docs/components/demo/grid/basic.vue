@@ -51,8 +51,4 @@
   background-color: var(--color-primary-light-4);
   margin-bottom: 16px;
 }
-
-.bg-fishblue {
-  background: rgb(var(--fishblue-6));
-}
 </style>

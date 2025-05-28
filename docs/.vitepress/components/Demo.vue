@@ -138,6 +138,14 @@ const handleToggleCode = () => {
   padding: 20px;
 }
 
+:deep(.bg-fishblue) {
+  background: rgb(var(--fishblue-6));
+}
+
+:deep(.bg-primary) {
+  background-color: var(--color-primary-light-4);
+}
+
 :deep(.demo-content-row) {
   display: flex;
   gap: 16px;

@@ -7,7 +7,7 @@
           <div class="demo-grid-item">2 / 5</div>
         </f-col>
         <f-col :flex="3">
-          <div class="demo-grid-item">3 / 5</div>
+          <div class="demo-grid-item bg-fishblue">3 / 5</div>
         </f-col>
       </f-row>
 
@@ -17,7 +17,7 @@
           <div class="demo-grid-item">100px</div>
         </f-col>
         <f-col flex="auto">
-          <div class="demo-grid-item">auto</div>
+          <div class="demo-grid-item bg-fishblue">auto</div>
         </f-col>
       </f-row>
 
@@ -27,7 +27,7 @@
           <div class="demo-grid-item">1 1 200px</div>
         </f-col>
         <f-col flex="0 1 300px">
-          <div class="demo-grid-item">0 1 300px</div>
+          <div class="demo-grid-item bg-fishblue">0 1 300px</div>
         </f-col>
       </f-row>
     </div>
@@ -40,7 +40,6 @@
   text-align: center;
   color: #fff;
   background-color: var(--color-primary-light-4);
-  border-radius: 4px;
   margin-bottom: 16px;
 }
 
