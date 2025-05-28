@@ -11,7 +11,7 @@ npm install @yuntower/fish-ui
 ```ts [main.ts]
 import { createApp } from 'vue'
 import App from './App.vue'
-import FishUi from 'fish-ui';
+import FishUi from '@yuntower/fish-ui';
 import '@yuntower/fish-ui/style.css'
 
 const app = createApp(App)
