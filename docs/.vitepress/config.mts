@@ -57,6 +57,7 @@ export default defineConfig({
             { text: '卡片 Card', link: '/components/card' },
             { text: '选项卡 Tabs', link: '/components/tabs' },
             { text: '空状态 Empty', link: '/components/empty' },
+            { text: '徽标 Badge', link: '/components/badge' },
           ]
         },
         {

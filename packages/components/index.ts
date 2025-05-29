@@ -10,6 +10,7 @@ import { FCard, FCardMeta } from './card'
 import { FRow, FCol, FGrid, FGridItem } from './grid'
 import { FTabs, FTabPane } from './tabs'
 import { FEmpty } from './empty'
+import { FBadge, FBadgeGroup } from './badge'
 
 export const components = [
   FButton,
@@ -33,7 +34,9 @@ export const components = [
   FGridItem,
   FTabs,
   FTabPane,
-  FEmpty
+  FEmpty,
+  FBadge,
+  FBadgeGroup
 ]
 
 export * from './button'
@@ -48,3 +51,4 @@ export * from './card'
 export * from './grid'
 export * from './tabs'
 export * from './empty'
+export * from './badge'
