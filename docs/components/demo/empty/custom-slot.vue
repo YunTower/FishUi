@@ -1,5 +1,5 @@
 <template>
-  <div class="demo-content">
+  <div>
     <f-empty>
       <template #image>
         <f-icon name="emotion-sad-line" style="font-size: 48px; color: var(--color-text-3);" />

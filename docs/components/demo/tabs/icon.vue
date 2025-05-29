@@ -1,5 +1,5 @@
 <template>
-  <div class="demo-content">
+  <div>
     <f-tabs>
       <f-tab-pane key="home">
         <template #title>

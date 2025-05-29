@@ -1,5 +1,5 @@
 <template>
-  <div class="demo-content">
+  <div>
     <f-tabs>
       <template #extra>
         <f-button size="small" type="outline">操作按钮</f-button>

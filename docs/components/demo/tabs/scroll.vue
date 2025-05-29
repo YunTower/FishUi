@@ -1,5 +1,5 @@
 <template>
-  <div class="demo-content">
+  <div>
     <div class="demo-section">
       <h3>自动滚动 (默认)</h3>
       <div class="wheel-scroll-container" ref="container1">

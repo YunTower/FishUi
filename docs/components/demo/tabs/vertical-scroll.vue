@@ -1,5 +1,5 @@
 <template>
-  <div class="demo-content">
+  <div>
     <div class="demo-content-row">
       <h3>左侧垂直滚动</h3>
       <f-tabs ref="leftTabsRef" position="left" :wheel-scroll="true" style="height: 300px; border: 1px solid var(--color-border-2); border-radius: 4px;">

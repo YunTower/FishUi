@@ -1,5 +1,5 @@
 <template>
-  <div class="demo-content">
+  <div>
     <f-tabs editable show-add-button @add="handleAdd" @delete="handleDelete">
       <f-tab-pane v-for="(tab, index) in tabs" :key="tab.key" :title="tab.title">
         {{ tab.content }}

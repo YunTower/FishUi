@@ -1,5 +1,5 @@
 <template>
-  <div class="demo-content">
+  <div>
     <div class="demo-content-row" style="margin-bottom: 20px;">
       <h3>顶部位置（默认）</h3>
       <f-tabs position="top">

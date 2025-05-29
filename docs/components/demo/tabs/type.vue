@@ -1,5 +1,5 @@
 <template>
-  <div class="demo-content">
+  <div>
     <div class="demo-content-row">
       <h3>线性标签（默认）</h3>
       <f-tabs type="line">

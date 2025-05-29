@@ -1,5 +1,5 @@
 <template>
-  <div class="demo-content">
+  <div>
     <div class="demo-content-row">
       <h3>默认状态</h3>
       <f-empty description="暂无数据" />

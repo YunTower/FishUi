@@ -1,5 +1,5 @@
 <template>
-  <div class="demo-content">
+  <div>
     <f-tabs lazy-load>
       <f-tab-pane title="标签1">
         <div>标签1内容 - 首次选中时才会渲染</div>
@@ -13,7 +13,3 @@
     </f-tabs>
   </div>
 </template>
-
-<script setup>
-import { ref, onMounted } from 'vue'
-</script>

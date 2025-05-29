@@ -1,5 +1,5 @@
 <template>
-  <div class="demo-content">
+  <div>
     <f-empty description="暂无数据" />
   </div>
 </template>

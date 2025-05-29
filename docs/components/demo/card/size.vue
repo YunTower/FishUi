@@ -1,5 +1,5 @@
 <template>
-  <div class="demo-content">
+  <div>
     <f-card style="width: 360px; margin-bottom: 16px" title="中号卡片" extra="更多">
       这是一个中号卡片，默认尺寸为medium
     </f-card>

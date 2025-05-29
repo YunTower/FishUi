@@ -1,5 +1,5 @@
 <template>
-  <div class="demo-content">
+  <div>
     <f-card style="width: 360px" :hoverable="true">
       <template #cover>
         <img src="https://picsum.photos/360/200" alt="随机图片" />
