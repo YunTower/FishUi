@@ -60,15 +60,15 @@
 
 ### Empty Props
 
-| 参数名                | 描述                     | 类型                                                                 | 默认值      | 版本     |
-|--------------------|------------------------|--------------------------------------------------------------------|----------|--------|
-| description        | 描述内容                   | string                                                             | -        | -      |
-| img-src            | 自定义图片的地址               | string                                                             | -        | -      |
-| in-config-provider | 是否在 ConfigProvider 中使用 | boolean                                                            | false    | 2.47.0 |
-| image-style        | 透传图片样式表                | CSSProperties                                                      | -        | -      |
-| size               | 空状态的尺寸                 | `small` \| `medium` \| `large`                                     | `medium` | -      |
-| title              | 错误标题                   | string                                                             | -        | -      |
-| type               | 组件类型                   | `empty` \| `success` \| `fail` \| `network-error` \| `maintenance` | `empty`  | -      |
+| 参数名                | 描述                     | 类型                                                                 | 默认值      |
+|--------------------|------------------------|--------------------------------------------------------------------|----------|
+| description        | 描述内容                   | string                                                             | -        |
+| img-src            | 自定义图片的地址               | string                                                             | -        |
+| in-config-provider | 是否在 ConfigProvider 中使用 | boolean                                                            | false    |
+| image-style        | 透传图片样式表                | CSSProperties                                                      | -        |
+| size               | 空状态的尺寸                 | `small` \| `medium` \| `large`                                     | `medium` |
+| title              | 错误标题                   | string                                                             | -        |
+| type               | 组件类型                   | `empty` \| `success` \| `fail` \| `network-error` \| `maintenance` | `empty`  |
 
 ### Empty Slots
 
