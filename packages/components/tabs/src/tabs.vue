@@ -63,18 +63,15 @@ const currentActiveKey = computed({
 
 // 判断面板是否激活
 const isPaneActive = (key: string | number | undefined, uid: symbol) => {
-  // 如果有key且当前activeKey有值，则比较key
   if (key !== undefined && currentActiveKey.value !== undefined) {
     return String(currentActiveKey.value) === String(key)
   }
 
-  // 如果有activeUid，则比较uid
   if (activeUid.value !== null) {
     return activeUid.value === uid
   }
 
-  // 如果没有activeKey和activeUid，则检查是否是第一个非禁用面板
-  if (currentActiveKey.value === undefined && activeUid.value === null) {
+  if (currentActiveKey.value === undefined) {
     if (panes.value.length > 0) {
       const firstPane = panes.value.find(pane => !pane.disabled)
       return firstPane && firstPane.uid === uid
@@ -94,7 +91,6 @@ const addPane = (pane: {
 }) => {
   panes.value.push(pane)
 
-  // 如果是第一个添加的面板，且没有activeKey，则设置为激活
   if (panes.value.length === 1 && currentActiveKey.value === undefined && activeUid.value === null && !pane.disabled) {
     activeUid.value = pane.uid
     if (pane.key !== undefined) {
@@ -102,7 +98,6 @@ const addPane = (pane: {
     }
   }
 
-  // 当添加新的面板时，更新滚动状态
   nextTick(() => {
     updateNavScroll()
   })
@@ -117,16 +112,12 @@ const removePane = (key: string | number | undefined, uid: symbol) => {
     const removedPane = panes.value[index]
     panes.value.splice(index, 1)
 
-    // 如果删除的是当前激活的标签页，则激活上一个或下一个标签页
     if (isPaneActive(removedPane.key, removedPane.uid)) {
       let newActiveIndex = -1
 
-      // 尝试激活下一个标签页
       if (index < panes.value.length) {
         newActiveIndex = index
-      }
-      // 如果没有下一个，尝试激活上一个标签页
-      else if (index > 0) {
+      } else if (index > 0) {
         newActiveIndex = index - 1
       }
 
@@ -136,7 +127,6 @@ const removePane = (key: string | number | undefined, uid: symbol) => {
       }
     }
 
-    // 当删除面板时，更新滚动状态
     nextTick(() => {
       updateNavScroll()
     })
@@ -147,7 +137,7 @@ const handleTabClick = (key: string | number | undefined, uid: symbol, disabled 
   if (disabled) return
 
   if (props.trigger === 'click') {
-    setActivePane({key, uid})
+    setActivePane({ key, uid })
   }
   emit('tab-click', key !== undefined ? key : 0)
 }
@@ -156,35 +146,28 @@ const handleTabHover = (key: string | number | undefined, uid: symbol, disabled 
   if (disabled) return
 
   if (props.trigger === 'hover') {
-    setActivePane({key, uid})
+    setActivePane({ key, uid })
   }
 }
 
-const setActivePane = (pane: {key?: string | number, uid: symbol}) => {
-  // 找到对应的面板
+const setActivePane = (pane: { key?: string | number, uid: symbol }) => {
   const index = panes.value.findIndex(p => p.uid === pane.uid)
   if (index === -1) return
 
-  // 如果已经是激活状态，不做处理
   if (isPaneActive(pane.key, pane.uid)) return
 
-  // 设置激活状态
   activeUid.value = pane.uid
 
-  // 如果有key，更新activeKey
   if (pane.key !== undefined) {
     currentActiveKey.value = pane.key
   } else {
-    // 如果没有key，但是v-model绑定了activeKey，我们需要发送一个索引值
     if (props.activeKey !== undefined) {
       emit('update:activeKey', index)
     }
   }
 
-  // 发送change事件
   emit('change', pane.key !== undefined ? pane.key : index)
 
-  // 滚动到选中的标签页
   nextTick(() => {
     scrollToActiveTab()
   })
@@ -208,7 +191,6 @@ const initDefaultActiveKey = () => {
       })
     }
   } else if (currentActiveKey.value !== undefined) {
-    // 如果有activeKey，找到对应的面板并设置activeUid
     const pane = panes.value.find(p => p.key !== undefined && String(p.key) === String(currentActiveKey.value))
     if (pane) {
       activeUid.value = pane.uid
@@ -223,15 +205,12 @@ const updateNavScroll = () => {
   const navElement = navRef.value
   const containerElement = navContainerRef.value
 
-  // 检查是否需要滚动
   if (props.direction === 'horizontal' || props.position === 'top' || props.position === 'bottom') {
     isScrollable.value = navElement.scrollWidth > containerElement.clientWidth
   } else {
-    // 垂直方向
     isScrollable.value = navElement.scrollHeight > containerElement.clientHeight
   }
 
-  // 检查是否显示前后箭头
   if (isScrollable.value) {
     updateArrowVisibility()
   } else {
@@ -247,37 +226,31 @@ const updateArrowVisibility = () => {
   const navElement = navRef.value
 
   if (props.direction === 'horizontal' || props.position === 'top' || props.position === 'bottom') {
-    // 水平方向
     showPrevArrow.value = navElement.scrollLeft > 0
     showNextArrow.value = navElement.scrollLeft + navElement.clientWidth < navElement.scrollWidth
   } else {
-    // 垂直方向
     showPrevArrow.value = navElement.scrollTop > 0
     showNextArrow.value = navElement.scrollTop + navElement.clientHeight < navElement.scrollHeight
   }
 }
 
-// 滚动到指定位置
 const scrollTo = (position: number) => {
   if (!navRef.value) return
 
   const navElement = navRef.value
 
   if (props.direction === 'horizontal' || props.position === 'top' || props.position === 'bottom') {
-    // 水平方向滚动
     navElement.scrollTo({
       left: position,
       behavior: 'smooth'
     })
   } else {
-    // 垂直方向滚动
     navElement.scrollTo({
       top: position,
       behavior: 'smooth'
     })
   }
 
-  // 更新箭头状态
   setTimeout(() => {
     updateArrowVisibility()
   }, 300)
@@ -427,52 +400,104 @@ const scrollToActiveTab = () => {
     // 确保滚动位置在有效范围内
     targetPosition = Math.max(0, Math.min(navElement.scrollHeight - navHeight, targetPosition))
 
-    // 执行滚动
     scrollTo(targetPosition)
   }
 }
 
-// 处理滚动事件
 const handleScroll = () => {
   updateArrowVisibility()
 }
 
-// 处理鼠标滚轮事件
 const handleWheel = (event: WheelEvent) => {
-  console.log('Wheel event triggered')
-  if (!navRef.value) return
+  if (!navRef.value || !props.wheelScroll) return
 
-  // 阻止默认的垂直滚动
-  event.preventDefault()
+  // 获取鼠标事件发生时所在元素的位置信息
+  const navElement = navRef.value
+  const rect = navElement.getBoundingClientRect()
+
+  // 检查鼠标是否在导航区域内
+  if (
+    event.clientX >= rect.left &&
+    event.clientX <= rect.right &&
+    event.clientY >= rect.top &&
+    event.clientY <= rect.bottom
+  ) {
+    // 阻止默认的滚动行为
+    event.preventDefault()
+    event.stopPropagation()
+
+    // 确定滚动方向和距离
+    let scrollAmount = event.deltaY
+
+    // 检测是否为触摸板事件，触摸板的滚动量通常较小而且精确
+    const isTouchpad = Math.abs(scrollAmount) < 10 || event.deltaMode !== 0
+
+    // 确定滚动方向（垂直或水平）
+    let isVertical = props.position === 'left' || props.position === 'right'
+
+    // 调整滚动量
+    if (isVertical) {
+      // 垂直滚动
+      scrollAmount = event.deltaY * (isTouchpad ? 2 : 8)
+      navElement.scrollTop += scrollAmount
+    } else {
+      if (Math.abs(event.deltaX) > Math.abs(event.deltaY)) {
+        scrollAmount = event.deltaX
+      }
+      scrollAmount = scrollAmount * (isTouchpad ? 1 : 5)
+      navElement.scrollLeft += scrollAmount
+    }
+
+    updateArrowVisibility()
+  }
+}
+
+// 初始化滚动容器
+const initScrollContainer = () => {
+  if (!navRef.value) return
 
   const navElement = navRef.value
 
-  // 确定滚动方向和距离
-  let scrollAmount = event.deltaY
+  // 设置滚动行为
+  navElement.style.scrollBehavior = 'smooth'
 
-  // 如果没有按下shift键，某些触控板的deltaX可能为0
-  if (Math.abs(event.deltaX) > Math.abs(event.deltaY)) {
-    scrollAmount = event.deltaX
+  // 针对垂直tabs进行特殊处理
+  if (props.position === 'left' || props.position === 'right') {
+    // 强制设置垂直滚动样式
+    navElement.style.overflowY = 'auto'
+    navElement.style.overflowX = 'hidden'
+    navElement.style.scrollbarWidth = 'none'
+    // 使用类型断言解决TypeScript错误
+    ;(navElement.style as any).msOverflowStyle = 'none'
+    ;(navElement.style as any).webkitOverflowScrolling = 'touch'
+
+    // 确保滚动事件能被正确处理
+    if (props.wheelScroll) {
+      const wheelHandler = (e: WheelEvent) => {
+        if (!navRef.value) return
+
+        e.preventDefault()
+        e.stopPropagation()
+
+        const delta = e.deltaY || e.deltaX
+        const scrollSpeed = Math.abs(delta) < 10 ? 20 : 40 // 根据输入设备调整滚动速度
+
+        navElement.scrollTop += (delta > 0 ? scrollSpeed : -scrollSpeed)
+        updateArrowVisibility()
+        return false
+      }
+
+      navElement.addEventListener('wheel', wheelHandler, { passive: false, capture: true })
+
+      cleanupFunctions.push(() => {
+        navElement.removeEventListener('wheel', wheelHandler, { capture: true })
+      })
+    }
   }
-
-  // 根据浏览器和操作系统不同，调整滚动速度
-  // 在一些触控板上，deltaY可能非常大，需要减缓滚动速度
-  const factor = Math.abs(scrollAmount) < 100 ? 1 : 0.3
-  scrollAmount = scrollAmount * factor
-
-  if (props.direction === 'horizontal' || props.position === 'top' || props.position === 'bottom') {
-    // 水平方向滚动
-    navElement.scrollLeft += scrollAmount
-  } else {
-    // 垂直方向滚动
-    navElement.scrollTop += scrollAmount
-  }
-
-  // 更新箭头状态
-  updateArrowVisibility()
 }
 
-// 提供给子组件的方法和状态
+const cleanupFunctions: (() => void)[] = []
+
 provide('tabs', {
   isPaneActive,
   addPane,
@@ -481,11 +506,9 @@ provide('tabs', {
 
 watch(() => props.activeKey, (val) => {
   if (val !== undefined) {
-    // 查找匹配的面板
     const pane = panes.value.find(p => p.key !== undefined && String(p.key) === String(val))
     if (pane) {
       activeUid.value = pane.uid
-      // 当activeKey变化时，滚动到选中的标签
       nextTick(() => {
         scrollToActiveTab()
       })
@@ -493,7 +516,6 @@ watch(() => props.activeKey, (val) => {
   }
 })
 
-// 监听panes变化，初始化默认选中
 watch(() => panes.value, (val) => {
   if (val.length > 0) {
     initDefaultActiveKey()
@@ -504,32 +526,32 @@ onMounted(() => {
   nextTick(() => {
     initDefaultActiveKey()
     updateNavScroll()
+    initScrollContainer()
 
     // 如果有选中的标签，滚动到选中的标签
     if (currentActiveKey.value !== undefined || activeUid.value !== null) {
       scrollToActiveTab()
     }
 
-    // 监听窗口大小变化，更新滚动状态
     window.addEventListener('resize', updateNavScroll)
 
-    // 仅当wheelScroll属性为true时，才添加鼠标滚轮事件监听
-    console.log('wheelScroll:', props.wheelScroll)
-    if (props.wheelScroll && navRef.value) {
-      console.log('Adding wheel event listener')
-      navRef.value.addEventListener('wheel', handleWheel, { passive: false })
+    if (props.wheelScroll) {
+      document.addEventListener('wheel', handleWheel, { passive: false, capture: true })
+      if (navRef.value) {
+        navRef.value.classList.add('f-tabs__nav--wheel-scroll')
+      }
     }
   })
 })
 
-// 组件卸载时，移除事件监听
 onBeforeUnmount(() => {
   window.removeEventListener('resize', updateNavScroll)
 
-  // 移除鼠标滚轮事件监听
-  if (props.wheelScroll && navRef.value) {
-    navRef.value.removeEventListener('wheel', handleWheel)
+  if (props.wheelScroll) {
+    document.removeEventListener('wheel', handleWheel, { capture: true })
   }
+
+  cleanupFunctions.forEach(cleanup => cleanup())
 })
 </script>
 
@@ -544,7 +566,8 @@ onBeforeUnmount(() => {
       {
         'f-tabs--justify': justify,
         'f-tabs--no-padding': !headerPadding,
-        'f-tabs--nav-scrollable': isScrollable
+        'f-tabs--nav-scrollable': isScrollable,
+        'f-tabs--wheel-scroll': wheelScroll
       }
     ]"
   >

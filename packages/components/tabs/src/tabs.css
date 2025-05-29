@@ -5,7 +5,6 @@
   box-sizing: border-box;
 }
 
-/* 标签头部样式 */
 .f-tabs__header {
   display: flex;
   align-items: center;
@@ -36,7 +35,6 @@
   transition: transform 0.3s ease;
   will-change: transform;
   -webkit-overflow-scrolling: touch;
-  /* 增强iOS的滚动体验 */
   flex: 1;
   scroll-behavior: smooth;
 }
@@ -45,7 +43,6 @@
   display: none;
 }
 
-/* 标签项样式 */
 .f-tabs__tab {
   display: flex;
   align-items: center;
@@ -133,7 +130,6 @@
   background-color: var(--color-fill-2);
 }
 
-/* 滚动按钮 */
 .f-tabs__nav-prev,
 .f-tabs__nav-next {
   position: absolute;
@@ -174,7 +170,6 @@
   opacity: 1;
 }
 
-/* 滚动容器样式调整 */
 .f-tabs--nav-scrollable .f-tabs__nav-container {
   padding: 0 28px;
 }
@@ -200,7 +195,6 @@
   transform: translateX(-50%) rotate(90deg);
 }
 
-/* 标签内容样式 */
 .f-tabs__content {
   flex: 1;
   overflow: hidden;
@@ -216,7 +210,6 @@
   height: 100%;
 }
 
-/* 位置变体 */
 .f-tabs--top {
   flex-direction: column;
 }
@@ -299,7 +292,6 @@
   overflow: visible;
 }
 
-/* 标签类型变体 */
 .f-tabs--line .f-tabs__tab--active::after {
   content: '';
   position: absolute;
@@ -347,7 +339,6 @@
   border-color: var(--color-border-2);
 }
 
-/* 垂直方向下的卡片样式 */
 .f-tabs--left.f-tabs--card .f-tabs__tab,
 .f-tabs--right.f-tabs--card .f-tabs__tab {
   border: 1px solid var(--color-border-2);
@@ -373,11 +364,9 @@
 .f-tabs--capsule .f-tabs__tab--active,
 .f-tabs--left.f-tabs--card-gutter .f-tabs__tab,
 .f-tabs--right.f-tabs--card-gutter .f-tabs__tab {
-  /* 删除这些类型的样式 */
   display: none;
 }
 
-/* 尺寸变体 */
 .f-tabs--mini .f-tabs__tab {
   height: 24px;
   padding: 0 8px;
@@ -402,7 +391,6 @@
   font-size: 16px;
 }
 
-/* 方向变体 */
 .f-tabs--horizontal .f-tabs__nav {
   flex-direction: row;
 }
@@ -417,16 +405,53 @@
   overflow-x: hidden;
   overflow-y: auto;
   scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+  margin-right: 0;
+  padding-right: 0;
+  overscroll-behavior: contain; /* 防止滚动传播到父容器 */
+  scroll-snap-type: y proximity; /* 优化滚动感觉 */
 }
 
+.f-tabs--vertical .f-tabs__nav::-webkit-scrollbar {
+  display: none;  /* Chrome/Safari */
+  width: 0;
+  height: 0;
+}
+
+/* 垂直滚动时，针对标签项的样式调整 */
 .f-tabs--vertical .f-tabs__tab {
   width: 100%;
   justify-content: flex-start;
   flex-shrink: 0;
   height: 40px;
+  cursor: pointer;
+  user-select: none;
+  scroll-snap-align: start; /* 更平滑的滚动停止位置 */
 }
 
-/* 其他功能样式 */
+/* 垂直滚动增强 */
+.f-tabs--vertical.f-tabs--wheel-scroll .f-tabs__nav {
+  overflow-y: auto !important;
+  touch-action: pan-y;
+  overflow-x: hidden !important;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+  padding-right: 0;
+  overscroll-behavior: contain;
+  will-change: scroll-position; /* 性能优化 */
+  pointer-events: auto !important; /* 确保可以接收事件 */
+}
+
+.f-tabs--vertical.f-tabs--wheel-scroll .f-tabs__nav::-webkit-scrollbar {
+  display: none;  /* Chrome/Safari */
+  width: 0;
+  height: 0;
+}
+
 .f-tabs--justify .f-tabs__nav {
   width: 100%;
 }
@@ -441,12 +466,10 @@
   padding: 0;
 }
 
-/* 动画效果 */
 .f-tabs[animation] .f-tabs__content {
   transition: all 0.3s;
 }
 
-/* 处理垂直滚动模式下的卡片样式 */
 .f-tabs--left.f-tabs--card .f-tabs__tab,
 .f-tabs--right.f-tabs--card .f-tabs__tab {
   border: 1px solid var(--color-border-2);
@@ -467,14 +490,12 @@
   display: none;
 }
 
-/* 修复垂直选项卡的内容容器样式 */
 .f-tabs--vertical .f-tabs__content {
   flex: 1;
   height: 100%;
   overflow: auto;
 }
 
-/* 针对触摸设备的优化 */
 @media (pointer: fine) {
   .f-tabs__nav {
     scrollbar-width: none;
@@ -483,4 +504,31 @@
   .f-tabs__nav::-webkit-scrollbar {
     display: none;
   }
+}
+
+.f-tabs--wheel-scroll .f-tabs__nav {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  touch-action: pan-y;
+}
+
+.f-tabs--horizontal.f-tabs--wheel-scroll .f-tabs__nav {
+  overflow-y: hidden !important;
+  touch-action: pan-x;
+}
+
+.f-tabs--vertical.f-tabs--wheel-scroll .f-tabs__nav {
+  overflow-y: auto !important;
+  touch-action: pan-y;
+  overflow-x: hidden !important;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.f-tabs--vertical.f-tabs--wheel-scroll .f-tabs__nav::-webkit-scrollbar {
+  display: none;
+  width: 0;
 }

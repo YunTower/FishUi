@@ -1,7 +1,7 @@
 <template>
   <div>
     <f-tabs editable show-add-button @add="handleAdd" @delete="handleDelete">
-      <f-tab-pane v-for="(tab, index) in tabs" :key="tab.key" :title="tab.title">
+      <f-tab-pane v-for="(tab, index) in tabs" :key="tab.key" :tabKey="tab.key" :title="tab.title">
         {{ tab.content }}
       </f-tab-pane>
     </f-tabs>

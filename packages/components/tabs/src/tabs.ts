@@ -23,7 +23,7 @@ export interface TabsProps {
 
 export interface TabPaneProps {
   title?: string
-  key?: string | number
+  tabKey?: string | number
   disabled?: boolean
   closable?: boolean
   destroyOnHide?: boolean
@@ -109,7 +109,7 @@ export const tabPaneProps = {
     type: String,
     default: ''
   },
-  key: {
+  tabKey: {
     type: [String, Number],
     default: undefined
   },

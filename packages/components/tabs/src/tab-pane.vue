@@ -6,7 +6,7 @@ defineOptions({
   name: 'FTabPane'
 })
 
-const props = withDefaults(defineProps<TabPaneProps & { key?: string | number }>(), {
+const props = withDefaults(defineProps<TabPaneProps>(), {
   title: '',
   disabled: false,
   closable: true,
@@ -16,25 +16,19 @@ const props = withDefaults(defineProps<TabPaneProps & { key?: string | number }>
 const slots = useSlots()
 const instance = getCurrentInstance()
 const tabs = inject('tabs', null) as any
-// 使用一个唯一的标识符
 const uid = Symbol('tab-pane') as symbol
 
-// 尝试获取父组件传递给我们的key
 const panelKey = computed(() => {
-  // 1. 优先使用props.key
-  if (props.key !== undefined) {
-    return props.key
+  if (props.tabKey !== undefined) {
+    return props.tabKey
   }
-  // 2. 如果props.key未定义，则使用vnode的key
   const vnodeKey = instance?.vnode.key
   if (vnodeKey !== undefined && vnodeKey !== null) {
     return String(vnodeKey)
   }
-  // 3. 都没有则返回undefined
   return undefined
 })
 
-// 获取title插槽内容
 const renderTitle = () => {
   if (slots.title) {
     return slots.title()
@@ -72,10 +66,9 @@ onBeforeUnmount(() => {
   }
 })
 
-// 向父组件暴露必要的属性
 defineExpose({
   uid,
-  key: panelKey
+  panelKey
 })
 </script>
 
