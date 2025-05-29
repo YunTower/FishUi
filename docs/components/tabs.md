@@ -68,8 +68,8 @@
 
 | 参数名                  | 描述                                                     | 类型                                                                    | 默认值          | 版本 |
 |----------------------|--------------------------------------------------------|-----------------------------------------------------------------------|--------------|----|
-| active-key (v-model) | 当前选中的标签的 key                                           | string \| number                                                      | -            | -  |
-| default-active-key   | 默认选中的标签的key（非受控状态，为空时选中第一个标签页）                         | string \| number                                                      | -            | -  |
+| active-tab (v-model) | 当前选中的标签的 key                                           | string \| number                                                      | -            | -  |
+| default-active-tab   | 默认选中的标签的key（非受控状态，为空时选中第一个标签页）                         | string \| number                                                      | -            | -  |
 | position             | 选项卡的位置                                                 | `left` \| `right` \| `top` \| `bottom`                                | `top`        | -  |
 | size                 | 选项卡的大小                                                 | `mini` \| `small` \| `medium` \| `large`                              | `medium`     | -  |
 | type                 | 选项卡的类型                                                 | `line` \| `card`                                                      | `line`       | -  |
@@ -91,10 +91,10 @@
 
 | 事件名       | 描述          | 参数                    |
 |-----------|-------------|-----------------------|
-| change    | 当前标签值改变时触发  | key: string \| number |
-| tab-click | 用户点击标签时触发   | key: string \| number |
+| change    | 当前标签值改变时触发  | tabId: string \| number |
+| tab-click | 用户点击标签时触发   | tabId: string \| number |
 | add       | 用户点击增加按钮时触发 | -                     |
-| delete    | 用户点击删除按钮时触发 | key: string \| number |
+| delete    | 用户点击删除按钮时触发 | tabId: string \| number |
 
 ### Tabs Slots
 

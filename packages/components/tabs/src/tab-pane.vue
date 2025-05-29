@@ -19,14 +19,7 @@ const tabs = inject('tabs', null) as any
 const uid = Symbol('tab-pane') as symbol
 
 const panelKey = computed(() => {
-  if (props.tabKey !== undefined) {
-    return props.tabKey
-  }
-  const vnodeKey = instance?.vnode.key
-  if (vnodeKey !== undefined && vnodeKey !== null) {
-    return String(vnodeKey)
-  }
-  return undefined
+  return props.tabKey !== undefined ? props.tabKey : undefined
 })
 
 const renderTitle = () => {
@@ -50,7 +43,7 @@ const shouldRender = computed(() => {
 onMounted(() => {
   if (tabs) {
     tabs.addPane({
-      key: panelKey.value,
+      tabKeyValue: panelKey.value,
       uid,
       title: props.title,
       renderTitle,

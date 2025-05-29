@@ -1,8 +1,8 @@
 import type { PropType } from 'vue'
 
 export interface TabsProps {
-  activeKey?: string | number
-  defaultActiveKey?: string | number
+  activeTab?: string | number
+  defaultActiveTab?: string | number
   position?: 'left' | 'right' | 'top' | 'bottom'
   size?: 'mini' | 'small' | 'medium' | 'large'
   type?: 'line' | 'card'
@@ -30,11 +30,11 @@ export interface TabPaneProps {
 }
 
 export const tabsProps = {
-  activeKey: {
+  activeTab: {
     type: [String, Number] as PropType<string | number>,
     default: undefined
   },
-  defaultActiveKey: {
+  defaultActiveTab: {
     type: [String, Number] as PropType<string | number>,
     default: undefined
   },

@@ -9,7 +9,7 @@ defineOptions({
 const props = withDefaults(defineProps<BadgeProps>(), {
   dot: false,
   maxCount: 99,
-  offset: () => [],
+  offset: () => [0, 0],
   shape: 'circle',
   size: 'medium',
   showZero: false

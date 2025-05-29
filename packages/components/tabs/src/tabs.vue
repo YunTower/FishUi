@@ -26,17 +26,17 @@ const props = withDefaults(defineProps<TabsProps>(), {
 })
 
 const emit = defineEmits<{
-  (e: 'change', key: string | number): void
-  (e: 'tab-click', key: string | number): void
+  (e: 'change', tabId: string | number): void
+  (e: 'tab-click', tabId: string | number): void
   (e: 'add'): void
-  (e: 'delete', key: string | number): void
-  (e: 'update:activeKey', key: string | number): void
+  (e: 'delete', tabId: string | number): void
+  (e: 'update:activeTab', tabId: string | number): void
 }>()
 
-const activeKey = ref<string | number | undefined>(props.defaultActiveKey)
+const activeTab = ref<string | number | undefined>(props.defaultActiveTab)
 const activeUid = ref<symbol | null>(null)
 const panes = ref<{
-  key?: string | number;
+  tabKeyValue?: string | number;
   uid: symbol;
   title: string;
   renderTitle?: () => any;
@@ -51,27 +51,27 @@ const isScrollable = ref(false)
 const showPrevArrow = ref(false)
 const showNextArrow = ref(false)
 
-const currentActiveKey = computed({
-  get: () => props.activeKey !== undefined ? props.activeKey : activeKey.value,
+const currentActiveTab = computed({
+  get: () => props.activeTab !== undefined ? props.activeTab : activeTab.value,
   set: (val) => {
-    if (props.activeKey === undefined) {
-      activeKey.value = val
+    if (props.activeTab === undefined) {
+      activeTab.value = val
     }
-    emit('update:activeKey', val as string | number)
+    emit('update:activeTab', val as string | number)
   }
 })
 
 // 判断面板是否激活
-const isPaneActive = (key: string | number | undefined, uid: symbol) => {
-  if (key !== undefined && currentActiveKey.value !== undefined) {
-    return String(currentActiveKey.value) === String(key)
+const isPaneActive = (tabId: string | number | undefined, uid: symbol) => {
+  if (tabId !== undefined && currentActiveTab.value !== undefined) {
+    return String(currentActiveTab.value) === String(tabId)
   }
 
   if (activeUid.value !== null) {
     return activeUid.value === uid
   }
 
-  if (currentActiveKey.value === undefined) {
+  if (currentActiveTab.value === undefined) {
     if (panes.value.length > 0) {
       const firstPane = panes.value.find(pane => !pane.disabled)
       return firstPane && firstPane.uid === uid
@@ -82,7 +82,7 @@ const isPaneActive = (key: string | number | undefined, uid: symbol) => {
 }
 
 const addPane = (pane: {
-  key?: string | number;
+  tabKeyValue?: string | number;
   uid: symbol;
   title: string;
   renderTitle?: () => any;
@@ -91,10 +91,10 @@ const addPane = (pane: {
 }) => {
   panes.value.push(pane)
 
-  if (panes.value.length === 1 && currentActiveKey.value === undefined && activeUid.value === null && !pane.disabled) {
+  if (panes.value.length === 1 && currentActiveTab.value === undefined && activeUid.value === null && !pane.disabled) {
     activeUid.value = pane.uid
-    if (pane.key !== undefined) {
-      activeKey.value = pane.key
+    if (pane.tabKeyValue !== undefined) {
+      activeTab.value = pane.tabKeyValue
     }
   }
 
@@ -103,16 +103,16 @@ const addPane = (pane: {
   })
 }
 
-const removePane = (key: string | number | undefined, uid: symbol) => {
-  const index = key !== undefined
-    ? panes.value.findIndex(pane => pane.key !== undefined && String(pane.key) === String(key))
+const removePane = (tabId: string | number | undefined, uid: symbol) => {
+  const index = tabId !== undefined
+    ? panes.value.findIndex(pane => pane.tabKeyValue !== undefined && String(pane.tabKeyValue) === String(tabId))
     : panes.value.findIndex(pane => pane.uid === uid)
 
   if (index > -1) {
     const removedPane = panes.value[index]
     panes.value.splice(index, 1)
 
-    if (isPaneActive(removedPane.key, removedPane.uid)) {
+    if (isPaneActive(removedPane.tabKeyValue, removedPane.uid)) {
       let newActiveIndex = -1
 
       if (index < panes.value.length) {
@@ -133,40 +133,40 @@ const removePane = (key: string | number | undefined, uid: symbol) => {
   }
 }
 
-const handleTabClick = (key: string | number | undefined, uid: symbol, disabled = false) => {
+const handleTabClick = (tabId: string | number | undefined, uid: symbol, disabled = false) => {
   if (disabled) return
 
   if (props.trigger === 'click') {
-    setActivePane({ key, uid })
+    setActivePane({ tabKeyValue: tabId, uid })
   }
-  emit('tab-click', key !== undefined ? key : 0)
+  emit('tab-click', tabId !== undefined ? tabId : 0)
 }
 
-const handleTabHover = (key: string | number | undefined, uid: symbol, disabled = false) => {
+const handleTabHover = (tabId: string | number | undefined, uid: symbol, disabled = false) => {
   if (disabled) return
 
   if (props.trigger === 'hover') {
-    setActivePane({ key, uid })
+    setActivePane({ tabKeyValue: tabId, uid })
   }
 }
 
-const setActivePane = (pane: { key?: string | number, uid: symbol }) => {
+const setActivePane = (pane: { tabKeyValue?: string | number, uid: symbol }) => {
   const index = panes.value.findIndex(p => p.uid === pane.uid)
   if (index === -1) return
 
-  if (isPaneActive(pane.key, pane.uid)) return
+  if (isPaneActive(pane.tabKeyValue, pane.uid)) return
 
   activeUid.value = pane.uid
 
-  if (pane.key !== undefined) {
-    currentActiveKey.value = pane.key
+  if (pane.tabKeyValue !== undefined) {
+    currentActiveTab.value = pane.tabKeyValue
   } else {
-    if (props.activeKey !== undefined) {
-      emit('update:activeKey', index)
+    if (props.activeTab !== undefined) {
+      emit('update:activeTab', index)
     }
   }
 
-  emit('change', pane.key !== undefined ? pane.key : index)
+  emit('change', pane.tabKeyValue !== undefined ? pane.tabKeyValue : index)
 
   nextTick(() => {
     scrollToActiveTab()
@@ -177,21 +177,21 @@ const handleAdd = () => {
   emit('add')
 }
 
-const handleDelete = (key: string | number | undefined, uid: symbol) => {
-  emit('delete', key !== undefined ? key : 0)
-  removePane(key, uid)
+const handleDelete = (tabId: string | number | undefined, uid: symbol) => {
+  emit('delete', tabId !== undefined ? tabId : 0)
+  removePane(tabId, uid)
 }
 
-const initDefaultActiveKey = () => {
-  if (panes.value.length && currentActiveKey.value === undefined && activeUid.value === null) {
+const initDefaultActiveTab = () => {
+  if (panes.value.length && currentActiveTab.value === undefined && activeUid.value === null) {
     const firstEnabledPane = panes.value.find(pane => !pane.disabled)
     if (firstEnabledPane) {
       nextTick(() => {
         setActivePane(firstEnabledPane)
       })
     }
-  } else if (currentActiveKey.value !== undefined) {
-    const pane = panes.value.find(p => p.key !== undefined && String(p.key) === String(currentActiveKey.value))
+  } else if (currentActiveTab.value !== undefined) {
+    const pane = panes.value.find(p => p.tabKeyValue !== undefined && String(p.tabKeyValue) === String(currentActiveTab.value))
     if (pane) {
       activeUid.value = pane.uid
     }
@@ -302,7 +302,7 @@ const scrollToActiveTab = () => {
 
   const navElement = navRef.value
   const activeIndex = panes.value.findIndex(pane =>
-    (pane.key !== undefined && String(pane.key) === String(currentActiveKey.value)) ||
+    (pane.tabKeyValue !== undefined && String(pane.tabKeyValue) === String(currentActiveTab.value)) ||
     (activeUid.value !== null && pane.uid === activeUid.value)
   )
 
@@ -504,9 +504,9 @@ provide('tabs', {
   removePane
 })
 
-watch(() => props.activeKey, (val) => {
+watch(() => props.activeTab, (val) => {
   if (val !== undefined) {
-    const pane = panes.value.find(p => p.key !== undefined && String(p.key) === String(val))
+    const pane = panes.value.find(p => p.tabKeyValue !== undefined && String(p.tabKeyValue) === String(val))
     if (pane) {
       activeUid.value = pane.uid
       nextTick(() => {
@@ -518,18 +518,18 @@ watch(() => props.activeKey, (val) => {
 
 watch(() => panes.value, (val) => {
   if (val.length > 0) {
-    initDefaultActiveKey()
+    initDefaultActiveTab()
   }
 }, { immediate: true })
 
 onMounted(() => {
   nextTick(() => {
-    initDefaultActiveKey()
+    initDefaultActiveTab()
     updateNavScroll()
     initScrollContainer()
 
     // 如果有选中的标签，滚动到选中的标签
-    if (currentActiveKey.value !== undefined || activeUid.value !== null) {
+    if (currentActiveTab.value !== undefined || activeUid.value !== null) {
       scrollToActiveTab()
     }
 
@@ -593,11 +593,11 @@ onBeforeUnmount(() => {
             :key="String(pane.uid)"
             class="f-tabs__tab"
             :class="{
-              'f-tabs__tab--active': isPaneActive(pane.key, pane.uid),
+              'f-tabs__tab--active': isPaneActive(pane.tabKeyValue, pane.uid),
               'f-tabs__tab--disabled': pane.disabled
             }"
-            @click="handleTabClick(pane.key, pane.uid, pane.disabled)"
-            @mouseenter="handleTabHover(pane.key, pane.uid, pane.disabled)"
+            @click="handleTabClick(pane.tabKeyValue, pane.uid, pane.disabled)"
+            @mouseenter="handleTabHover(pane.tabKeyValue, pane.uid, pane.disabled)"
           >
             <span class="f-tabs__tab-title">
               <component :is="() => pane.renderTitle ? pane.renderTitle() : pane.title" />
@@ -605,7 +605,7 @@ onBeforeUnmount(() => {
             <span
               v-if="editable && pane.closable"
               class="f-tabs__tab-close"
-              @click.stop="handleDelete(pane.key, pane.uid)"
+              @click.stop="handleDelete(pane.tabKeyValue, pane.uid)"
             >
               <i class="ri-close-line"></i>
             </span>

@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import type { IconProps } from './icon'
 import { iconProps } from './icon'
 
 defineOptions({
