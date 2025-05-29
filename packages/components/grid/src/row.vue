@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed, provide, watchEffect, onMounted, onUnmounted } from 'vue'
+import { computed, provide, onMounted, onUnmounted } from 'vue'
 import type { CSSProperties } from 'vue'
 import type { RowProps } from './row'
 import type { ResponsiveValue } from './types'
@@ -81,9 +81,9 @@ const rowClass = computed(() => {
 })
 
 // 使用防抖处理resize事件
-const debounce = (fn: Function, delay: number) => {
+function debounce(fn: Function, delay: number) {
   let timer: number | null = null
-  return function (...args: any[]) {
+  return function(this: any, ...args: any[]) {
     if (timer) clearTimeout(timer)
     timer = window.setTimeout(() => {
       fn.apply(this, args)

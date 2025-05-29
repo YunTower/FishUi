@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { CardProps } from './card'
+import { withDefaults } from 'vue'
 
 defineOptions({
   name: 'FCard'
@@ -19,27 +20,27 @@ const props = withDefaults(defineProps<CardProps>(), {
   <div
     class="f-card"
     :class="[
-      `f-card-size-${size}`,
+      `f-card-size-${props.size}`,
       {
-        'f-card-bordered': bordered,
-        'f-card-hoverable': hoverable,
-        'f-card-loading': loading
+        'f-card-bordered': props.bordered,
+        'f-card-hoverable': props.hoverable,
+        'f-card-loading': props.loading
       }
     ]"
   >
-    <div v-if="$slots.title || title || $slots.extra || extra" class="f-card-header">
-      <div v-if="$slots.title || title" class="f-card-header-title" :style="headerStyle">
-        <slot name="title">{{ title }}</slot>
+    <div v-if="$slots.title || props.title || $slots.extra || props.extra" class="f-card-header">
+      <div v-if="$slots.title || props.title" class="f-card-header-title" :style="props.headerStyle">
+        <slot name="title">{{ props.title }}</slot>
       </div>
-      <div v-if="$slots.extra || extra" class="f-card-header-extra">
-        <slot name="extra">{{ extra }}</slot>
+      <div v-if="$slots.extra || props.extra" class="f-card-header-extra">
+        <slot name="extra">{{ props.extra }}</slot>
       </div>
     </div>
     <div v-if="$slots.cover" class="f-card-cover">
       <slot name="cover"></slot>
     </div>
-    <div class="f-card-body" :style="bodyStyle">
-      <div v-if="loading" class="f-card-loading-content">
+    <div class="f-card-body" :style="props.bodyStyle">
+      <div v-if="props.loading" class="f-card-loading-content">
         <div class="f-card-loading-block"></div>
         <div class="f-card-loading-block"></div>
         <div class="f-card-loading-block"></div>

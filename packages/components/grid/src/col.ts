@@ -1,13 +1,13 @@
 import type { PropType } from 'vue'
-import type { ResponsiveValue, FlexType } from './types'
+import type { FlexType } from './types'
 
-interface ColSizeObject {
+export interface ColSizeObject {
   span?: number;
   offset?: number;
   order?: number;
 }
 
-type ColSize = number | ColSizeObject
+export type ColSize = number | ColSizeObject
 
 export interface ColProps {
   /**

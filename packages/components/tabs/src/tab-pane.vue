@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import { ref, inject, onMounted, onBeforeUnmount, computed, useSlots, h, getCurrentInstance } from 'vue'
+import { inject, onMounted, onBeforeUnmount, computed, useSlots, getCurrentInstance } from 'vue'
 import type { TabPaneProps } from './tabs'
-import { tabPaneProps } from './tabs'
 
 defineOptions({
   name: 'FTabPane'
@@ -16,7 +15,7 @@ const props = withDefaults(defineProps<TabPaneProps & { key?: string | number }>
 
 const slots = useSlots()
 const instance = getCurrentInstance()
-const tabs = inject('tabs', null)
+const tabs = inject('tabs', null) as any
 // 使用一个唯一的标识符
 const uid = Symbol('tab-pane') as symbol
 

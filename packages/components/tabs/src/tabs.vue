@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import { ref, computed, provide, watch, nextTick, onMounted, h, onBeforeUnmount } from 'vue'
+import { ref, computed, provide, watch, nextTick, onMounted, onBeforeUnmount } from 'vue'
 import type { TabsProps } from './tabs'
-import { tabsProps } from './tabs'
 
 defineOptions({
   name: 'FTabs'
@@ -62,19 +61,19 @@ const currentActiveKey = computed({
   }
 })
 
-// 判断一个面板是否激活
+// 判断面板是否激活
 const isPaneActive = (key: string | number | undefined, uid: symbol) => {
-  // 1. 如果有key且当前activeKey有值，则比较key
+  // 如果有key且当前activeKey有值，则比较key
   if (key !== undefined && currentActiveKey.value !== undefined) {
     return String(currentActiveKey.value) === String(key)
   }
 
-  // 2. 如果有activeUid，则比较uid
+  // 如果有activeUid，则比较uid
   if (activeUid.value !== null) {
     return activeUid.value === uid
   }
 
-  // 3. 如果没有activeKey和activeUid，则检查是否是第一个非禁用面板
+  // 如果没有activeKey和activeUid，则检查是否是第一个非禁用面板
   if (currentActiveKey.value === undefined && activeUid.value === null) {
     if (panes.value.length > 0) {
       const firstPane = panes.value.find(pane => !pane.disabled)
@@ -189,28 +188,6 @@ const setActivePane = (pane: {key?: string | number, uid: symbol}) => {
   nextTick(() => {
     scrollToActiveTab()
   })
-}
-
-const handleChange = (key: string | number | symbol) => {
-  if (typeof key === 'symbol') {
-    // 如果是Symbol类型，找到对应的面板
-    const pane = panes.value.find(p => p.uid === key)
-    if (pane) {
-      setActivePane(pane)
-    }
-  } else {
-    // 如果是string或number类型，找到对应的面板
-    const pane = panes.value.find(p => p.key !== undefined && String(p.key) === String(key))
-    if (pane) {
-      setActivePane(pane)
-    } else {
-      // 如果找不到对应的面板，尝试使用索引
-      const index = Number(key)
-      if (!isNaN(index) && index >= 0 && index < panes.value.length) {
-        setActivePane(panes.value[index])
-      }
-    }
-  }
 }
 
 const handleAdd = () => {
@@ -495,14 +472,11 @@ const handleWheel = (event: WheelEvent) => {
   updateArrowVisibility()
 }
 
+// 提供给子组件的方法和状态
 provide('tabs', {
-  currentActiveKey,
+  isPaneActive,
   addPane,
-  removePane,
-  handleTabClick,
-  handleTabHover,
-  handleDelete,
-  isPaneActive
+  removePane
 })
 
 watch(() => props.activeKey, (val) => {

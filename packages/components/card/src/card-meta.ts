@@ -1,5 +1,3 @@
-import type { PropType } from 'vue'
-
 export interface CardMetaProps {
   title?: string
   description?: string

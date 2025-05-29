@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed, provide, onMounted, onUnmounted } from 'vue'
+import { computed, provide, onMounted, onUnmounted } from 'vue'
 import type { CSSProperties } from 'vue'
 import type { GridProps } from './grid'
 import type { ResponsiveValue } from './types'

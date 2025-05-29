@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { CardMetaProps } from './card-meta'
+import { withDefaults } from 'vue'
 
 defineOptions({
   name: 'FCardMeta'
@@ -14,11 +15,11 @@ const props = withDefaults(defineProps<CardMetaProps>(), {})
       <slot name="avatar"></slot>
     </div>
     <div class="f-card-meta-detail">
-      <div v-if="$slots.title || title" class="f-card-meta-title">
-        <slot name="title">{{ title }}</slot>
+      <div v-if="$slots.title || props.title" class="f-card-meta-title">
+        <slot name="title">{{ props.title }}</slot>
       </div>
-      <div v-if="$slots.description || description" class="f-card-meta-description">
-        <slot name="description">{{ description }}</slot>
+      <div v-if="$slots.description || props.description" class="f-card-meta-description">
+        <slot name="description">{{ props.description }}</slot>
       </div>
     </div>
   </div>
