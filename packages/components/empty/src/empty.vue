@@ -1,30 +1,45 @@
 <script setup lang="ts">
-import type { EmptyProps } from './empty.ts'
 import { emptyProps } from './empty.ts'
 import { FIcon } from '../../icon'
+import { computed } from 'vue'
 
 defineOptions({
   name: 'FEmpty'
 })
 
-// 使用defineProps注册组件的props，同时使用emptyProps定义
 const props = defineProps(emptyProps)
 
 // 根据类型获取默认图标
 const getTypeIcon = () => {
   switch (props.type) {
     case 'success':
-      return 'ri-checkbox-circle-line'
+      return 'checkbox-circle-line'
     case 'fail':
-      return 'ri-error-warning-line'
+      return 'error-warning-line'
     case 'network-error':
-      return 'ri-global-line'
+      return 'global-line'
     case 'maintenance':
-      return 'ri-tools-line'
+      return 'tools-line'
     default:
       return ''
   }
 }
+
+// 根据类型获取图标颜色
+const getIconClass = computed(() => {
+  switch (props.type) {
+    case 'success':
+      return 'f-empty__icon--success'
+    case 'fail':
+      return 'f-empty__icon--fail'
+    case 'network-error':
+      return 'f-empty__icon--network'
+    case 'maintenance':
+      return 'f-empty__icon--maintenance'
+    default:
+      return ''
+  }
+})
 </script>
 
 <template>
@@ -38,7 +53,13 @@ const getTypeIcon = () => {
     <div class="f-empty__image" :style="imageStyle">
       <slot name="image">
         <img v-if="imgSrc" :src="imgSrc" alt="empty" />
-        <f-icon v-else-if="type !== 'empty'" :name="getTypeIcon()" class="f-empty__type-icon" />
+        <f-icon
+          v-else-if="type !== 'empty'"
+          :name="getTypeIcon()"
+          class="f-empty__type-icon"
+          :class="getIconClass"
+          :size="40"
+        />
         <svg v-else class="f-empty__image-default" viewBox="0 0 64 41" xmlns="http://www.w3.org/2000/svg">
           <g transform="translate(0 1)" fill="none" fill-rule="evenodd">
             <ellipse class="f-empty__fill-1" cx="32" cy="33" rx="32" ry="7" />
