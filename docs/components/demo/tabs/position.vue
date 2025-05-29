@@ -1,20 +1,23 @@
 <template>
   <div class="demo-content">
     <div class="demo-content-row" style="margin-bottom: 20px;">
+      <h3>顶部位置（默认）</h3>
       <f-tabs position="top">
-        <f-tab-pane title="标签1">顶部位置（默认）</f-tab-pane>
+        <f-tab-pane title="标签1">标签1内容</f-tab-pane>
         <f-tab-pane title="标签2">标签2内容</f-tab-pane>
         <f-tab-pane title="标签3">标签3内容</f-tab-pane>
       </f-tabs>
     </div>
     <div class="demo-content-row" style="margin-bottom: 20px;">
+      <h3>底部位置</h3>
       <f-tabs position="bottom">
-        <f-tab-pane title="标签1">底部位置</f-tab-pane>
+        <f-tab-pane title="标签1">标签1内容</f-tab-pane>
         <f-tab-pane title="标签2">标签2内容</f-tab-pane>
         <f-tab-pane title="标签3">标签3内容</f-tab-pane>
       </f-tabs>
     </div>
     <div class="demo-content-row" style="margin-bottom: 20px;">
+      <h3>左侧位置</h3>
       <f-tabs position="left" style="height: 200px; border: 1px solid var(--color-border-2); border-radius: 4px;">
         <f-tab-pane title="左侧标签1">
           <div class="tab-content">
@@ -34,6 +37,7 @@
       </f-tabs>
     </div>
     <div class="demo-content-row">
+      <h3>右侧位置</h3>
       <f-tabs position="right" style="height: 200px; border: 1px solid var(--color-border-2); border-radius: 4px;">
         <f-tab-pane title="右侧标签1">
           <div class="tab-content">

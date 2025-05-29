@@ -22,7 +22,7 @@
 
 ## 不同类型
 
-选项卡有六种类型：线性 `line`（默认）、卡片 `card`、间隔卡片 `card-gutter`、文本 `text`、圆角 `rounded` 和胶囊 `capsule`。
+选项卡有两种类型：线性 `line`（默认）和卡片 `card`。
 
 <demo src="./demo/tabs/type.vue"></demo>
 
@@ -72,7 +72,7 @@
 | default-active-key   | 默认选中的标签的key（非受控状态，为空时选中第一个标签页）                         | string \| number                                                      | -            | -  |
 | position             | 选项卡的位置                                                 | `left` \| `right` \| `top` \| `bottom`                                | `top`        | -  |
 | size                 | 选项卡的大小                                                 | `mini` \| `small` \| `medium` \| `large`                              | `medium`     | -  |
-| type                 | 选项卡的类型                                                 | `line` \| `card` \| `card-gutter` \| `text` \| `rounded` \| `capsule` | `line`       | -  |
+| type                 | 选项卡的类型                                                 | `line` \| `card`                                                      | `line`       | -  |
 | direction            | 选项卡的方向                                                 | `horizontal` \| `vertical`                                            | `horizontal` | -  |
 | editable             | 是否开启可编辑模式                                              | boolean                                                               | false        | -  |
 | show-add-button      | 是否显示增加按钮（仅在可编辑模式可用）                                    | boolean                                                               | false        | -  |
@@ -80,7 +80,7 @@
 | lazy-load            | 是否在首次展示标签时挂载内容                                         | boolean                                                               | false        | -  |
 | justify              | 高度撑满容器，只在水平模式下生效                                       | boolean                                                               | false        | -  |
 | animation            | 是否开启选项内容过渡动画                                           | boolean                                                               | false        | -  |
-| header-padding       | 选项卡头部是否存在水平边距。仅对 type 等于 line、text 类型的选项卡生效            | boolean                                                               | true         | -  |
+| header-padding       | 选项卡头部是否存在水平边距。仅对 type 等于 line 类型的选项卡生效            | boolean                                                               | true         | -  |
 | auto-switch          | 创建标签后是否切换到新标签（最后一个）                                    | boolean                                                               | false        | -  |
 | hide-content         | 是否隐藏内容                                                 | boolean                                                               | false        | -  |
 | trigger              | 触发方式                                                   | `hover` \| `click`                                                    | `click`      | -  |

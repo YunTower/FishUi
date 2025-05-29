@@ -154,6 +154,13 @@ const handleToggleCode = () => {
   width: 100%;
 }
 
+:deep(.demo-content-row) h3 {
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-text-1);
+}
+
 .demo-actions {
   border-top: 1px solid var(--vp-c-divider);
   padding: 8px 16px;

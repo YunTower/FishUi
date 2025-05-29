@@ -1,6 +1,6 @@
 <template>
   <div class="demo-content">
-    <div class="demo-section">
+    <div class="demo-content-row">
       <h3>左侧垂直滚动</h3>
       <f-tabs ref="leftTabsRef" position="left" :wheel-scroll="true" style="height: 300px; border: 1px solid var(--color-border-2); border-radius: 4px;">
         <f-tab-pane v-for="i in 20" :key="i" :title="`标签项${i}`">
@@ -13,7 +13,7 @@
       </f-tabs>
     </div>
 
-    <div class="demo-section">
+    <div class="demo-content-row">
       <h3>右侧垂直滚动</h3>
       <f-tabs ref="rightTabsRef" position="right" :wheel-scroll="true" style="height: 300px; border: 1px solid var(--color-border-2); border-radius: 4px;">
         <f-tab-pane v-for="i in 20" :key="i" :title="`标签项${i}`">
@@ -26,7 +26,7 @@
       </f-tabs>
     </div>
 
-    <div class="demo-section">
+    <div class="demo-content-row">
       <h3>卡片样式垂直滚动</h3>
       <f-tabs ref="cardTabsRef" position="left" type="card" :wheel-scroll="true" style="height: 300px; border: 1px solid var(--color-border-2); border-radius: 4px;">
         <f-tab-pane v-for="i in 20" :key="i" :title="`标签项${i}`">
@@ -86,17 +86,6 @@ onMounted(() => {
 </script>
 
 <style scoped>
-.demo-section {
-  margin-bottom: 30px;
-}
-
-.demo-section h3 {
-  margin-bottom: 10px;
-  font-size: 16px;
-  font-weight: 500;
-  color: var(--color-text-1);
-}
-
 .tab-content {
   padding: 16px;
 }

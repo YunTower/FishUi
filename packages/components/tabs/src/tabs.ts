@@ -5,7 +5,7 @@ export interface TabsProps {
   defaultActiveKey?: string | number
   position?: 'left' | 'right' | 'top' | 'bottom'
   size?: 'mini' | 'small' | 'medium' | 'large'
-  type?: 'line' | 'card' | 'card-gutter' | 'text' | 'rounded' | 'capsule'
+  type?: 'line' | 'card'
   direction?: 'horizontal' | 'vertical'
   editable?: boolean
   showAddButton?: boolean
@@ -47,7 +47,7 @@ export const tabsProps = {
     default: 'medium'
   },
   type: {
-    type: String as PropType<'line' | 'card' | 'card-gutter' | 'text' | 'rounded' | 'capsule'>,
+    type: String as PropType<'line' | 'card'>,
     default: 'line'
   },
   direction: {

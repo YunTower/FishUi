@@ -238,7 +238,6 @@
   margin-bottom: 0;
   height: 100%;
   overflow: visible;
-  min-width: 120px;
 }
 
 .f-tabs--left .f-tabs__nav-container,
@@ -280,7 +279,6 @@
   margin-bottom: 0;
   height: 100%;
   overflow: visible;
-  min-width: 120px;
 }
 
 /* 标签类型变体 */
@@ -295,21 +293,27 @@
 }
 
 .f-tabs--left.f-tabs--line .f-tabs__tab--active::after {
+  content: '';
+  position: absolute;
   top: 0;
   bottom: 0;
-  left: 0;
-  right: auto;
+  left: auto;
+  right: 0;
   width: 2px;
   height: auto;
+  background-color: rgba(var(--primary-6));
 }
 
 .f-tabs--right.f-tabs--line .f-tabs__tab--active::after {
+  content: '';
+  position: absolute;
   top: 0;
   bottom: 0;
-  right: 0;
-  left: auto;
+  right: auto;
+  left: 0;
   width: 2px;
   height: auto;
+  background-color: rgba(var(--primary-6));
 }
 
 .f-tabs--card .f-tabs__tab {
@@ -325,54 +329,34 @@
   border-color: var(--color-border-2);
 }
 
-.f-tabs--card-gutter .f-tabs__tab {
+/* 垂直方向下的卡片样式 */
+.f-tabs--left.f-tabs--card .f-tabs__tab,
+.f-tabs--right.f-tabs--card .f-tabs__tab {
   border: 1px solid var(--color-border-2);
-  margin-right: 4px;
-  border-radius: 4px;
-  background-color: var(--color-fill-1);
+  border-right: none;
+  margin-bottom: 4px;
+  margin-right: 0;
+  border-radius: 4px 0 0 4px;
 }
 
-.f-tabs--card-gutter .f-tabs__tab--active {
-  background-color: rgba(var(--primary-6));
-  border-color: rgba(var(--primary-6));
-  color: var(--color-white);
+.f-tabs--right.f-tabs--card .f-tabs__tab {
+  border-right: 1px solid var(--color-border-2);
+  border-left: none;
+  border-radius: 0 4px 4px 0;
 }
 
-.f-tabs--text .f-tabs__header {
-  border: none;
-}
-
-.f-tabs--text .f-tabs__tab {
-  padding: 0 8px;
-}
-
-.f-tabs--text .f-tabs__tab--active {
-  font-weight: 600;
-}
-
-.f-tabs--rounded .f-tabs__tab {
-  border-radius: 20px;
-  margin-right: 8px;
-}
-
-.f-tabs--rounded .f-tabs__tab--active {
-  background-color: var(--color-fill-2);
-}
-
-.f-tabs--capsule .f-tabs__nav {
-  background-color: var(--color-fill-2);
-  border-radius: 20px;
-  padding: 2px;
-}
-
-.f-tabs--capsule .f-tabs__tab {
-  border-radius: 18px;
-  margin: 0 2px;
-}
-
-.f-tabs--capsule .f-tabs__tab--active {
-  background-color: var(--color-bg-1);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+.f-tabs--text .f-tabs__header,
+.f-tabs--text .f-tabs__tab,
+.f-tabs--text .f-tabs__tab--active,
+.f-tabs--rounded .f-tabs__tab,
+.f-tabs--rounded .f-tabs__tab--active,
+.f-tabs--capsule .f-tabs__nav,
+.f-tabs--capsule .f-tabs__tab,
+.f-tabs--capsule .f-tabs__tab--active,
+.f-tabs--left.f-tabs--card-gutter .f-tabs__tab,
+.f-tabs--right.f-tabs--card-gutter .f-tabs__tab {
+  /* 删除这些类型的样式 */
+  display: none;
 }
 
 /* 尺寸变体 */
@@ -444,31 +428,6 @@
   transition: all 0.3s;
 }
 
-/* 垂直方向下的滚动指示器位置 */
-.f-tabs--left.f-tabs--line .f-tabs__tab--active::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: auto;
-  right: 0;
-  width: 2px;
-  height: auto;
-  background-color: rgba(var(--primary-6));
-}
-
-.f-tabs--right.f-tabs--line .f-tabs__tab--active::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: auto;
-  left: 0;
-  width: 2px;
-  height: auto;
-  background-color: rgba(var(--primary-6));
-}
-
 /* 处理垂直滚动模式下的卡片样式 */
 .f-tabs--left.f-tabs--card .f-tabs__tab,
 .f-tabs--right.f-tabs--card .f-tabs__tab {
@@ -487,9 +446,7 @@
 
 .f-tabs--left.f-tabs--card-gutter .f-tabs__tab,
 .f-tabs--right.f-tabs--card-gutter .f-tabs__tab {
-  margin-bottom: 4px;
-  margin-right: 0;
-  border-radius: 4px;
+  display: none;
 }
 
 /* 修复垂直选项卡的内容容器样式 */
