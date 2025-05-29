@@ -1,16 +1,13 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import type { IconProps } from './icon'
+import { iconProps } from './icon'
 
 defineOptions({
   name: 'FIcon',
 })
 
-const props = withDefaults(defineProps<IconProps>(), {
-  name: '',
-  size: '1em',
-  color: 'currentColor',
-})
+const props = defineProps(iconProps)
 
 const iconStyle = computed(() => {
   const style: Record<string, string> = {

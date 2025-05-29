@@ -9,6 +9,7 @@ import { FLayout, FLayoutHeader, FLayoutContent, FLayoutFooter, FLayoutSider } f
 import { FCard, FCardMeta } from './card'
 import { FRow, FCol, FGrid, FGridItem } from './grid'
 import { FTabs, FTabPane } from './tabs'
+import { FEmpty } from './empty'
 
 export const components = [
   FButton,
@@ -31,7 +32,8 @@ export const components = [
   FGrid,
   FGridItem,
   FTabs,
-  FTabPane
+  FTabPane,
+  FEmpty
 ]
 
 export * from './button'
@@ -45,3 +47,4 @@ export * from './layout'
 export * from './card'
 export * from './grid'
 export * from './tabs'
+export * from './empty'
