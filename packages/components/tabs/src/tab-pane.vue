@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { inject, onMounted, onBeforeUnmount, computed, useSlots, getCurrentInstance } from 'vue'
+import { inject, onMounted, onBeforeUnmount, computed, useSlots } from 'vue'
 import type { TabPaneProps } from './tabs'
 
 defineOptions({
@@ -14,7 +14,6 @@ const props = withDefaults(defineProps<TabPaneProps>(), {
 })
 
 const slots = useSlots()
-const instance = getCurrentInstance()
 const tabs = inject('tabs', null) as any
 const uid = Symbol('tab-pane') as symbol
 
