@@ -83,7 +83,7 @@ watch(() => props.value, (val) => {
       :value="option.value"
       :checked-props="checkedProps"
       :unchecked-props="uncheckedProps"
-      @change="(checked, ctx) => handleChange(checked, ctx)"
+      @change="(checked, ctx) => handleChange(checked, { ...ctx, type: checked ? 'check' : 'uncheck' })"
     >
       {{ option.label }}
     </FCheckTag>
