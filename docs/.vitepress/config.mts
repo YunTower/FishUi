@@ -12,7 +12,7 @@ export default defineConfig({
       { text: '指南', link: '/guide/' },
       { text: '组件', link: '/components/button' },
       {
-        text: '0.0.27',
+        text: '0.0.28',
         items: [
           { text: '更新日志', link: '/guide/changelog' },
           { text: '参与贡献', link: 'https://github.com/YunTower/FishUi' }
