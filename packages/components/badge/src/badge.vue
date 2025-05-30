@@ -143,7 +143,7 @@ const getStatusClass = computed(() => {
 }
 
 .f-badge__content--round {
-  border-radius: var(--border-radius-large);
+  border-radius: 20px;
 }
 
 .f-badge__content--small {

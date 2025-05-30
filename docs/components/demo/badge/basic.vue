@@ -9,5 +9,8 @@
     <f-badge :count="99">
       <f-button>默认最大值</f-button>
     </f-badge>
+    <f-badge shape="round" text="round">
+      <f-button>圆润一点</f-button>
+    </f-badge>
   </div>
 </template>
