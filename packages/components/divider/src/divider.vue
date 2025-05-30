@@ -41,7 +41,7 @@ const dividerStyle = computed(() => {
 <template>
   <div :class="dividerClass" :style="dividerStyle">
     <template v-if="slots.default && props.direction === 'horizontal'">
-      <span class="f-divider__text" :class="[`f-divider-orientation--${props.orientation}`]">
+      <span class="f-divider__text">
         <slot />
       </span>
     </template>

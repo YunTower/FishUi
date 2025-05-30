@@ -99,6 +99,27 @@
   margin: 0;
 }
 
+/* 文字位置控制 */
+.f-divider-orientation--left::before {
+  max-width: 5%;
+  flex: 0 1 5%;
+}
+
+.f-divider-orientation--left::after {
+  max-width: 95%;
+  flex: 1 1 95%;
+}
+
+.f-divider-orientation--right::before {
+  max-width: 95%;
+  flex: 1 1 95%;
+}
+
+.f-divider-orientation--right::after {
+  max-width: 5%;
+  flex: 0 1 5%;
+}
+
 .f-divider--horizontal.f-divider-with-text {
   display: flex;
   align-items: center;
