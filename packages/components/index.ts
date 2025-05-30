@@ -11,6 +11,7 @@ import { FRow, FCol, FGrid, FGridItem } from './grid'
 import { FTabs, FTabPane } from './tabs'
 import { FEmpty } from './empty'
 import { FBadge, FBadgeGroup } from './badge'
+import { FTag, FCheckTag, FCheckTagGroup } from './tag'
 
 export const components = [
   FButton,
@@ -36,7 +37,10 @@ export const components = [
   FTabPane,
   FEmpty,
   FBadge,
-  FBadgeGroup
+  FBadgeGroup,
+  FTag,
+  FCheckTag,
+  FCheckTagGroup
 ]
 
 export * from './button'
@@ -52,3 +56,4 @@ export * from './grid'
 export * from './tabs'
 export * from './empty'
 export * from './badge'
+export * from './tag'

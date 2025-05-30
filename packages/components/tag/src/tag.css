@@ -1,0 +1,394 @@
+/* 基础样式 */
+.f-tag {
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: default;
+  color: var(--color-text-1);
+  text-align: center;
+  box-sizing: border-box;
+  outline: none;
+  transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  user-select: none;
+  font-weight: 400;
+  border-radius: 4px;
+  padding: 0 8px;
+  background-color: var(--color-fill-2);
+  height: 24px;
+  font-size: 12px;
+}
+
+/* 尺寸变体 */
+.f-tag-size--small {
+  height: 20px;
+  padding: 0 6px;
+  font-size: 12px;
+}
+
+.f-tag-size--medium {
+  height: 24px;
+  padding: 0 8px;
+  font-size: 12px;
+}
+
+.f-tag-size--large {
+  height: 32px;
+  padding: 0 12px;
+  font-size: 14px;
+}
+
+/* 形状变体 */
+.f-tag-shape--square {
+  border-radius: 2px;
+}
+
+.f-tag-shape--round {
+  border-radius: 12px;
+}
+
+.f-tag-shape--mark {
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+/* 主题变体 */
+.f-tag-theme--default {
+  background-color: var(--color-fill-2);
+  color: var(--color-text-1);
+}
+
+.f-tag-theme--primary {
+  background-color: rgba(var(--primary-6), 0.1);
+  color: rgba(var(--primary-6));
+}
+
+.f-tag-theme--success {
+  background-color: rgba(var(--success-6), 0.1);
+  color: rgba(var(--success-6));
+}
+
+.f-tag-theme--warning {
+  background-color: rgba(var(--warning-6), 0.1);
+  color: rgba(var(--warning-6));
+}
+
+.f-tag-theme--danger {
+  background-color: rgba(var(--danger-6), 0.1);
+  color: rgba(var(--danger-6));
+}
+
+/* 变体风格 */
+.f-tag-variant--dark.f-tag-theme--default {
+  background-color: var(--color-fill-2);
+  color: var(--color-text-1);
+}
+
+.f-tag-variant--dark.f-tag-theme--primary {
+  background-color: rgba(var(--primary-6));
+  color: var(--color-white);
+}
+
+.f-tag-variant--dark.f-tag-theme--success {
+  background-color: rgba(var(--success-6));
+  color: var(--color-white);
+}
+
+.f-tag-variant--dark.f-tag-theme--warning {
+  background-color: rgba(var(--warning-6));
+  color: var(--color-white);
+}
+
+.f-tag-variant--dark.f-tag-theme--danger {
+  background-color: rgba(var(--danger-6));
+  color: var(--color-white);
+}
+
+.f-tag-variant--light.f-tag-theme--default {
+  background-color: var(--color-fill-1);
+  color: var(--color-text-2);
+}
+
+.f-tag-variant--light.f-tag-theme--primary {
+  background-color: rgba(var(--primary-1));
+  color: rgba(var(--primary-6));
+}
+
+.f-tag-variant--light.f-tag-theme--success {
+  background-color: rgba(var(--success-1));
+  color: rgba(var(--success-6));
+}
+
+.f-tag-variant--light.f-tag-theme--warning {
+  background-color: rgba(var(--warning-1));
+  color: rgba(var(--warning-6));
+}
+
+.f-tag-variant--light.f-tag-theme--danger {
+  background-color: rgba(var(--danger-1));
+  color: rgba(var(--danger-6));
+}
+
+.f-tag-variant--outline {
+  background-color: transparent;
+  border: 1px solid var(--color-border-2);
+}
+
+.f-tag-variant--outline.f-tag-theme--primary {
+  border-color: rgba(var(--primary-6));
+  color: rgba(var(--primary-6));
+}
+
+.f-tag-variant--outline.f-tag-theme--success {
+  border-color: rgba(var(--success-6));
+  color: rgba(var(--success-6));
+}
+
+.f-tag-variant--outline.f-tag-theme--warning {
+  border-color: rgba(var(--warning-6));
+  color: rgba(var(--warning-6));
+}
+
+.f-tag-variant--outline.f-tag-theme--danger {
+  border-color: rgba(var(--danger-6));
+  color: rgba(var(--danger-6));
+}
+
+.f-tag-variant--light-outline {
+  background-color: transparent;
+  border: 1px solid var(--color-fill-2);
+}
+
+.f-tag-variant--light-outline.f-tag-theme--primary {
+  background-color: rgba(var(--primary-1));
+  border-color: rgba(var(--primary-3));
+  color: rgba(var(--primary-6));
+}
+
+.f-tag-variant--light-outline.f-tag-theme--success {
+  background-color: rgba(var(--success-1));
+  border-color: rgba(var(--success-3));
+  color: rgba(var(--success-6));
+}
+
+.f-tag-variant--light-outline.f-tag-theme--warning {
+  background-color: rgba(var(--warning-1));
+  border-color: rgba(var(--warning-3));
+  color: rgba(var(--warning-6));
+}
+
+.f-tag-variant--light-outline.f-tag-theme--danger {
+  background-color: rgba(var(--danger-1));
+  border-color: rgba(var(--danger-3));
+  color: rgba(var(--danger-6));
+}
+
+/* 颜色变体 */
+.f-tag-color--red {
+  background-color: rgba(var(--red-6), 0.1);
+  color: rgba(var(--red-6));
+}
+
+.f-tag-color--orangered {
+  background-color: rgba(var(--orangered-6), 0.1);
+  color: rgba(var(--orangered-6));
+}
+
+.f-tag-color--orange {
+  background-color: rgba(var(--orange-6), 0.1);
+  color: rgba(var(--orange-6));
+}
+
+.f-tag-color--gold {
+  background-color: rgba(var(--gold-6), 0.1);
+  color: rgba(var(--gold-6));
+}
+
+.f-tag-color--lime {
+  background-color: rgba(var(--lime-6), 0.1);
+  color: rgba(var(--lime-6));
+}
+
+.f-tag-color--green {
+  background-color: rgba(var(--green-6), 0.1);
+  color: rgba(var(--green-6));
+}
+
+.f-tag-color--cyan {
+  background-color: rgba(var(--cyan-6), 0.1);
+  color: rgba(var(--cyan-6));
+}
+
+.f-tag-color--blue {
+  background-color: rgba(var(--blue-6), 0.1);
+  color: rgba(var(--blue-6));
+}
+
+.f-tag-color--fishblue {
+  background-color: rgba(var(--fishblue-6), 0.1);
+  color: rgba(var(--fishblue-6));
+}
+
+.f-tag-color--purple {
+  background-color: rgba(var(--purple-6), 0.1);
+  color: rgba(var(--purple-6));
+}
+
+.f-tag-color--pinkpurple {
+  background-color: rgba(var(--pinkpurple-6), 0.1);
+  color: rgba(var(--pinkpurple-6));
+}
+
+.f-tag-color--magenta {
+  background-color: rgba(var(--pinkpurple-6), 0.1);
+  color: rgba(var(--pinkpurple-6));
+}
+
+.f-tag-color--gray {
+  background-color: var(--color-fill-2);
+  color: var(--color-text-2);
+}
+
+/* 深色变体颜色 */
+.f-tag-variant--dark.f-tag-color--red {
+  background-color: rgba(var(--red-6));
+  color: var(--color-white);
+}
+
+.f-tag-variant--dark.f-tag-color--orangered {
+  background-color: rgba(var(--orangered-6));
+  color: var(--color-white);
+}
+
+.f-tag-variant--dark.f-tag-color--orange {
+  background-color: rgba(var(--orange-6));
+  color: var(--color-white);
+}
+
+.f-tag-variant--dark.f-tag-color--gold {
+  background-color: rgba(var(--gold-6));
+  color: var(--color-white);
+}
+
+.f-tag-variant--dark.f-tag-color--lime {
+  background-color: rgba(var(--lime-6));
+  color: var(--color-white);
+}
+
+.f-tag-variant--dark.f-tag-color--green {
+  background-color: rgba(var(--green-6));
+  color: var(--color-white);
+}
+
+.f-tag-variant--dark.f-tag-color--cyan {
+  background-color: rgba(var(--cyan-6));
+  color: var(--color-white);
+}
+
+.f-tag-variant--dark.f-tag-color--blue {
+  background-color: rgba(var(--blue-6));
+  color: var(--color-white);
+}
+
+.f-tag-variant--dark.f-tag-color--fishblue {
+  background-color: rgba(var(--fishblue-6));
+  color: var(--color-white);
+}
+
+.f-tag-variant--dark.f-tag-color--purple {
+  background-color: rgba(var(--purple-6));
+  color: var(--color-white);
+}
+
+.f-tag-variant--dark.f-tag-color--pinkpurple {
+  background-color: rgba(var(--pinkpurple-6));
+  color: var(--color-white);
+}
+
+.f-tag-variant--dark.f-tag-color--magenta {
+  background-color: rgba(var(--pinkpurple-6));
+  color: var(--color-white);
+}
+
+.f-tag-variant--dark.f-tag-color--gray {
+  background-color: var(--color-fill-4);
+  color: var(--color-white);
+}
+
+/* 边框样式 */
+.f-tag--bordered {
+  border: 1px solid var(--color-border-1);
+}
+
+/* 可关闭标签 */
+.f-tag--closable {
+  padding-right: 4px;
+}
+
+/* 禁用状态 */
+.f-tag--disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.f-tag--disabled:hover,
+.f-tag--disabled:active {
+  opacity: 0.5;
+}
+
+/* 不换行文本 */
+.f-tag--nowrap .f-tag__content {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 内部元素样式 */
+.f-tag__icon {
+  display: inline-flex;
+  margin-right: 4px;
+  font-size: 1em;
+}
+
+.f-tag__content {
+  display: inline-flex;
+  align-items: center;
+}
+
+.f-tag__close {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 4px;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+.f-tag__close:hover {
+  opacity: 0.7;
+}
+
+.f-tag__loading {
+  display: inline-flex;
+  margin-right: 4px;
+  font-size: 1em;
+  animation: f-spin 1s infinite linear;
+}
+
+@keyframes f-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* 标签组样式 */
+.f-check-tag-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
