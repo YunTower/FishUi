@@ -84,67 +84,67 @@
 
 ### Tag Props
 
-| 参数名 | 描述 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| color | 标签的颜色 | 'red' \| 'orangered' \| 'orange' \| 'gold' \| 'lime' \| 'green' \| 'cyan' \| 'blue' \| 'fishblue' \| 'purple' \| 'pinkpurple' \| 'magenta' \| 'gray' | - |
-| size | 标签的大小 | 'small' \| 'medium' \| 'large' | 'medium' |
-| shape | 标签的形状 | 'square' \| 'round' \| 'mark' | 'square' |
-| bordered | 是否显示边框 | boolean | false |
-| visible (v-model) | 标签是否可见 | boolean | true |
-| loading | 标签是否为加载中状态 | boolean | false |
-| closable | 标签是否可关闭 | boolean | false |
-| disabled | 标签禁用态 | boolean | false |
-| nowrap | 标签内容不换行 | boolean | false |
-| maxWidth | 标签最大宽度 | string \| number | - |
-| theme | 标签主题 | 'default' \| 'primary' \| 'success' \| 'warning' \| 'danger' | 'default' |
-| variant | 标签风格变体 | 'dark' \| 'light' \| 'outline' \| 'light-outline' | 'dark' |
+| 参数名               | 描述         | 类型                                                                                                                                                   | 默认值       |
+|-------------------|------------|------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|
+| color             | 标签的颜色      | `red` \| `orangered` \| `orange` \| `gold` \| `lime` \| `green` \| `cyan` \| `blue` \| `fishblue` \| `purple` \| `pinkpurple` \| `magenta` \| `gray` | -         |
+| size              | 标签的大小      | `small` \| `medium` \| `large`                                                                                                                       | `medium`  |
+| shape             | 标签的形状      | `square` \| `round` \| `mark`                                                                                                                        | `square`  |
+| bordered          | 是否显示边框     | boolean                                                                                                                                              | false     |
+| visible (v-model) | 标签是否可见     | boolean                                                                                                                                              | true      |
+| loading           | 标签是否为加载中状态 | boolean                                                                                                                                              | false     |
+| closable          | 标签是否可关闭    | boolean                                                                                                                                              | false     |
+| disabled          | 标签禁用态      | boolean                                                                                                                                              | false     |
+| nowrap            | 标签内容不换行    | boolean                                                                                                                                              | false     |
+| maxWidth          | 标签最大宽度     | string \| number                                                                                                                                     | -         |
+| theme             | 标签主题       | `default` \| `primary` \| `success` \| `warning` \| `danger`                                                                                         | `default` |
+| variant           | 标签风格变体     | `dark` \| `light` \| `outline` \| `light-outline`                                                                                                    | `dark`    |
 
 ### Tag Events
 
-| 事件名 | 描述 | 参数 |
-| --- | --- | --- |
+| 事件名   | 描述        | 参数                  |
+|-------|-----------|---------------------|
 | close | 点击关闭按钮时触发 | (event: MouseEvent) |
 
 ### Tag Slots
 
-| 插槽名 | 描述 |
-| --- | --- |
-| default | 标签内容 |
-| icon | 图标 |
+| 插槽名        | 描述      |
+|------------|---------|
+| default    | 标签内容    |
+| icon       | 图标      |
 | close-icon | 关闭按钮的图标 |
 
 ### CheckTag Props
 
-| 参数名 | 描述 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| checked (v-model) | 标签是否选中 | boolean | - |
-| defaultChecked | 标签默认选中状态 | boolean | - |
-| disabled | 标签禁用态 | boolean | false |
-| size | 标签尺寸 | 'small' \| 'medium' \| 'large' | 'medium' |
-| value | 标签唯一标识，一般用于标签组场景 | string \| number | - |
-| checkedProps | 透传标签选中态属性 | Partial\<TagProps\> | - |
-| uncheckedProps | 透传标签未选态属性 | Partial\<TagProps\> | - |
+| 参数名               | 描述               | 类型                             | 默认值      |
+|-------------------|------------------|--------------------------------|----------|
+| checked (v-model) | 标签是否选中           | boolean                        | -        |
+| defaultChecked    | 标签默认选中状态         | boolean                        | -        |
+| disabled          | 标签禁用态            | boolean                        | false    |
+| size              | 标签尺寸             | `small` \| `medium` \| `large` | `medium` |
+| value             | 标签唯一标识，一般用于标签组场景 | string \| number               | -        |
+| checkedProps      | 透传标签选中态属性        | Partial\<TagProps\>            | -        |
+| uncheckedProps    | 透传标签未选态属性        | Partial\<TagProps\>            | -        |
 
 ### CheckTag Events
 
-| 事件名 | 描述 | 参数 |
-| --- | --- | --- |
+| 事件名    | 描述      | 参数                                                 |
+|--------|---------|----------------------------------------------------|
 | change | 状态切换时触发 | (checked: boolean, context: CheckTagChangeContext) |
-| click | 点击标签时触发 | (context: { e: MouseEvent }) |
+| click  | 点击标签时触发 | (context: { e: MouseEvent })                       |
 
 ### CheckTagGroup Props
 
-| 参数名 | 描述 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| multiple | 是否支持选中多个标签 | boolean | false |
-| options | 标签选项列表 | CheckTagGroupOption[] | - |
-| value (v-model) | 选中标签值 | CheckTagGroupValue | - |
-| defaultValue | 选中标签默认值 | CheckTagGroupValue | [] |
-| checkedProps | 透传标签选中态属性 | Partial\<TagProps\> | - |
-| uncheckedProps | 透传标签未选态属性 | Partial\<TagProps\> | - |
+| 参数名             | 描述         | 类型                    | 默认值   |
+|-----------------|------------|-----------------------|-------|
+| multiple        | 是否支持选中多个标签 | boolean               | false |
+| options         | 标签选项列表     | CheckTagGroupOption[] | -     |
+| value (v-model) | 选中标签值      | CheckTagGroupValue    | -     |
+| defaultValue    | 选中标签默认值    | CheckTagGroupValue    | []    |
+| checkedProps    | 透传标签选中态属性  | Partial\<TagProps\>   | -     |
+| uncheckedProps  | 透传标签未选态属性  | Partial\<TagProps\>   | -     |
 
 ### CheckTagGroup Events
 
-| 事件名 | 描述 | 参数 |
-| --- | --- | --- |
+| 事件名    | 描述         | 参数                                                               |
+|--------|------------|------------------------------------------------------------------|
 | change | 选中标签值变化时触发 | (value: CheckTagGroupValue, context: CheckTagGroupChangeContext) | 
