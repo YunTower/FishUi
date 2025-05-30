@@ -81,7 +81,7 @@
 
 /* Underline variants */
 .f-link--underline-none {
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 .f-link--underline-hover {
