@@ -1,0 +1,97 @@
+.f-loading {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.f-loading--fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: var(--zIndex, 3500);
+}
+
+.f-loading__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+}
+
+.f-loading__content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.f-loading__spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.f-loading__icon {
+  width: var(--f-loading-size, 1.5em);
+  height: var(--f-loading-size, 1.5em);
+  animation: f-loading-spin 1s linear infinite;
+  stroke: var(--color-primary-light-3, #409eff);
+}
+
+.f-loading__path {
+  stroke: currentColor;
+  stroke-linecap: round;
+}
+
+.f-loading__text {
+  font-size: 1em;
+  color: var(--color-text-2, #666);
+}
+
+.f-loading--inherit-color .f-loading__icon,
+.f-loading--inherit-color .f-loading__text {
+  color: inherit;
+  stroke: currentColor;
+}
+
+.f-loading--size-small .f-loading__icon {
+  width: 1em;
+  height: 1em;
+}
+
+.f-loading--size-medium .f-loading__icon {
+  width: 1.5em;
+  height: 1.5em;
+}
+
+.f-loading--size-large .f-loading__icon {
+  width: 2em;
+  height: 2em;
+}
+
+.f-loading--size-custom .f-loading__icon {
+  width: var(--f-loading-size);
+  height: var(--f-loading-size);
+}
+
+.f-loading--wrap {
+  display: block;
+}
+
+.f-loading__wrap {
+  position: relative;
+}
+
+@keyframes f-loading-spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}

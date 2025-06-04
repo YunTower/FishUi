@@ -59,6 +59,7 @@ export default defineConfig({
             { text: '空状态 Empty', link: '/components/empty' },
             { text: '徽标 Badge', link: '/components/badge' },
             { text: '标签 Tag', link: '/components/tag' },
+            { text: '加载中 Loading', link: '/components/loading' },
           ]
         },
         {

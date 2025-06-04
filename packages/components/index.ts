@@ -12,6 +12,7 @@ import { FTabs, FTabPane } from './tabs'
 import { FEmpty } from './empty'
 import { FBadge, FBadgeGroup } from './badge'
 import { FTag, FCheckTag, FCheckTagGroup } from './tag'
+import { FLoading } from './loading'
 
 export const components = [
   FButton,
@@ -40,7 +41,8 @@ export const components = [
   FBadgeGroup,
   FTag,
   FCheckTag,
-  FCheckTagGroup
+  FCheckTagGroup,
+  FLoading
 ]
 
 export * from './button'
@@ -57,3 +59,4 @@ export * from './tabs'
 export * from './empty'
 export * from './badge'
 export * from './tag'
+export * from './loading'

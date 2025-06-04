@@ -13,6 +13,7 @@
 @import "../components/tabs/src/tabs.css";
 @import "../components/empty/src/empty.css";
 @import "../components/tag/src/tag.css";
+@import "../components/loading/src/loading.css";
 
 
 * {
